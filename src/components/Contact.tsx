@@ -13,10 +13,26 @@ export const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Thank you! We'll get back to you soon.");
-    setFormData({ name: "", email: "", message: "" });
+    
+    // Using FormSubmit.co - form will submit directly to their service
+    const form = e.target as HTMLFormElement;
+    
+    try {
+      await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      toast.success("Thank you! We'll get back to you soon.");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      toast.error("Something went wrong. Please try again.");
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -27,8 +43,8 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-16 md:py-24 lg:py-32 bg-muted/30">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-16 animate-slide-up">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">Contact Us</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6" />
@@ -90,7 +106,17 @@ export const Contact = () => {
               <CardTitle>Send us a Message</CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form 
+                action="https://formsubmit.co/rgsktechnologies@gmail.com" 
+                method="POST"
+                onSubmit={handleSubmit} 
+                className="space-y-4"
+              >
+                {/* FormSubmit Configuration */}
+                <input type="hidden" name="_subject" value="New contact from RGSK Technologies website" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                
                 <div>
                   <Input
                     name="name"

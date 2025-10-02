@@ -3,8 +3,8 @@ import founderImage from "@/assets/founder.jpg";
 
 export const About = () => {
   return (
-    <section id="about" className="py-20 md:py-32 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section id="about" className="py-16 md:py-24 lg:py-32 bg-muted/30">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16 animate-slide-up">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">About Us</h2>
