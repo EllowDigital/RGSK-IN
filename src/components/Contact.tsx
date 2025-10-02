@@ -116,6 +116,15 @@ export const Contact = () => {
                 <input type="hidden" name="_subject" value="New contact from RGSK Technologies website" />
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_cc" value="ellowdigitalindia@gmail.com" />
+                <input
+                  type="hidden"
+                  name="_autoresponse"
+                  value="Thank you for contacting RGSK Technologies!&#10;&#10;We have received your message and a member of our team will get back to you within 24 hours.&#10;&#10;If your inquiry is urgent, please reach us directly:&#10;Phone: +91 70544 66111 / +91 96700 77733&#10;Email: rgsktechnologies@gmail.com&#10;Address: C-Block, Shivaji Market, near Eram College, Indira Nagar, Lucknow, Uttar Pradesh – 226016&#10;&#10;Warm regards,&#10;RGSK Technologies Team"
+                />
+                <input type="hidden" name="_next" value="https://rgsktechnologies.netlify.app/#contact" />
+                <input type="hidden" name="_prev" value="https://rgsktechnologies.netlify.app/#home" />
+                {/* Form Fields */}
 
                 <div>
                   <Input
