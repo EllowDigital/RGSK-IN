@@ -152,7 +152,7 @@ export const EnhancedFooter = () => {
         {/* Bottom Bar */}
         <div className="border-t border-background/20 pt-8 text-center">
           <p className="text-background/80">
-            © 2025 RGSK Technologies Pvt. Ltd. | All Rights Reserved | Designed with ❤️ in Lucknow
+            © 2025 RGSK Technologies Pvt. Ltd. | All Rights Reserved | Made with ❤️ by EllowDigital
           </p>
         </div>
       </div>

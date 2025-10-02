@@ -12,8 +12,8 @@ export const SEO = ({
   title = "RGSK Technologies Pvt. Ltd. - Digital Solutions & Web Development",
   description = "RGSK Technologies offers innovative web development, mobile apps, social media management, bulk SMS, voice calls, and WhatsApp services. Empowering digital growth in Lucknow.",
   keywords = "web development, mobile app development, digital marketing, bulk SMS, bulk WhatsApp, social media management, Lucknow, India",
-  ogImage = "https://lovable.dev/opengraph-image-p98pqg.png",
-  canonicalUrl = "https://rgsktechnologies.lovable.app",
+  ogImage = "https://rgsktechnologies.netlify.app/logo.png",
+  canonicalUrl = "https://rgsktechnologies.netlify.app",
 }: SEOProps) => {
   const structuredData = {
     "@context": "https://schema.org",

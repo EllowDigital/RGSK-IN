@@ -3,19 +3,21 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Rajesh Kumar",
-    company: "Tech Solutions Pvt. Ltd.",
+    name: "Sarwan Yadav",
+    post: "CEO",
+    company: "EllowDigital",
     text: "RGSK Technologies delivered an exceptional website that exceeded our expectations. Their team was professional and responsive throughout.",
     rating: 5,
   },
   {
-    name: "Priya Sharma",
-    company: "Retail Express",
+    name: "Nitesh Yadav",
+    post: "Founder",
+    company: "Ghatak Sports Academy India",
     text: "The bulk WhatsApp service has transformed how we communicate with customers. Highly recommend their services!",
     rating: 5,
   },
   {
-    name: "Amit Verma",
+    name: "Amogh Singh Saini",
     company: "Digital Marketing Agency",
     text: "Outstanding mobile app development and great post-launch support. RGSK Technologies is our go-to tech partner.",
     rating: 5,

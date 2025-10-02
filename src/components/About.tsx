@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import founderImage from "@/assets/founder.jpg";
+import founderImage from "@/assets/founder.png";
 
 export const About = () => {
   return (

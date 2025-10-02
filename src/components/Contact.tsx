@@ -15,10 +15,10 @@ export const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Using FormSubmit.co - form will submit directly to their service
     const form = e.target as HTMLFormElement;
-    
+
     try {
       await fetch(form.action, {
         method: 'POST',
@@ -27,7 +27,7 @@ export const Contact = () => {
           'Accept': 'application/json'
         }
       });
-      
+
       toast.success("Thank you! We'll get back to you soon.");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
@@ -106,17 +106,17 @@ export const Contact = () => {
               <CardTitle>Send us a Message</CardTitle>
             </CardHeader>
             <CardContent>
-              <form 
-                action="https://formsubmit.co/rgsktechnologies@gmail.com" 
+              <form
+                action="https://formsubmit.co/rgsktechnologies@gmail.com"
                 method="POST"
-                onSubmit={handleSubmit} 
+                onSubmit={handleSubmit}
                 className="space-y-4"
               >
                 {/* FormSubmit Configuration */}
                 <input type="hidden" name="_subject" value="New contact from RGSK Technologies website" />
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_template" value="table" />
-                
+
                 <div>
                   <Input
                     name="name"
