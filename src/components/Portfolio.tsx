@@ -23,13 +23,13 @@ export const Portfolio = () => {
       image: ecommerceThumb,
       link: "/portfolio",
     },
-    {
-      id: "food-app",
-      title: "Food Delivery App",
-      description: "Mobile app for restaurant ordering & delivery tracking",
-      image: appThumb,
-      link: "/portfolio",
-    },
+    // {
+    //   id: "food-app",
+    //   title: "Food Delivery App",
+    //   description: "Mobile app for restaurant ordering & delivery tracking",
+    //   image: appThumb,
+    //   link: "/portfolio",
+    // },
   ];
 
   return (

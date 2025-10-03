@@ -34,17 +34,17 @@ const Portfolio = () => {
       link: "#",
       stats: { products: "1,000+", orders: "5,000+" },
     },
-    {
-      id: "food-app",
-      title: "Food Delivery App",
-      description: "Mobile app for restaurant ordering & delivery tracking",
-      category: "Mobile App",
-      year: "2024",
-      client: "Restaurant Chain",
-      image: appThumb,
-      link: "#",
-      stats: { downloads: "10K+", restaurants: "100+" },
-    },
+    // {
+    //   id: "food-app",
+    //   title: "Food Delivery App",
+    //   description: "Mobile app for restaurant ordering & delivery tracking",
+    //   category: "Mobile App",
+    //   year: "2024",
+    //   client: "Restaurant Chain",
+    //   image: appThumb,
+    //   link: "#",
+    //   stats: { downloads: "10K+", restaurants: "100+" },
+    // },
     {
       id: "marketing-dashboard",
       title: "Marketing Analytics Dashboard",
@@ -106,7 +106,7 @@ const Portfolio = () => {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                       </div>
-                      
+
                       <div className="p-6">
                         <div className="flex items-center gap-4 mb-3 text-sm text-muted-foreground">
                           <div className="flex items-center gap-1">
@@ -118,12 +118,12 @@ const Portfolio = () => {
                             {project.client}
                           </div>
                         </div>
-                        
+
                         <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
                           {project.title}
                         </h3>
                         <p className="text-muted-foreground mb-4">{project.description}</p>
-                        
+
                         <div className="flex items-center justify-between pt-4 border-t border-border">
                           <div className="flex gap-4 text-sm">
                             {Object.entries(project.stats).map(([key, value]) => (
