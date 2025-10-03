@@ -64,9 +64,9 @@ const Portfolio = () => {
         title="Portfolio - RGSK Technologies Pvt. Ltd."
         description="Explore our portfolio of successful web development, mobile app, and digital solutions projects"
       />
-      <div className="min-h-screen">
+      <div className="min-h-screen flex flex-col">
         <Header />
-        <main className="pt-24">
+        <main className="flex-1 pt-24">
           {/* Hero Section */}
           <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
             <div className="container mx-auto px-4">

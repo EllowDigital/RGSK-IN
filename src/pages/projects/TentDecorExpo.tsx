@@ -36,9 +36,9 @@ const TentDecorExpo = () => {
         title="Tent Decor Expo UP 2025 Case Study - RGSK Technologies"
         description="Event Registration & Entry Management System for Tent, Caterers & Decorators Welfare Association of UP"
       />
-      <div className="min-h-screen">
+      <div className="min-h-screen flex flex-col">
         <Header />
-        <main className="pt-24">
+        <main className="flex-1 pt-24">
           {/* Hero Section */}
           <section className="relative py-20 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10" />
