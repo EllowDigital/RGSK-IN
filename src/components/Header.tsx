@@ -37,10 +37,11 @@ export const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           <div className="flex items-center space-x-2">
-            <div className="text-2xl md:text-3xl font-bold">
-              <span className="text-primary">RGSK</span>
-              <span className="text-foreground"> Technologies</span>
-            </div>
+            <img 
+              src="/logo.png" 
+              alt="RGSK Technologies Pvt. Ltd." 
+              className="h-12 md:h-16 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
