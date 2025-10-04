@@ -64,7 +64,7 @@ export const Header = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-md group-hover:blur-lg transition-all" />
               <img
                 src="/logo.png"
-                alt="RGSK Technologies Pvt. Ltd."
+                alt="RGSK Technologies"
                 className="h-12 w-12 md:h-14 md:w-14 rounded-full object-cover border-2 border-primary/30 shadow-lg relative z-10 group-hover:scale-105 transition-all duration-300"
               />
             </div>
@@ -73,7 +73,7 @@ export const Header = () => {
                 <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">RGSK</span>
                 <span className="text-foreground"> Technologies</span>
               </div>
-              <div className="text-[10px] md:text-xs text-muted-foreground">Digital Solutions Pvt. Ltd.</div>
+              <div className="text-[10px] md:text-xs text-muted-foreground">Digital Solutions</div>
             </div>
           </button>
 

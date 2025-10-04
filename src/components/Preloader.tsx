@@ -35,7 +35,7 @@ export const Preloader = () => {
             </span>
             <span className="text-foreground"> Technologies</span>
           </h1>
-          <p className="text-sm text-muted-foreground">Digital Solutions Pvt. Ltd.</p>
+          <p className="text-sm text-muted-foreground">Digital Solutions</p>
         </div>
 
         {/* Loading Spinner */}
