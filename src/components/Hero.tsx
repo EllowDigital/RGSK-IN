@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import heroImage from "@/assets/hero-bg.jpg";
+import { ArrowRight, Volume2, VolumeX } from "lucide-react";
+import { useState, useRef } from "react";
 
 export const Hero = () => {
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   const scrollToContact = () => {
     const element = document.getElementById("contact");
     if (element) {
@@ -10,35 +13,59 @@ export const Hero = () => {
     }
   };
 
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(!isMuted);
+    }
+  };
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20">
-      {/* Background Image with Overlay */}
+      {/* Video Background with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroImage}
-          alt="Digital technology and innovation"
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-accent/80" />
+        >
+          <source src="https://cdn.pixabay.com/video/2023/06/14/167453-838043037_large.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/85 to-accent/75" />
       </div>
+
+      {/* Unmute Button */}
+      <button
+        onClick={toggleMute}
+        className="absolute top-20 md:top-24 right-4 md:right-8 z-20 p-2 md:p-3 bg-background/20 backdrop-blur-sm hover:bg-background/30 rounded-full transition-all duration-300 border border-white/20"
+        aria-label={isMuted ? "Unmute video" : "Mute video"}
+      >
+        {isMuted ? (
+          <VolumeX className="w-5 h-5 md:w-6 md:h-6 text-white" />
+        ) : (
+          <Volume2 className="w-5 h-5 md:w-6 md:h-6 text-white" />
+        )}
+      </button>
 
       {/* Content */}
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight drop-shadow-lg">
             Empowering Your Digital Growth
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 md:mb-8 max-w-3xl mx-auto px-4 drop-shadow-md">
             Innovative Solutions for Web, Mobile & Digital Communication
           </p>
           <Button
-            variant="hero"
             size="lg"
             onClick={scrollToContact}
-            className="text-base md:text-lg px-6 md:px-8 py-5 md:py-6 bg-white text-primary hover:bg-white/90"
+            className="text-sm sm:text-base md:text-lg px-6 md:px-8 py-4 md:py-6 bg-white text-primary hover:bg-white/90 hover:scale-105 transition-transform duration-300 shadow-xl"
           >
             Get in Touch
-            <ArrowRight className="ml-2 w-5 h-5" />
+            <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
           </Button>
         </div>
       </div>

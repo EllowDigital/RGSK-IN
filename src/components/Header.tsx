@@ -50,43 +50,43 @@ export const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? "bg-background/98 backdrop-blur-lg shadow-lg border-b border-border/50"
-          : "bg-gradient-to-b from-background/80 to-transparent backdrop-blur-sm"
+          ? "bg-background/95 backdrop-blur-md shadow-lg border-b border-border/40"
+          : "bg-background/10 backdrop-blur-sm"
         }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 md:h-24">
+        <div className="flex items-center justify-between h-16 md:h-20">
           <button
             onClick={() => handleNavigation('home', false)}
-            className="flex items-center space-x-3 group"
+            className="flex items-center space-x-2 md:space-x-3 group"
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-full blur-lg group-hover:blur-xl transition-all animate-pulse" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-md group-hover:blur-lg transition-all" />
               <img
                 src="/logo.png"
                 alt="RGSK Technologies Pvt. Ltd."
-                className="h-16 w-16 md:h-16 md:w-16 rounded-full object-cover border-3 border-primary/40 shadow-xl relative z-10 group-hover:scale-110 group-hover:border-primary/60 transition-all duration-300"
+                className="h-12 w-12 md:h-14 md:w-14 rounded-full object-cover border-2 border-primary/30 shadow-lg relative z-10 group-hover:scale-105 transition-all duration-300"
               />
             </div>
             <div className="hidden sm:block">
-              <div className="text-2xl md:text-3xl font-bold leading-tight">
-                <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">RGSK</span>
+              <div className="text-lg md:text-xl font-bold leading-tight">
+                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">RGSK</span>
                 <span className="text-foreground"> Technologies</span>
               </div>
+              <div className="text-[10px] md:text-xs text-muted-foreground">Digital Solutions Pvt. Ltd.</div>
             </div>
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-2 lg:space-x-4">
+          <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleNavigation(item.id, item.isRoute)}
-                className="relative px-4 py-2 text-foreground hover:text-primary transition-all font-semibold text-sm lg:text-base group overflow-hidden rounded-lg"
+                className="relative px-3 lg:px-4 py-2 text-foreground/80 hover:text-primary transition-all font-medium text-sm lg:text-base group"
               >
                 <span className="relative z-10">{item.label}</span>
-                <span className="absolute inset-0 bg-primary/10 scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-lg" />
-                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-secondary scale-x-0 group-hover:scale-x-100 transition-transform" />
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
               </button>
             ))}
           </nav>
@@ -95,10 +95,10 @@ export const Header = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden hover:bg-primary/10 rounded-lg"
+            className="md:hidden hover:bg-primary/10"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </Button>
         </div>
 

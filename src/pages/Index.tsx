@@ -10,11 +10,13 @@ import { CTA } from "@/components/CTA";
 import { Contact } from "@/components/Contact";
 import { EnhancedFooter } from "@/components/EnhancedFooter";
 import { SEO } from "@/components/SEO";
+import { Preloader } from "@/components/Preloader";
 
 const Index = () => {
   return (
     <>
       <SEO />
+      <Preloader />
       <div className="min-h-screen">
         <Header />
         <main>
