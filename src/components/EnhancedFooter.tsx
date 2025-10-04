@@ -1,18 +1,6 @@
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
-import { toast } from "sonner";
 
 export const EnhancedFooter = () => {
-  const [email, setEmail] = useState("");
-
-  const handleNewsletter = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success("Thank you for subscribing!");
-    setEmail("");
-  };
-
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -21,9 +9,10 @@ export const EnhancedFooter = () => {
   };
 
   return (
-    <footer className="bg-foreground text-background">
-      <div className="container mx-auto px-4 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+    <footer className="bg-gradient-to-br from-foreground via-foreground to-foreground/95 text-background relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(158,64,52,0.05),transparent_50%)]" />
+      <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {/* Company Info */}
           <div>
             <h3 className="text-2xl font-bold mb-4">
@@ -125,27 +114,6 @@ export const EnhancedFooter = () => {
                 </span>
               </li>
             </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Newsletter</h4>
-            <p className="text-background/80 mb-4">
-              Subscribe to get updates on our latest services and offers.
-            </p>
-            <form onSubmit={handleNewsletter} className="space-y-2">
-              <Input
-                type="email"
-                placeholder="Your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="bg-background/10 border-background/20 text-background placeholder:text-background/50"
-              />
-              <Button type="submit" variant="outline" className="w-full border-primary text-background hover:bg-primary">
-                Subscribe
-              </Button>
-            </form>
           </div>
         </div>
 

@@ -16,14 +16,14 @@ export const Preloader = () => {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background">
-      <div className="text-center">
+      <div className="flex flex-col items-center justify-center text-center">
         {/* Logo with animation */}
-        <div className="relative mb-8">
+        <div className="relative mb-8 flex items-center justify-center">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-accent/30 rounded-full blur-2xl animate-pulse" />
           <img
             src="/logo.png"
             alt="RGSK Technologies"
-            className="h-24 w-24 md:h-32 md:w-32 rounded-full object-cover border-4 border-primary/40 shadow-2xl relative z-10 animate-bounce"
+            className="h-24 w-24 md:h-32 md:w-32 rounded-full object-cover border-4 border-primary/40 shadow-2xl relative z-10 animate-bounce mx-auto"
           />
         </div>
 
