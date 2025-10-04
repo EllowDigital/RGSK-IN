@@ -54,36 +54,36 @@ export const Header = () => {
           : "bg-background/10 backdrop-blur-sm"
         }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16 md:h-18 lg:h-20">
           <button
             onClick={() => handleNavigation('home', false)}
-            className="flex items-center space-x-2 md:space-x-3 group"
+            className="flex items-center gap-2 sm:gap-2.5 md:gap-3 group min-w-0"
           >
-            <div className="relative">
+            <div className="relative flex-shrink-0">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-md group-hover:blur-lg transition-all" />
               <img
                 src="/logo.png"
                 alt="RGSK Technologies"
-                className="h-12 w-12 md:h-14 md:w-14 rounded-full object-cover border-2 border-primary/30 shadow-lg relative z-10 group-hover:scale-105 transition-all duration-300"
+                className="h-10 w-10 sm:h-11 sm:w-11 md:h-12 md:w-12 lg:h-14 lg:w-14 rounded-full object-cover border-2 border-primary/30 shadow-lg relative z-10 group-hover:scale-105 transition-all duration-300"
               />
             </div>
-            <div className="hidden sm:block">
-              <div className="text-lg md:text-xl font-bold leading-tight">
+            <div className="flex flex-col min-w-0">
+              <div className="text-sm sm:text-base md:text-lg lg:text-xl font-bold leading-tight whitespace-nowrap">
                 <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">RGSK</span>
                 <span className="text-foreground"> Technologies</span>
               </div>
-              <div className="text-[10px] md:text-xs text-muted-foreground">Digital Solutions</div>
+              <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground whitespace-nowrap hidden xs:block">Digital Solutions</div>
             </div>
           </button>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
+          {/* Desktop & Tablet Navigation */}
+          <nav className="hidden md:flex items-center space-x-0.5 lg:space-x-1 xl:space-x-2">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleNavigation(item.id, item.isRoute)}
-                className="relative px-3 lg:px-4 py-2 text-foreground/80 hover:text-primary transition-all font-medium text-sm lg:text-base group"
+                className="relative px-2.5 lg:px-3 xl:px-4 py-2 text-foreground/80 hover:text-primary transition-all font-medium text-xs lg:text-sm xl:text-base group whitespace-nowrap"
               >
                 <span className="relative z-10">{item.label}</span>
                 <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
@@ -95,21 +95,21 @@ export const Header = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden hover:bg-primary/10"
+            className="md:hidden hover:bg-primary/10 h-9 w-9 sm:h-10 sm:w-10"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {isMobileMenuOpen ? <X className="w-4 h-4 sm:w-5 sm:h-5" /> : <Menu className="w-4 h-4 sm:w-5 sm:h-5" />}
           </Button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile & Tablet Navigation */}
         {isMobileMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-border/50 bg-background/95 backdrop-blur-lg animate-fade-in">
+          <nav className="md:hidden py-3 border-t border-border/50 bg-background/95 backdrop-blur-lg animate-fade-in">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleNavigation(item.id, item.isRoute)}
-                className="block w-full text-left px-4 py-4 text-foreground hover:text-primary hover:bg-primary/10 transition-all font-semibold rounded-lg mx-2"
+                className="block w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 text-sm sm:text-base text-foreground hover:text-primary hover:bg-primary/10 transition-all font-semibold rounded-lg"
               >
                 <span className="flex items-center gap-2">
                   {item.label}
