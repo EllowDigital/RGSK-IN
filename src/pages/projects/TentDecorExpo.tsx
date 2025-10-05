@@ -1,34 +1,34 @@
-import { Header } from "@/components/Header";
-import { EnhancedFooter } from "@/components/EnhancedFooter";
-import { SEO } from "@/components/SEO";
-import { Button } from "@/components/ui/button";
-import { ArrowLeft, CheckCircle2, Users, Building2, Coffee } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import heroImage from "@/assets/projects/tent-expo-hero.jpg";
+import { Header } from '@/components/Header'
+import { EnhancedFooter } from '@/components/EnhancedFooter'
+import { SEO } from '@/components/SEO'
+import { Button } from '@/components/ui/button'
+import { ArrowLeft, CheckCircle2, Users, Building2, Coffee } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import heroImage from '@/assets/projects/tent-expo-hero.jpg'
 
 const TentDecorExpo = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const stats = [
     {
       icon: Users,
-      value: "2,500+",
-      label: "Registrations",
-      color: "text-primary",
+      value: '2,500+',
+      label: 'Registrations',
+      color: 'text-primary',
     },
     {
       icon: Building2,
-      value: "50+",
-      label: "Exhibitors Onboarded",
-      color: "text-secondary",
+      value: '50+',
+      label: 'Exhibitors Onboarded',
+      color: 'text-secondary',
     },
     {
       icon: Coffee,
-      value: "Countless",
-      label: "Cups of Water Consumed",
-      color: "text-primary",
+      value: 'Countless',
+      label: 'Cups of Water Consumed',
+      color: 'text-primary',
     },
-  ];
+  ]
 
   return (
     <>
@@ -45,7 +45,7 @@ const TentDecorExpo = () => {
             <div className="container mx-auto px-4 relative z-10">
               <Button
                 variant="ghost"
-                onClick={() => navigate("/portfolio")}
+                onClick={() => navigate('/portfolio')}
                 className="mb-8 hover:bg-primary/10"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
@@ -65,7 +65,7 @@ const TentDecorExpo = () => {
                   </p>
                   <div className="bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 rounded-lg p-6">
                     <p className="text-lg font-medium">
-                      Special thanks to{" "}
+                      Special thanks to{' '}
                       <span className="text-primary">
                         Tent, Caterers & Decorators Welfare Association of UP
                       </span>
@@ -73,7 +73,7 @@ const TentDecorExpo = () => {
                   </div>
                 </div>
 
-                <div className="animate-fade-in" style={{ animationDelay: "200ms" }}>
+                <div className="animate-fade-in" style={{ animationDelay: '200ms' }}>
                   <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                     <img
                       src={heroImage}
@@ -96,7 +96,9 @@ const TentDecorExpo = () => {
                 </div>
                 <h2 className="text-4xl font-bold mb-4">A Successful Event Delivered</h2>
                 <p className="text-xl text-muted-foreground">
-                  RGSK Technologies developed a comprehensive event management platform that streamlined registration, exhibitor onboarding, and entry management for the Tent Decor Expo UP 2025
+                  RGSK Technologies developed a comprehensive event management platform that
+                  streamlined registration, exhibitor onboarding, and entry management for the Tent
+                  Decor Expo UP 2025
                 </p>
               </div>
             </div>
@@ -116,7 +118,7 @@ const TentDecorExpo = () => {
 
               <div className="grid md:grid-cols-3 gap-8">
                 {stats.map((stat, index) => {
-                  const Icon = stat.icon;
+                  const Icon = stat.icon
                   return (
                     <div
                       key={index}
@@ -129,7 +131,7 @@ const TentDecorExpo = () => {
                       <div className="text-5xl font-bold text-primary mb-2">{stat.value}</div>
                       <div className="text-lg text-muted-foreground">{stat.label}</div>
                     </div>
-                  );
+                  )
                 })}
               </div>
             </div>
@@ -150,7 +152,11 @@ const TentDecorExpo = () => {
                       The Challenge
                     </h3>
                     <p className="text-lg text-muted-foreground leading-relaxed">
-                      The Tent, Caterers & Decorators Welfare Association of UP needed a robust digital solution to manage registrations, exhibitor onboarding, and entry management for their annual expo. The system had to handle thousands of registrations efficiently while providing real-time insights and seamless check-in experiences.
+                      The Tent, Caterers & Decorators Welfare Association of UP needed a robust
+                      digital solution to manage registrations, exhibitor onboarding, and entry
+                      management for their annual expo. The system had to handle thousands of
+                      registrations efficiently while providing real-time insights and seamless
+                      check-in experiences.
                     </p>
                   </div>
 
@@ -162,12 +168,12 @@ const TentDecorExpo = () => {
                     <div className="bg-card p-8 rounded-xl border border-border shadow-lg">
                       <ul className="space-y-4">
                         {[
-                          "Online registration portal with real-time form validation",
-                          "Exhibitor management dashboard with booth assignment",
-                          "QR code-based entry system for quick check-ins",
-                          "Real-time analytics and reporting dashboard",
-                          "Automated email confirmations and reminders",
-                          "Mobile-responsive design for on-the-go access",
+                          'Online registration portal with real-time form validation',
+                          'Exhibitor management dashboard with booth assignment',
+                          'QR code-based entry system for quick check-ins',
+                          'Real-time analytics and reporting dashboard',
+                          'Automated email confirmations and reminders',
+                          'Mobile-responsive design for on-the-go access',
                         ].map((feature, index) => (
                           <li key={index} className="flex items-start gap-3">
                             <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
@@ -184,7 +190,9 @@ const TentDecorExpo = () => {
                       The Results
                     </h3>
                     <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                      The platform successfully handled over 2,500 registrations and onboarded 50+ exhibitors with zero downtime. The QR code entry system reduced check-in times by 80%, creating a smooth experience for all attendees.
+                      The platform successfully handled over 2,500 registrations and onboarded 50+
+                      exhibitors with zero downtime. The QR code entry system reduced check-in times
+                      by 80%, creating a smooth experience for all attendees.
                     </p>
                   </div>
                 </div>
@@ -205,16 +213,12 @@ const TentDecorExpo = () => {
                 <div className="flex flex-wrap justify-center gap-4">
                   <Button
                     size="lg"
-                    onClick={() => navigate("/portfolio")}
+                    onClick={() => navigate('/portfolio')}
                     className="bg-primary hover:bg-primary/90 text-white"
                   >
                     View More Projects
                   </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    onClick={() => navigate("/")}
-                  >
+                  <Button size="lg" variant="outline" onClick={() => navigate('/')}>
                     Contact Us
                   </Button>
                 </div>
@@ -225,7 +229,7 @@ const TentDecorExpo = () => {
         <EnhancedFooter />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default TentDecorExpo;
+export default TentDecorExpo

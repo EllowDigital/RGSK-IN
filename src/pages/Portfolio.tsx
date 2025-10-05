@@ -1,38 +1,38 @@
-import { Header } from "@/components/Header";
-import { EnhancedFooter } from "@/components/EnhancedFooter";
-import { SEO } from "@/components/SEO";
-import { useNavigate } from "react-router-dom";
-import { ArrowRight, Calendar, Users } from "lucide-react";
-import tentExpoThumb from "@/assets/projects/tent-expo-thumb.jpg";
-import ecommerceThumb from "@/assets/projects/project-ecommerce.jpg";
-import appThumb from "@/assets/projects/project-app.jpg";
-import marketingThumb from "@/assets/projects/project-marketing.jpg";
+import { Header } from '@/components/Header'
+import { EnhancedFooter } from '@/components/EnhancedFooter'
+import { SEO } from '@/components/SEO'
+import { useNavigate } from 'react-router-dom'
+import { ArrowRight, Calendar, Users } from 'lucide-react'
+import tentExpoThumb from '@/assets/projects/tent-expo-thumb.jpg'
+import ecommerceThumb from '@/assets/projects/project-ecommerce.jpg'
+import appThumb from '@/assets/projects/project-app.jpg'
+import marketingThumb from '@/assets/projects/project-marketing.jpg'
 
 const Portfolio = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const projects = [
     {
-      id: "tent-decor-expo",
-      title: "Tent Decor Expo UP 2025",
-      description: "Event Registration & Entry Management System",
-      category: "Web Application",
-      year: "2025",
-      client: "Tent, Caterers & Decorators Welfare Association of UP",
+      id: 'tent-decor-expo',
+      title: 'Tent Decor Expo UP 2025',
+      description: 'Event Registration & Entry Management System',
+      category: 'Web Application',
+      year: '2025',
+      client: 'Tent, Caterers & Decorators Welfare Association of UP',
       image: tentExpoThumb,
-      link: "/projects/tent-decor-expo",
-      stats: { registrations: "2,500+", exhibitors: "50+" },
+      link: '/projects/tent-decor-expo',
+      stats: { registrations: '2,500+', exhibitors: '50+' },
     },
     {
-      id: "ecommerce",
-      title: "E-Commerce Platform",
-      description: "Modern online store with seamless shopping experience",
-      category: "Web Development",
-      year: "2024",
-      client: "Retail Business",
+      id: 'ecommerce',
+      title: 'E-Commerce Platform',
+      description: 'Modern online store with seamless shopping experience',
+      category: 'Web Development',
+      year: '2024',
+      client: 'Retail Business',
       image: ecommerceThumb,
-      link: "#",
-      stats: { products: "1,000+", orders: "5,000+" },
+      link: '#',
+      stats: { products: '1,000+', orders: '5,000+' },
     },
     // {
     //   id: "food-app",
@@ -46,17 +46,17 @@ const Portfolio = () => {
     //   stats: { downloads: "10K+", restaurants: "100+" },
     // },
     {
-      id: "marketing-dashboard",
-      title: "Marketing Analytics Dashboard",
-      description: "Real-time social media performance tracking & insights",
-      category: "Dashboard",
-      year: "2024",
-      client: "Digital Marketing Agency",
+      id: 'marketing-dashboard',
+      title: 'Marketing Analytics Dashboard',
+      description: 'Real-time social media performance tracking & insights',
+      category: 'Dashboard',
+      year: '2024',
+      client: 'Digital Marketing Agency',
       image: marketingThumb,
-      link: "#",
-      stats: { campaigns: "200+", insights: "Real-time" },
+      link: '#',
+      stats: { campaigns: '200+', insights: 'Real-time' },
     },
-  ];
+  ]
 
   return (
     <>
@@ -75,7 +75,8 @@ const Portfolio = () => {
                   Our <span className="text-primary">Portfolio</span>
                 </h1>
                 <p className="text-xl text-muted-foreground">
-                  Discover how we've helped businesses transform their digital presence with innovative solutions
+                  Discover how we've helped businesses transform their digital presence with
+                  innovative solutions
                 </p>
               </div>
             </div>
@@ -90,7 +91,7 @@ const Portfolio = () => {
                     key={project.id}
                     className="group cursor-pointer animate-fade-in"
                     style={{ animationDelay: `${index * 100}ms` }}
-                    onClick={() => project.link !== "#" && navigate(project.link)}
+                    onClick={() => project.link !== '#' && navigate(project.link)}
                   >
                     <div className="bg-card rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-border">
                       <div className="relative overflow-hidden h-64">
@@ -133,9 +134,10 @@ const Portfolio = () => {
                               </div>
                             ))}
                           </div>
-                          {project.link !== "#" && (
+                          {project.link !== '#' && (
                             <div className="flex items-center text-primary font-medium group-hover:gap-2 transition-all">
-                              View Case Study <ArrowRight className="w-4 h-4 ml-1 group-hover:ml-2 transition-all" />
+                              View Case Study{' '}
+                              <ArrowRight className="w-4 h-4 ml-1 group-hover:ml-2 transition-all" />
                             </div>
                           )}
                         </div>
@@ -150,7 +152,7 @@ const Portfolio = () => {
         <EnhancedFooter />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Portfolio;
+export default Portfolio

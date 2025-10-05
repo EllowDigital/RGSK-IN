@@ -1,28 +1,28 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Star } from "lucide-react";
+import { Card, CardContent } from '@/components/ui/card'
+import { Star } from 'lucide-react'
 
 const testimonials = [
   {
-    name: "Sarwan Yadav",
-    post: "CEO",
-    company: "EllowDigital",
-    text: "RGSK Technologies delivered an exceptional website that exceeded our expectations. Their team was professional and responsive throughout.",
+    name: 'Sarwan Yadav',
+    post: 'CEO',
+    company: 'EllowDigital',
+    text: 'RGSK Technologies delivered an exceptional website that exceeded our expectations. Their team was professional and responsive throughout.',
     rating: 5,
   },
   {
-    name: "Nitesh Yadav",
-    post: "Founder",
-    company: "Ghatak Sports Academy India",
-    text: "The bulk WhatsApp service has transformed how we communicate with customers. Highly recommend their services!",
+    name: 'Nitesh Yadav',
+    post: 'Founder',
+    company: 'Ghatak Sports Academy India',
+    text: 'The bulk WhatsApp service has transformed how we communicate with customers. Highly recommend their services!',
     rating: 5,
   },
   {
-    name: "Amogh Singh Saini",
-    company: "Digital Marketing Agency",
-    text: "Outstanding mobile app development and great post-launch support. RGSK Technologies is our go-to tech partner.",
+    name: 'Amogh Singh Saini',
+    company: 'Digital Marketing Agency',
+    text: 'Outstanding mobile app development and great post-launch support. RGSK Technologies is our go-to tech partner.',
     rating: 5,
   },
-];
+]
 
 export const Testimonials = () => {
   return (
@@ -45,7 +45,9 @@ export const Testimonials = () => {
                     <Star key={i} className="w-4 h-4 md:w-5 md:h-5 fill-primary text-primary" />
                   ))}
                 </div>
-                <p className="text-sm md:text-base text-muted-foreground mb-6 italic">"{testimonial.text}"</p>
+                <p className="text-sm md:text-base text-muted-foreground mb-6 italic">
+                  "{testimonial.text}"
+                </p>
                 <div className="border-t pt-4">
                   <p className="font-semibold text-sm md:text-base">{testimonial.name}</p>
                   <p className="text-xs md:text-sm text-muted-foreground">{testimonial.company}</p>
@@ -56,5 +58,5 @@ export const Testimonials = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

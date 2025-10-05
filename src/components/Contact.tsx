@@ -1,46 +1,46 @@
-import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin } from "lucide-react";
-import { toast } from "sonner";
+import { useState } from 'react'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { Phone, Mail, MapPin } from 'lucide-react'
+import { toast } from 'sonner'
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+    name: '',
+    email: '',
+    message: '',
+  })
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
 
     // Using FormSubmit.co - form will submit directly to their service
-    const form = e.target as HTMLFormElement;
+    const form = e.target as HTMLFormElement
 
     try {
       await fetch(form.action, {
         method: 'POST',
         body: new FormData(form),
         headers: {
-          'Accept': 'application/json'
-        }
-      });
+          Accept: 'application/json',
+        },
+      })
 
-      toast.success("Thank you! We'll get back to you soon.");
-      setFormData({ name: "", email: "", message: "" });
+      toast.success("Thank you! We'll get back to you soon.")
+      setFormData({ name: '', email: '', message: '' })
     } catch (error) {
-      toast.error("Something went wrong. Please try again.");
+      toast.error('Something went wrong. Please try again.')
     }
-  };
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
   return (
     <section id="contact" className="py-16 md:py-24 lg:py-32 bg-muted/30">
@@ -113,7 +113,11 @@ export const Contact = () => {
                 className="space-y-4"
               >
                 {/* FormSubmit Configuration */}
-                <input type="hidden" name="_subject" value="New contact from RGSK Technologies website" />
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="New contact from RGSK Technologies website"
+                />
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_template" value="table" />
                 <input type="hidden" name="_cc" value="ellowdigitalindia@gmail.com" />
@@ -122,8 +126,16 @@ export const Contact = () => {
                   name="_autoresponse"
                   value="Thank you for contacting RGSK Technologies!&#10;&#10;We have received your message and a member of our team will get back to you within 24 hours.&#10;&#10;If your inquiry is urgent, please reach us directly:&#10;Phone: +91 70544 66111 / +91 96700 77733&#10;Email: rgsktechnologies@gmail.com&#10;Address: C-Block, Shivaji Market, near Eram College, Indira Nagar, Lucknow, Uttar Pradesh – 226016&#10;&#10;Warm regards,&#10;RGSK Technologies Team"
                 />
-                <input type="hidden" name="_next" value="https://rgsktechnologies.netlify.app/#contact" />
-                <input type="hidden" name="_prev" value="https://rgsktechnologies.netlify.app/#home" />
+                <input
+                  type="hidden"
+                  name="_next"
+                  value="https://rgsktechnologies.netlify.app/#contact"
+                />
+                <input
+                  type="hidden"
+                  name="_prev"
+                  value="https://rgsktechnologies.netlify.app/#home"
+                />
                 {/* Form Fields */}
 
                 <div>
@@ -164,5 +176,5 @@ export const Contact = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

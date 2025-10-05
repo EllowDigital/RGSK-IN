@@ -1,12 +1,12 @@
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react'
 
 export const EnhancedFooter = () => {
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
+    const element = document.getElementById(id)
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: 'smooth' })
     }
-  };
+  }
 
   return (
     <footer className="bg-gradient-to-br from-foreground via-foreground to-foreground/95 text-background relative overflow-hidden">
@@ -59,7 +59,7 @@ export const EnhancedFooter = () => {
             <ul className="space-y-2">
               <li>
                 <button
-                  onClick={() => scrollToSection("home")}
+                  onClick={() => scrollToSection('home')}
                   className="text-background/80 hover:text-primary transition-colors"
                 >
                   Home
@@ -67,7 +67,7 @@ export const EnhancedFooter = () => {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("about")}
+                  onClick={() => scrollToSection('about')}
                   className="text-background/80 hover:text-primary transition-colors"
                 >
                   About Us
@@ -75,7 +75,7 @@ export const EnhancedFooter = () => {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("services")}
+                  onClick={() => scrollToSection('services')}
                   className="text-background/80 hover:text-primary transition-colors"
                 >
                   Services
@@ -83,7 +83,7 @@ export const EnhancedFooter = () => {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("contact")}
+                  onClick={() => scrollToSection('contact')}
                   className="text-background/80 hover:text-primary transition-colors"
                 >
                   Contact
@@ -125,5 +125,5 @@ export const EnhancedFooter = () => {
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}

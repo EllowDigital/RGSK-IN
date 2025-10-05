@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react'
 
 export const Preloader = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     // Simulate loading time
     const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
+      setIsLoading(false)
+    }, 2000)
 
-    return () => clearTimeout(timer);
-  }, []);
+    return () => clearTimeout(timer)
+  }, [])
 
-  if (!isLoading) return null;
+  if (!isLoading) return null
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background">
@@ -40,11 +40,20 @@ export const Preloader = () => {
 
         {/* Loading Spinner */}
         <div className="flex justify-center gap-2">
-          <div className="h-3 w-3 bg-primary rounded-full animate-bounce" style={{ animationDelay: "0ms" }}></div>
-          <div className="h-3 w-3 bg-primary rounded-full animate-bounce" style={{ animationDelay: "150ms" }}></div>
-          <div className="h-3 w-3 bg-primary rounded-full animate-bounce" style={{ animationDelay: "300ms" }}></div>
+          <div
+            className="h-3 w-3 bg-primary rounded-full animate-bounce"
+            style={{ animationDelay: '0ms' }}
+          ></div>
+          <div
+            className="h-3 w-3 bg-primary rounded-full animate-bounce"
+            style={{ animationDelay: '150ms' }}
+          ></div>
+          <div
+            className="h-3 w-3 bg-primary rounded-full animate-bounce"
+            style={{ animationDelay: '300ms' }}
+          ></div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

@@ -1,58 +1,59 @@
-import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from 'react'
+import { Menu, X } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { useNavigate } from 'react-router-dom'
 
 export const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const navigate = useNavigate();
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+      setIsScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const handleNavigation = (id: string, isRoute: boolean) => {
     if (isRoute) {
-      navigate(id);
-      setIsMobileMenuOpen(false);
+      navigate(id)
+      setIsMobileMenuOpen(false)
     } else {
       if (window.location.pathname !== '/') {
-        navigate('/');
+        navigate('/')
         setTimeout(() => {
-          const element = document.getElementById(id);
+          const element = document.getElementById(id)
           if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
+            element.scrollIntoView({ behavior: 'smooth' })
           }
-        }, 100);
+        }, 100)
       } else {
-        const element = document.getElementById(id);
+        const element = document.getElementById(id)
         if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
+          element.scrollIntoView({ behavior: 'smooth' })
         }
       }
-      setIsMobileMenuOpen(false);
+      setIsMobileMenuOpen(false)
     }
-  };
+  }
 
   const navItems = [
-    { label: "Home", id: "home", isRoute: false },
-    { label: "About", id: "about", isRoute: false },
-    { label: "Services", id: "services", isRoute: false },
-    { label: "Portfolio", id: "/portfolio", isRoute: true },
-    { label: "Contact", id: "contact", isRoute: false },
-  ];
+    { label: 'Home', id: 'home', isRoute: false },
+    { label: 'About', id: 'about', isRoute: false },
+    { label: 'Services', id: 'services', isRoute: false },
+    { label: 'Portfolio', id: '/portfolio', isRoute: true },
+    { label: 'Contact', id: 'contact', isRoute: false },
+  ]
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-lg border-b border-border/40"
-          : "bg-background/10 backdrop-blur-sm"
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-background/95 backdrop-blur-md shadow-lg border-b border-border/40'
+          : 'bg-background/10 backdrop-blur-sm'
+      }`}
     >
       <div className="container mx-auto px-3 sm:px-4 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16 md:h-18 lg:h-20">
@@ -98,7 +99,11 @@ export const Header = () => {
             className="md:hidden hover:bg-primary/10 h-9 w-9 sm:h-10 sm:w-10"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="w-4 h-4 sm:w-5 sm:h-5" /> : <Menu className="w-4 h-4 sm:w-5 sm:h-5" />}
+            {isMobileMenuOpen ? (
+              <X className="w-4 h-4 sm:w-5 sm:h-5" />
+            ) : (
+              <Menu className="w-4 h-4 sm:w-5 sm:h-5" />
+            )}
           </Button>
         </div>
 
@@ -121,5 +126,5 @@ export const Header = () => {
         )}
       </div>
     </header>
-  );
-};
+  )
+}

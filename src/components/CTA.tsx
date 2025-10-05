@@ -1,13 +1,13 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { Button } from '@/components/ui/button'
+import { ArrowRight } from 'lucide-react'
 
 export const CTA = () => {
   const scrollToContact = () => {
-    const element = document.getElementById("contact");
+    const element = document.getElementById('contact')
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: 'smooth' })
     }
-  };
+  }
 
   return (
     <section className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-primary/10 to-accent/10">
@@ -19,12 +19,17 @@ export const CTA = () => {
           <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto px-4">
             Let's discuss how we can help your business grow with our innovative digital solutions
           </p>
-          <Button variant="hero" size="lg" onClick={scrollToContact} className="text-base md:text-lg px-6 md:px-8 py-5 md:py-6">
+          <Button
+            variant="hero"
+            size="lg"
+            onClick={scrollToContact}
+            className="text-base md:text-lg px-6 md:px-8 py-5 md:py-6"
+          >
             Start Your Project Today
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

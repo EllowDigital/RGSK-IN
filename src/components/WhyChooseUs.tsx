@@ -1,28 +1,32 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Zap, Headphones, DollarSign, Users } from "lucide-react";
+import { Card, CardContent } from '@/components/ui/card'
+import { Zap, Headphones, DollarSign, Users } from 'lucide-react'
 
 const features = [
   {
     icon: Zap,
-    title: "Fast & Scalable Solutions",
-    description: "Cutting-edge technology delivering high-performance results that grow with your business.",
+    title: 'Fast & Scalable Solutions',
+    description:
+      'Cutting-edge technology delivering high-performance results that grow with your business.',
   },
   {
     icon: Headphones,
-    title: "24/7 Support",
-    description: "Round-the-clock dedicated support ensuring your operations run smoothly at all times.",
+    title: '24/7 Support',
+    description:
+      'Round-the-clock dedicated support ensuring your operations run smoothly at all times.',
   },
   {
     icon: DollarSign,
-    title: "Affordable Pricing",
-    description: "Competitive rates without compromising quality, making technology accessible for all.",
+    title: 'Affordable Pricing',
+    description:
+      'Competitive rates without compromising quality, making technology accessible for all.',
   },
   {
     icon: Users,
-    title: "Experienced Team",
-    description: "Skilled professionals with years of expertise delivering exceptional digital solutions.",
+    title: 'Experienced Team',
+    description:
+      'Skilled professionals with years of expertise delivering exceptional digital solutions.',
   },
-];
+]
 
 export const WhyChooseUs = () => {
   return (
@@ -54,5 +58,5 @@ export const WhyChooseUs = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

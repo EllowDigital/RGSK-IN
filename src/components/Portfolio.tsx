@@ -1,27 +1,27 @@
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
-import tentExpoThumb from "@/assets/projects/tent-expo-thumb.jpg";
-import ecommerceThumb from "@/assets/projects/project-ecommerce.jpg";
-import appThumb from "@/assets/projects/project-app.jpg";
+import { ArrowRight } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { useNavigate } from 'react-router-dom'
+import tentExpoThumb from '@/assets/projects/tent-expo-thumb.jpg'
+import ecommerceThumb from '@/assets/projects/project-ecommerce.jpg'
+import appThumb from '@/assets/projects/project-app.jpg'
 
 export const Portfolio = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const projects = [
     {
-      id: "tent-decor-expo",
-      title: "Tent Decor Expo UP 2025",
-      description: "Event Registration & Entry Management System",
+      id: 'tent-decor-expo',
+      title: 'Tent Decor Expo UP 2025',
+      description: 'Event Registration & Entry Management System',
       image: tentExpoThumb,
-      link: "/projects/tent-decor-expo",
+      link: '/projects/tent-decor-expo',
     },
     {
-      id: "ecommerce",
-      title: "E-Commerce Platform",
-      description: "Modern online store with seamless shopping experience",
+      id: 'ecommerce',
+      title: 'E-Commerce Platform',
+      description: 'Modern online store with seamless shopping experience',
       image: ecommerceThumb,
-      link: "/portfolio",
+      link: '/portfolio',
     },
     // {
     //   id: "food-app",
@@ -30,7 +30,7 @@ export const Portfolio = () => {
     //   image: appThumb,
     //   link: "/portfolio",
     // },
-  ];
+  ]
 
   return (
     <section id="portfolio" className="py-20 bg-gradient-to-b from-background to-secondary/5">
@@ -65,7 +65,8 @@ export const Portfolio = () => {
                   </h3>
                   <p className="text-white/90 text-sm mb-3">{project.description}</p>
                   <div className="flex items-center text-primary text-sm font-medium group-hover:gap-2 transition-all">
-                    View Project <ArrowRight className="w-4 h-4 ml-1 group-hover:ml-2 transition-all" />
+                    View Project{' '}
+                    <ArrowRight className="w-4 h-4 ml-1 group-hover:ml-2 transition-all" />
                   </div>
                 </div>
               </div>
@@ -75,7 +76,7 @@ export const Portfolio = () => {
 
         <div className="text-center">
           <Button
-            onClick={() => navigate("/portfolio")}
+            onClick={() => navigate('/portfolio')}
             size="lg"
             className="bg-primary hover:bg-primary/90 text-white px-8"
           >
@@ -85,5 +86,5 @@ export const Portfolio = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

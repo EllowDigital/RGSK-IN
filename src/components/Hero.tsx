@@ -1,37 +1,39 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, Zap, Shield, TrendingUp, Users, Award } from "lucide-react";
+import { Button } from '@/components/ui/button'
+import { ArrowRight, Sparkles, Zap, Shield, TrendingUp, Users, Award } from 'lucide-react'
 
 export const Hero = () => {
   // Function to smoothly scroll to the contact section
   const scrollToContact = () => {
-    const element = document.getElementById("contact");
+    const element = document.getElementById('contact')
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: 'smooth' })
     }
-  };
+  }
 
   const scrollToAbout = () => {
-    const element = document.getElementById("about");
+    const element = document.getElementById('about')
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: 'smooth' })
     }
-  };
+  }
 
   const floatingStats = [
-    { icon: Users, value: "500+", label: "Clients" },
-    { icon: Award, value: "98%", label: "Success Rate" },
-    { icon: TrendingUp, value: "50+", label: "Projects" }
-  ];
+    { icon: Users, value: '500+', label: 'Clients' },
+    { icon: Award, value: '98%', label: 'Success Rate' },
+    { icon: TrendingUp, value: '50+', label: 'Projects' },
+  ]
 
   const features = [
-    { icon: Zap, text: "Lightning Fast" },
-    { icon: Shield, text: "Secure & Reliable" },
-    { icon: Sparkles, text: "Modern Design" }
-  ];
+    { icon: Zap, text: 'Lightning Fast' },
+    { icon: Shield, text: 'Secure & Reliable' },
+    { icon: Sparkles, text: 'Modern Design' },
+  ]
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-background via-primary/5 to-accent/5">
-      
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-background via-primary/5 to-accent/5"
+    >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" />
@@ -42,13 +44,14 @@ export const Hero = () => {
       {/* Main Content Container */}
       <div className="container relative z-10 py-20 md:py-32">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
           {/* Left Content */}
           <div className="space-y-8 animate-fade-in">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 backdrop-blur-sm rounded-full border border-primary/20">
               <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-foreground">Leading Digital Innovation</span>
+              <span className="text-sm font-medium text-foreground">
+                Leading Digital Innovation
+              </span>
             </div>
 
             {/* Main Heading */}
@@ -63,7 +66,8 @@ export const Hero = () => {
                 <span className="text-foreground">Presence</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
-                Empowering businesses with cutting-edge web, mobile, and digital communication solutions that drive growth and innovation.
+                Empowering businesses with cutting-edge web, mobile, and digital communication
+                solutions that drive growth and innovation.
               </p>
             </div>
 
@@ -117,7 +121,6 @@ export const Hero = () => {
           {/* Right Visual Elements */}
           <div className="relative hidden lg:block animate-fade-in delay-200">
             <div className="relative w-full h-[600px]">
-              
               {/* Main Card */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[500px] bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl transform hover:scale-105 transition-transform duration-500 p-8 flex flex-col justify-center items-center">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl" />
@@ -126,7 +129,10 @@ export const Hero = () => {
                     <Sparkles className="w-10 h-10 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-foreground">Innovation First</h3>
-                  <p className="text-muted-foreground">Delivering cutting-edge solutions that transform your business vision into reality</p>
+                  <p className="text-muted-foreground">
+                    Delivering cutting-edge solutions that transform your business vision into
+                    reality
+                  </p>
                   <div className="flex items-center justify-center gap-4 pt-4">
                     <div className="text-center">
                       <p className="text-3xl font-bold text-primary">24/7</p>
@@ -163,7 +169,6 @@ export const Hero = () => {
               <div className="absolute -bottom-4 right-20 w-24 h-24 bg-primary/20 rounded-full blur-xl animate-pulse delay-500" />
             </div>
           </div>
-
         </div>
       </div>
 
@@ -173,7 +178,6 @@ export const Hero = () => {
           <div className="w-1 h-3 bg-primary/50 rounded-full animate-pulse" />
         </div>
       </div>
-
     </section>
-  );
-};
+  )
+}
