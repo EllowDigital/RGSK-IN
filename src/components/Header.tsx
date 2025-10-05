@@ -58,22 +58,22 @@ export const Header = () => {
         <div className="flex items-center justify-between h-14 sm:h-16 md:h-18 lg:h-20">
           <button
             onClick={() => handleNavigation('home', false)}
-            className="flex items-center gap-2 sm:gap-2.5 md:gap-3 group min-w-0"
+            className="flex items-center gap-3 sm:gap-3.5 md:gap-4 group min-w-0 hover:opacity-90 transition-opacity"
           >
             <div className="relative flex-shrink-0">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-md group-hover:blur-lg transition-all" />
               <img
                 src="/logo.png"
                 alt="RGSK Technologies"
-                className="h-10 w-10 sm:h-11 sm:w-11 md:h-12 md:w-12 lg:h-14 lg:w-14 rounded-full object-cover border-2 border-primary/30 shadow-lg relative z-10 group-hover:scale-105 transition-all duration-300"
+                className="h-11 w-11 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 rounded-xl object-cover border border-primary/20 shadow-md relative z-10 group-hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <div className="flex flex-col min-w-0">
-              <div className="text-sm sm:text-base md:text-lg lg:text-xl font-bold leading-tight whitespace-nowrap">
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">RGSK</span>
-                <span className="text-foreground"> Technologies</span>
-              </div>
-              <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground whitespace-nowrap hidden xs:block">Digital Solutions</div>
+            <div className="flex flex-col justify-center min-w-0">
+              <span className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-none bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent whitespace-nowrap">
+                RGSK Technologies
+              </span>
+              <span className="text-[10px] sm:text-xs md:text-sm text-muted-foreground leading-tight mt-0.5 hidden xs:block whitespace-nowrap">
+                Digital Solutions Provider
+              </span>
             </div>
           </button>
 
