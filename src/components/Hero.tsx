@@ -119,8 +119,26 @@ export const Hero = () => {
             <div className="relative w-full h-[600px]">
               
               {/* Main Card */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[500px] bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl transform hover:scale-105 transition-transform duration-500">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[500px] bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl transform hover:scale-105 transition-transform duration-500 p-8 flex flex-col justify-center items-center">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl" />
+                <div className="relative z-10 text-center space-y-6">
+                  <div className="w-20 h-20 mx-auto bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center shadow-lg">
+                    <Sparkles className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground">Innovation First</h3>
+                  <p className="text-muted-foreground">Delivering cutting-edge solutions that transform your business vision into reality</p>
+                  <div className="flex items-center justify-center gap-4 pt-4">
+                    <div className="text-center">
+                      <p className="text-3xl font-bold text-primary">24/7</p>
+                      <p className="text-xs text-muted-foreground">Support</p>
+                    </div>
+                    <div className="h-12 w-px bg-border" />
+                    <div className="text-center">
+                      <p className="text-3xl font-bold text-accent">100%</p>
+                      <p className="text-xs text-muted-foreground">Quality</p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Floating Cards */}
