@@ -51,7 +51,7 @@ export const WhyChooseUs = () => {
       <div className="absolute inset-0 bg-grid-pattern opacity-5" />
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-      
+
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-12 md:mb-16 animate-slide-up">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
@@ -91,18 +91,22 @@ export const WhyChooseUs = () => {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Gradient Background */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-              
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
+              />
+
               <CardContent className="pt-8 pb-6 px-4 relative z-10">
                 {/* Icon with Gradient Background */}
-                <div className={`w-16 h-16 bg-gradient-to-br ${feature.gradient} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                <div
+                  className={`w-16 h-16 bg-gradient-to-br ${feature.gradient} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
+                >
                   <feature.icon className="w-8 h-8 text-white" />
                 </div>
-                
+
                 <h3 className="text-lg md:text-xl font-bold mb-3 group-hover:text-primary transition-colors">
                   {feature.title}
                 </h3>
-                
+
                 <p className="text-sm md:text-base text-muted-foreground mb-4">
                   {feature.description}
                 </p>
@@ -110,7 +114,10 @@ export const WhyChooseUs = () => {
                 {/* Benefits List */}
                 <div className="space-y-2 pt-4 border-t border-border/50">
                   {feature.benefits.map((benefit, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-xs text-muted-foreground">
+                    <div
+                      key={idx}
+                      className="flex items-center gap-2 text-xs text-muted-foreground"
+                    >
                       <CheckCircle2 className="w-3 h-3 text-primary flex-shrink-0" />
                       <span>{benefit}</span>
                     </div>

@@ -103,11 +103,7 @@ export const Preloader = () => {
           <div className="relative w-32 h-32 md:w-40 md:h-40 flex items-center justify-center">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-xl animate-pulse" />
             <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden border-2 border-primary/30 shadow-2xl bg-card">
-              <img
-                src="/logo.png"
-                alt="RGSK Technologies"
-                className="w-full h-full object-cover"
-              />
+              <img src="/logo.png" alt="RGSK Technologies" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />
             </div>
           </div>

@@ -17,7 +17,8 @@ const Portfolio = () => {
     {
       id: 'tent-decor-expo',
       title: 'Tent Decor Expo UP 2025',
-      description: 'Event Registration & Entry Management System with real-time analytics and QR-based check-in functionality',
+      description:
+        'Event Registration & Entry Management System with real-time analytics and QR-based check-in functionality',
       category: 'Web Application',
       year: '2025',
       client: 'Tent, Caterers & Decorators Welfare Association of UP',
@@ -29,7 +30,8 @@ const Portfolio = () => {
     {
       id: 'ecommerce',
       title: 'E-Commerce Platform',
-      description: 'Modern online store with seamless shopping experience and secure payment integration',
+      description:
+        'Modern online store with seamless shopping experience and secure payment integration',
       category: 'Web Development',
       year: '2024',
       client: 'Retail Business',
@@ -41,7 +43,8 @@ const Portfolio = () => {
     {
       id: 'marketing-dashboard',
       title: 'Marketing Analytics Dashboard',
-      description: 'Real-time social media performance tracking & insights with AI-powered recommendations',
+      description:
+        'Real-time social media performance tracking & insights with AI-powered recommendations',
       category: 'Dashboard',
       year: '2024',
       client: 'Digital Marketing Agency',
@@ -73,7 +76,7 @@ const Portfolio = () => {
             <div className="absolute inset-0 bg-grid-pattern opacity-5" />
             <div className="absolute top-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
             <div className="absolute bottom-20 left-10 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
-            
+
             <div className="container mx-auto px-4 relative z-10">
               <div className="text-center max-w-4xl mx-auto animate-slide-up">
                 <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
@@ -130,7 +133,9 @@ const Portfolio = () => {
                       {/* Image Section */}
                       <div className="relative overflow-hidden h-72">
                         <div className="absolute top-4 left-4 z-20">
-                          <Badge className={`bg-gradient-to-r ${project.gradient} text-white border-0 shadow-lg`}>
+                          <Badge
+                            className={`bg-gradient-to-r ${project.gradient} text-white border-0 shadow-lg`}
+                          >
                             {project.category}
                           </Badge>
                         </div>
@@ -168,7 +173,9 @@ const Portfolio = () => {
                               <TrendingUp className="w-4 h-4 text-primary" />
                               <div>
                                 <div className="text-sm font-bold">{value}</div>
-                                <div className="text-xs text-muted-foreground capitalize">{key}</div>
+                                <div className="text-xs text-muted-foreground capitalize">
+                                  {key}
+                                </div>
                               </div>
                             </div>
                           ))}
@@ -182,7 +189,9 @@ const Portfolio = () => {
                       </div>
 
                       {/* Gradient Overlay on Hover */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none`} />
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none`}
+                      />
                     </div>
                   </div>
                 ))}

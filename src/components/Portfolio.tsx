@@ -39,12 +39,15 @@ export const Portfolio = () => {
   ]
 
   return (
-    <section id="portfolio" className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-background via-muted/20 to-background relative overflow-hidden">
+    <section
+      id="portfolio"
+      className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-background via-muted/20 to-background relative overflow-hidden"
+    >
       {/* Decorative Elements */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5" />
       <div className="absolute top-40 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
-      
+
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-12 md:mb-16 animate-slide-up">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
@@ -55,7 +58,8 @@ export const Portfolio = () => {
             Recent Works
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-            Discover our portfolio of successful projects that have helped businesses transform digitally
+            Discover our portfolio of successful projects that have helped businesses transform
+            digitally
           </p>
         </div>
 
@@ -70,11 +74,13 @@ export const Portfolio = () => {
               <div className="relative overflow-hidden rounded-2xl border-2 border-border hover:border-primary/50 transition-all duration-300 bg-card hover:shadow-2xl hover:-translate-y-2">
                 {/* Category Badge */}
                 <div className="absolute top-4 left-4 z-30">
-                  <Badge className={`bg-gradient-to-r ${project.gradient} text-white border-0 shadow-lg`}>
+                  <Badge
+                    className={`bg-gradient-to-r ${project.gradient} text-white border-0 shadow-lg`}
+                  >
                     {project.category}
                   </Badge>
                 </div>
-                
+
                 {/* Image Section */}
                 <div className="relative overflow-hidden h-72">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-10" />
@@ -113,7 +119,9 @@ export const Portfolio = () => {
                 </div>
 
                 {/* Gradient Overlay on Hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none`} />
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none`}
+                />
               </div>
             </div>
           ))}
