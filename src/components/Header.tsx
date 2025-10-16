@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import { useNavigate } from 'react-router-dom'
 
 export const Header = () => {
@@ -92,19 +90,47 @@ export const Header = () => {
             ))}
           </nav>
 
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden hover:bg-primary/10 h-9 w-9 sm:h-10 sm:w-10"
+          {/* Mobile Menu Button - Animated Hamburger */}
+          <button
+            className="md:hidden relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center group hover:bg-primary/10 rounded-lg transition-colors duration-300"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? (
-              <X className="w-4 h-4 sm:w-5 sm:h-5" />
-            ) : (
-              <Menu className="w-4 h-4 sm:w-5 sm:h-5" />
-            )}
-          </Button>
+            <div className="w-6 h-5 flex flex-col justify-between relative">
+              {/* Top line */}
+              <span
+                className={`w-full h-0.5 bg-foreground rounded-full transform transition-all duration-300 origin-center ${
+                  isMobileMenuOpen
+                    ? 'rotate-45 translate-y-[9px] bg-primary'
+                    : 'rotate-0 translate-y-0 group-hover:bg-primary'
+                }`}
+              />
+              {/* Middle line */}
+              <span
+                className={`w-full h-0.5 bg-foreground rounded-full transition-all duration-300 ${
+                  isMobileMenuOpen
+                    ? 'opacity-0 scale-x-0'
+                    : 'opacity-100 scale-x-100 group-hover:bg-primary'
+                }`}
+              />
+              {/* Bottom line */}
+              <span
+                className={`w-full h-0.5 bg-foreground rounded-full transform transition-all duration-300 origin-center ${
+                  isMobileMenuOpen
+                    ? '-rotate-45 -translate-y-[9px] bg-primary'
+                    : 'rotate-0 translate-y-0 group-hover:bg-primary'
+                }`}
+              />
+            </div>
+            {/* Decorative ring on hover */}
+            <div
+              className={`absolute inset-0 rounded-lg border-2 transition-all duration-300 ${
+                isMobileMenuOpen
+                  ? 'border-primary scale-100 opacity-100'
+                  : 'border-primary/30 scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100'
+              }`}
+            />
+          </button>
         </div>
 
         {/* Mobile & Tablet Navigation */}
