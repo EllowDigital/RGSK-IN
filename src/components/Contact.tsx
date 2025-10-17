@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { Phone, Mail, MapPin } from 'lucide-react'
+import { Phone, Mail, MapPin, Send, Sparkles } from 'lucide-react'
 import { toast } from 'sonner'
 
 export const Contact = () => {
@@ -43,11 +43,21 @@ export const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-16 md:py-24 lg:py-32 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section id="contact" className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-background via-muted/20 to-background relative overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+      
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-16 animate-slide-up">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Contact Us</h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-6" />
+          <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-6">
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-sm font-semibold text-primary">Get In Touch</span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+            Contact Us
+          </h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-6" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Get in touch with us to discuss your project or learn more about our services
           </p>
@@ -56,38 +66,43 @@ export const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* Contact Information */}
           <div className="space-y-6">
-            <Card className="shadow-lg">
-              <CardHeader>
-                <CardTitle>Contact Information</CardTitle>
+            <Card className="bg-card/50 backdrop-blur-sm border-2 hover:border-primary/50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+              
+              <CardHeader className="relative z-10">
+                <CardTitle className="text-2xl">Contact Information</CardTitle>
+                <p className="text-sm text-muted-foreground mt-2">
+                  We're here to help and answer any questions you might have
+                </p>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+              <CardContent className="space-y-6 relative z-10">
+                <div className="flex items-start gap-4 p-4 rounded-xl bg-background/50 hover:bg-background/80 transition-colors group/item">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover/item:scale-110 transition-transform">
                     <Phone className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Phone</h3>
-                    <p className="text-muted-foreground">7054466111, 9670077733</p>
+                    <h3 className="font-semibold mb-1 text-foreground">Phone</h3>
+                    <p className="text-muted-foreground text-sm">7054466111, 9670077733</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-5 h-5 text-primary" />
+                <div className="flex items-start gap-4 p-4 rounded-xl bg-background/50 hover:bg-background/80 transition-colors group/item">
+                  <div className="w-12 h-12 bg-gradient-to-br from-accent/20 to-accent/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover/item:scale-110 transition-transform">
+                    <Mail className="w-5 h-5 text-accent" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Email</h3>
-                    <p className="text-muted-foreground">rgsktechnologies@gmail.com</p>
+                    <h3 className="font-semibold mb-1 text-foreground">Email</h3>
+                    <p className="text-muted-foreground text-sm break-all">rgsktechnologies@gmail.com</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="flex items-start gap-4 p-4 rounded-xl bg-background/50 hover:bg-background/80 transition-colors group/item">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover/item:scale-110 transition-transform">
                     <MapPin className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Address</h3>
-                    <p className="text-muted-foreground">
+                    <h3 className="font-semibold mb-1 text-foreground">Address</h3>
+                    <p className="text-muted-foreground text-sm">
                       C-Block, Shivaji Market, near Eram College,
                       <br />
                       Indira Nagar, Lucknow,
@@ -101,16 +116,21 @@ export const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <Card className="shadow-lg">
-            <CardHeader>
-              <CardTitle>Send us a Message</CardTitle>
+          <Card className="bg-card/50 backdrop-blur-sm border-2 hover:border-primary/50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+            
+            <CardHeader className="relative z-10">
+              <CardTitle className="text-2xl">Send us a Message</CardTitle>
+              <p className="text-sm text-muted-foreground mt-2">
+                Fill out the form below and we'll get back to you within 24 hours
+              </p>
             </CardHeader>
-            <CardContent>
+            <CardContent className="relative z-10">
               <form
                 action="https://formsubmit.co/rgsktechnologies@gmail.com"
                 method="POST"
                 onSubmit={handleSubmit}
-                className="space-y-4"
+                className="space-y-5"
               >
                 {/* FormSubmit Configuration */}
                 <input
@@ -144,6 +164,7 @@ export const Contact = () => {
                     placeholder="Your Name"
                     value={formData.name}
                     onChange={handleChange}
+                    className="h-12 bg-background/50 border-2 focus:border-primary transition-colors"
                     required
                   />
                 </div>
@@ -154,6 +175,7 @@ export const Contact = () => {
                     placeholder="Your Email"
                     value={formData.email}
                     onChange={handleChange}
+                    className="h-12 bg-background/50 border-2 focus:border-primary transition-colors"
                     required
                   />
                 </div>
@@ -164,11 +186,19 @@ export const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={6}
+                    className="bg-background/50 border-2 focus:border-primary transition-colors resize-none"
                     required
                   />
                 </div>
-                <Button type="submit" size="lg" className="w-full">
-                  Send Message
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  className="w-full h-12 bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 transition-all duration-300 shadow-lg hover:shadow-xl group/btn"
+                >
+                  <span className="flex items-center justify-center gap-2">
+                    Send Message
+                    <Send className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                  </span>
                 </Button>
               </form>
             </CardContent>
