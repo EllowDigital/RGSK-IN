@@ -43,11 +43,14 @@ export const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-background via-muted/20 to-background relative overflow-hidden">
+    <section
+      id="contact"
+      className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-background via-muted/20 to-background relative overflow-hidden"
+    >
       {/* Decorative Elements */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-      
+
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-16 animate-slide-up">
           <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-6">
@@ -68,7 +71,7 @@ export const Contact = () => {
           <div className="space-y-6">
             <Card className="bg-card/50 backdrop-blur-sm border-2 hover:border-primary/50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-              
+
               <CardHeader className="relative z-10">
                 <CardTitle className="text-2xl">Contact Information</CardTitle>
                 <p className="text-sm text-muted-foreground mt-2">
@@ -92,7 +95,9 @@ export const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1 text-foreground">Email</h3>
-                    <p className="text-muted-foreground text-sm break-all">rgsktechnologies@gmail.com</p>
+                    <p className="text-muted-foreground text-sm break-all">
+                      rgsktechnologies@gmail.com
+                    </p>
                   </div>
                 </div>
 
@@ -118,7 +123,7 @@ export const Contact = () => {
           {/* Contact Form */}
           <Card className="bg-card/50 backdrop-blur-sm border-2 hover:border-primary/50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-            
+
             <CardHeader className="relative z-10">
               <CardTitle className="text-2xl">Send us a Message</CardTitle>
               <p className="text-sm text-muted-foreground mt-2">
@@ -190,9 +195,9 @@ export const Contact = () => {
                     required
                   />
                 </div>
-                <Button 
-                  type="submit" 
-                  size="lg" 
+                <Button
+                  type="submit"
+                  size="lg"
                   className="w-full h-12 bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 transition-all duration-300 shadow-lg hover:shadow-xl group/btn"
                 >
                   <span className="flex items-center justify-center gap-2">

@@ -1,4 +1,14 @@
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, ArrowUp, Sparkles } from 'lucide-react'
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
+  ArrowUp,
+  Sparkles,
+} from 'lucide-react'
 
 export const EnhancedFooter = () => {
   const scrollToSection = (id: string) => {
@@ -18,7 +28,7 @@ export const EnhancedFooter = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(158,64,52,0.1),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(52,158,158,0.08),transparent_50%)]" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-      
+
       <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-12">
           {/* Company Info */}
@@ -170,8 +180,12 @@ export const EnhancedFooter = () => {
                   <Phone className="w-4 h-4 text-primary" />
                 </div>
                 <div className="text-background/70 text-sm">
-                  <div className="hover:text-primary transition-colors cursor-pointer">7054466111</div>
-                  <div className="hover:text-primary transition-colors cursor-pointer">9670077733</div>
+                  <div className="hover:text-primary transition-colors cursor-pointer">
+                    7054466111
+                  </div>
+                  <div className="hover:text-primary transition-colors cursor-pointer">
+                    9670077733
+                  </div>
                 </div>
               </li>
               <li className="flex items-start gap-3 group">
@@ -197,9 +211,11 @@ export const EnhancedFooter = () => {
         {/* Bottom Bar */}
         <div className="border-t border-background/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-background/60 text-sm text-center md:text-left">
-            © 2025 <span className="text-primary font-semibold">RGSK Technologies</span> | All Rights Reserved | Made with ❤️ by <span className="text-accent font-semibold">EllowDigital</span>
+            © 2025 <span className="text-primary font-semibold">RGSK Technologies</span> | All
+            Rights Reserved | Made with ❤️ by{' '}
+            <span className="text-accent font-semibold">EllowDigital</span>
           </p>
-          
+
           {/* Scroll to Top Button */}
           <button
             onClick={scrollToTop}
