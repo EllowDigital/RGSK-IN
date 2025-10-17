@@ -213,7 +213,14 @@ export const EnhancedFooter = () => {
           <p className="text-background/60 text-sm text-center md:text-left">
             © 2025 <span className="text-primary font-semibold">RGSK Technologies</span> | All
             Rights Reserved | Made with ❤️ by{' '}
-            <span className="text-accent font-semibold">EllowDigital</span>
+            <a
+              href="https://ellowdigital.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent font-semibold hover:underline transition-colors"
+            >
+              EllowDigital
+            </a>
           </p>
 
           {/* Scroll to Top Button */}

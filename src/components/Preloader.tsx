@@ -7,31 +7,36 @@ export const Preloader = () => {
   const [fadeOut, setFadeOut] = useState(false)
 
   useEffect(() => {
-    // Animate progress bar
+    // Prevent scrolling when the preloader is active
+    document.body.style.overflow = 'hidden'
+
     const progressInterval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(progressInterval)
           return 100
         }
-        return prev + 2
+        // Use a non-linear increment for a more dynamic feel
+        return prev + 1 + prev * 0.05
       })
-    }, 30)
+    }, 40)
 
-    // Start fade out animation
     const fadeTimer = setTimeout(() => {
       setFadeOut(true)
     }, 1800)
 
-    // Remove preloader
     const removeTimer = setTimeout(() => {
       setIsLoading(false)
+      // Re-enable scrolling when the preloader is removed
+      document.body.style.overflow = ''
     }, 2300)
 
     return () => {
       clearInterval(progressInterval)
       clearTimeout(fadeTimer)
       clearTimeout(removeTimer)
+      // Ensure scrolling is re-enabled if the component unmounts early
+      document.body.style.overflow = ''
     }
   }, [])
 
@@ -39,23 +44,21 @@ export const Preloader = () => {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] flex items-center justify-center bg-gradient-to-br from-background via-primary/5 to-accent/5 transition-opacity duration-500 ${
+      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background p-4 transition-opacity duration-500 ${
         fadeOut ? 'opacity-0' : 'opacity-100'
       }`}
+      // Accessibility attributes for screen readers
+      role="status"
+      aria-live="polite"
+      aria-label="Loading page"
     >
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse delay-300" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-3xl animate-pulse delay-500" />
-      </div>
-
-      <div className="relative z-10 flex flex-col items-center justify-center text-center px-4">
-        {/* Animated Ring */}
-        <div className="relative mb-8">
+      <div className="relative z-10 flex w-full max-w-sm flex-col items-center justify-center text-center">
+        {/* Animated Ring & Logo */}
+        {/* Using relative units (w-2/5) and max-w for better scaling */}
+        <div className="relative mb-8 flex h-auto w-2/5 max-w-[160px] items-center justify-center">
           {/* Outer rotating ring */}
-          <div className="absolute inset-0 w-32 h-32 md:w-40 md:h-40">
-            <svg className="w-full h-full animate-spin" style={{ animationDuration: '3s' }}>
+          <div className="absolute inset-0">
+            <svg className="h-full w-full animate-spin" style={{ animationDuration: '3s' }}>
               <circle
                 className="opacity-20"
                 cx="50%"
@@ -75,9 +78,10 @@ export const Preloader = () => {
           </div>
 
           {/* Inner rotating ring */}
-          <div className="absolute inset-2 w-28 h-28 md:w-36 md:h-36">
+          {/* Scaled down with inset */}
+          <div className="absolute inset-[8%]">
             <svg
-              className="w-full h-full animate-spin"
+              className="h-full w-full animate-spin"
               style={{ animationDuration: '2s', animationDirection: 'reverse' }}
             >
               <circle
@@ -100,10 +104,11 @@ export const Preloader = () => {
           </div>
 
           {/* Logo Container */}
-          <div className="relative w-32 h-32 md:w-40 md:h-40 flex items-center justify-center">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-xl animate-pulse" />
-            <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden border-2 border-primary/30 shadow-2xl bg-card">
-              <img src="/logo.png" alt="RGSK Technologies" className="w-full h-full object-cover" />
+          {/* aspect-square ensures it remains a perfect square */}
+          <div className="relative flex h-full w-full items-center justify-center aspect-square">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 blur-xl animate-pulse" />
+            <div className="relative w-3/5 h-3/5 rounded-2xl overflow-hidden border-2 border-primary/30 shadow-2xl bg-card">
+              <img src="/logo.png" alt="RGSK Technologies" className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />
             </div>
           </div>
@@ -112,33 +117,35 @@ export const Preloader = () => {
         {/* Company Name with Animation */}
         <div className="mb-8 animate-fade-in">
           <div className="flex items-center justify-center gap-2 mb-2">
-            <Sparkles className="w-5 h-5 text-primary animate-pulse" />
-            <h1 className="text-3xl md:text-4xl font-bold">
+            <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-primary animate-pulse" />
+            {/* Using clamp for fluid typography */}
+            <h1 className="font-bold text-[clamp(1.75rem,5vw,2.25rem)] leading-tight">
               <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
                 RGSK
               </span>
               <span className="text-foreground"> Technologies</span>
             </h1>
-            <Sparkles className="w-5 h-5 text-accent animate-pulse delay-300" />
+            <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-accent animate-pulse delay-300" />
           </div>
-          <p className="text-sm md:text-base text-muted-foreground font-medium">
+          <p className="text-sm text-muted-foreground font-medium md:text-base">
             Crafting Digital Excellence
           </p>
         </div>
 
         {/* Progress Bar */}
-        <div className="w-64 md:w-80">
-          <div className="relative h-2 bg-muted/30 rounded-full overflow-hidden backdrop-blur-sm">
+        {/* Switched to w-full and max-w for responsiveness */}
+        <div className="w-full max-w-xs">
+          <div className="relative h-2 overflow-hidden rounded-full bg-muted/30 backdrop-blur-sm">
             <div
-              className="absolute inset-y-0 left-0 bg-gradient-to-r from-primary via-accent to-secondary rounded-full transition-all duration-300 ease-out"
-              style={{ width: `${progress}%` }}
+              className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-primary via-accent to-secondary transition-all duration-300 ease-out"
+              style={{ width: `${Math.min(progress, 100)}%` }} // Ensure width never exceeds 100%
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse" />
+              <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-transparent via-white/30 to-transparent" />
             </div>
           </div>
           <div className="mt-3 text-center">
             <span className="text-sm font-semibold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              {progress}%
+              {Math.floor(Math.min(progress, 100))}%
             </span>
           </div>
         </div>
