@@ -22,6 +22,12 @@ export const EnhancedFooter = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  // Construct Google Maps URL
+  const address = 'C-Block, Shivaji Market, Indira Nagar, Lucknow - 226016'
+  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    address
+  )}`
+
   return (
     <footer className="bg-gradient-to-br from-foreground via-foreground/95 to-foreground text-background relative overflow-hidden">
       {/* Decorative Elements */}
@@ -46,28 +52,36 @@ export const EnhancedFooter = () => {
             </p>
             <div className="flex gap-3">
               <a
-                href="#"
+                href="https://www.facebook.com/rgsktech/" // <-- ADD YOUR LINK HERE
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-background/10 hover:bg-gradient-to-br hover:from-primary hover:to-accent backdrop-blur-sm rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg group"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5 group-hover:scale-110 transition-transform" />
               </a>
               <a
-                href="#"
+                href="https://x.com/rgsktech" // <-- ADD YOUR LINK HERE
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-background/10 hover:bg-gradient-to-br hover:from-primary hover:to-accent backdrop-blur-sm rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg group"
                 aria-label="Twitter"
               >
                 <Twitter className="w-5 h-5 group-hover:scale-110 transition-transform" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/rgsktech/" // <-- ADD YOUR LINK HERE
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-background/10 hover:bg-gradient-to-br hover:from-primary hover:to-accent backdrop-blur-sm rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg group"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
               </a>
               <a
-                href="#"
+                href="https://in.linkedin.com/in/awanish-kannaujia-946502141" // <-- ADD YOUR LINK HERE
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-background/10 hover:bg-gradient-to-br hover:from-primary hover:to-accent backdrop-blur-sm rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg group"
                 aria-label="LinkedIn"
               >
@@ -180,29 +194,43 @@ export const EnhancedFooter = () => {
                   <Phone className="w-4 h-4 text-primary" />
                 </div>
                 <div className="text-background/70 text-sm">
-                  <div className="hover:text-primary transition-colors cursor-pointer">
+                  <a
+                    href="tel:7054466111" // <-- CLICKABLE PHONE
+                    className="hover:text-primary transition-colors cursor-pointer block"
+                  >
                     7054466111
-                  </div>
-                  <div className="hover:text-primary transition-colors cursor-pointer">
+                  </a>
+                  <a
+                    href="tel:9670077733" // <-- CLICKABLE PHONE
+                    className="hover:text-primary transition-colors cursor-pointer block"
+                  >
                     9670077733
-                  </div>
+                  </a>
                 </div>
               </li>
               <li className="flex items-start gap-3 group">
                 <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
                   <Mail className="w-4 h-4 text-accent" />
                 </div>
-                <span className="text-background/70 text-sm hover:text-accent transition-colors cursor-pointer break-all">
+                <a
+                  href="mailto:rgsktechnologies@gmail.com" // <-- CLICKABLE EMAIL
+                  className="text-background/70 text-sm hover:text-accent transition-colors cursor-pointer break-all"
+                >
                   rgsktechnologies@gmail.com
-                </span>
+                </a>
               </li>
               <li className="flex items-start gap-3 group">
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
                   <MapPin className="w-4 h-4 text-primary" />
                 </div>
-                <span className="text-background/70 text-sm">
-                  C-Block, Shivaji Market, Indira Nagar, Lucknow - 226016
-                </span>
+                <a
+                  href={googleMapsUrl} // <-- CLICKABLE ADDRESS
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-background/70 text-sm hover:text-primary transition-colors"
+                >
+                  {address}
+                </a>
               </li>
             </ul>
           </div>
