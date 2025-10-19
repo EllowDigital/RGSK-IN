@@ -4,6 +4,8 @@ import { TooltipProvider } from '@/components/ui/tooltip'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
+import { PWAInstallPrompt } from '@/components/PWAInstallPrompt'
+import { UpdateNotification } from '@/components/UpdateNotification'
 import Index from './pages/Index'
 import Portfolio from './pages/Portfolio'
 import TentDecorExpo from './pages/projects/TentDecorExpo'
@@ -17,6 +19,8 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
+        <PWAInstallPrompt />
+        <UpdateNotification />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />

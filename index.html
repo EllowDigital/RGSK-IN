@@ -2,13 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    
+    <!-- Favicons -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
     <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="canonical" href="https://rgsktechnologies.netlify.app" />
 
+    <!-- Primary Meta Tags -->
     <title>RGSK Technologies - Digital Solutions & Web Development</title>
+    <meta
+      name="title"
+      content="RGSK Technologies - Digital Solutions & Web Development"
+    />
     <meta
       name="description"
       content="RGSK Technologies offers innovative web development, mobile apps, social media management, bulk SMS, voice calls, and WhatsApp services. Empowering digital growth in Lucknow."
@@ -18,18 +31,28 @@
       content="web development, mobile app development, digital marketing, bulk SMS, bulk WhatsApp, social media management, Lucknow, India"
     />
     <meta name="author" content="RGSK Technologies" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
 
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rgsktechnologies.netlify.app" />
     <meta property="og:title" content="RGSK Technologies - Digital Solutions" />
     <meta
       property="og:description"
       content="Professional web development, mobile apps, and digital communication services in Lucknow"
     />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://rgsktechnologies.netlify.app" />
     <meta property="og:image" content="https://rgsktechnologies.netlify.app/logo.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="RGSK Technologies" />
+    <meta property="og:locale" content="en_IN" />
 
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://rgsktechnologies.netlify.app" />
     <meta name="twitter:site" content="@rgsktechnologies" />
+    <meta name="twitter:creator" content="@rgsktechnologies" />
     <meta name="twitter:title" content="RGSK Technologies - Digital Solutions" />
     <meta
       name="twitter:description"
@@ -37,7 +60,15 @@
     />
     <meta name="twitter:image" content="https://rgsktechnologies.netlify.app/logo.png" />
 
+    <!-- PWA & Mobile -->
     <meta name="theme-color" content="#10b981" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="RGSK Tech" />
+    
+    <!-- Performance hints -->
+    <link rel="preload" href="/src/main.tsx" as="script" />
   </head>
 
   <body>
