@@ -63,7 +63,8 @@ export default defineConfig(({ mode }) => ({
       manifest: {
         name: 'RGSK Technologies - Digital Solutions',
         short_name: 'RGSK Tech',
-        description: 'Professional web development, mobile apps, and digital communication services',
+        description:
+          'Professional web development, mobile apps, and digital communication services',
         theme_color: '#10b981',
         background_color: '#ffffff',
         display: 'standalone',

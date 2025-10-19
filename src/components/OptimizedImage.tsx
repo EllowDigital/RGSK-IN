@@ -25,9 +25,7 @@ export const OptimizedImage = ({ src, alt, className, ...props }: OptimizedImage
         )}
         {...props}
       />
-      {!isLoaded && (
-        <div className="absolute inset-0 bg-muted animate-pulse" />
-      )}
+      {!isLoaded && <div className="absolute inset-0 bg-muted animate-pulse" />}
     </div>
   )
 }

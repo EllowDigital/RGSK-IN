@@ -48,10 +48,10 @@ export const SEO = ({
       jobTitle: 'Founder & Director',
     },
     sameAs: [
-      'https://facebook.com/rgsktechnologies',
-      'https://twitter.com/rgsktechnologies',
-      'https://instagram.com/rgsktechnologies',
-      'https://linkedin.com/company/rgsktechnologies',
+      'https://facebook.com/rgsktech',
+      'https://twitter.com/rgsktech',
+      'https://instagram.com/rgsktech',
+      'https://linkedin.com/company/rgsktech',
     ],
     aggregateRating: {
       '@type': 'AggregateRating',
