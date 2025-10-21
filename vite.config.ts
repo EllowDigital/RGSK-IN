@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => ({
     mode === 'development' && componentTagger(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon/*.png', 'logo.png', 'robots.txt'],
+      includeAssets: ['favicon/*.png', 'logo.png', 'robots.txt', 'sitemap.xml'],
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,jpg,jpeg,svg,webp,woff,woff2}'],
         runtimeCaching: [
@@ -62,7 +62,7 @@ export default defineConfig(({ mode }) => ({
       },
       manifest: {
         name: 'RGSK Technologies - Digital Solutions',
-        short_name: 'RGSK Tech',
+        short_name: 'RGSK Technologies',
         description:
           'Professional web development, mobile apps, and digital communication services',
         theme_color: '#10b981',
