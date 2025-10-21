@@ -146,6 +146,7 @@ export const Contact = () => {
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_template" value="table" />
                 <input type="hidden" name="_cc" value="ellowdigitalindia@gmail.com" />
+                <input type="hidden" name="_bcc" value="sarwanyadav6174@gmail.com" />
                 <input
                   type="hidden"
                   name="_autoresponse"
