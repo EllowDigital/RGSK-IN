@@ -248,4 +248,3 @@ export const Contact = () => {
     </section>
   )
 }
-
