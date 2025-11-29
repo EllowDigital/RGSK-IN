@@ -24,8 +24,8 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/projects/tent-decor-expo" element={<TentDecorExpo />} />
+            {/* <Route path="/portfolio" element={<Portfolio />} /> */}
+            {/* <Route path="/projects/tent-decor-expo" element={<TentDecorExpo />} /> */}
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

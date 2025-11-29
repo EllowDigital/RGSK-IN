@@ -41,7 +41,7 @@ export const Header = () => {
     { label: 'Home', id: 'home', isRoute: false },
     { label: 'About', id: 'about', isRoute: false },
     { label: 'Services', id: 'services', isRoute: false },
-    { label: 'Portfolio', id: '/portfolio', isRoute: true },
+    // { label: 'Portfolio', id: '/portfolio', isRoute: true },
     { label: 'Contact', id: 'contact', isRoute: false },
   ]
 

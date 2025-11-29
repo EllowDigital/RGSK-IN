@@ -60,33 +60,9 @@ const SidebarProvider = React.forwardRef<
       ...props
     },
     ref
-    export {
-      Sidebar,
-      SidebarContent,
-      SidebarFooter,
-      SidebarGroup,
-      SidebarGroupAction,
-      SidebarGroupContent,
-      SidebarGroupLabel,
-      SidebarHeader,
-      SidebarInput,
-      SidebarInset,
-      SidebarMenu,
-      SidebarMenuAction,
-      SidebarMenuBadge,
-      SidebarMenuButton,
-      SidebarMenuItem,
-      SidebarMenuSkeleton,
-      SidebarMenuSub,
-      SidebarMenuSubButton,
-      SidebarMenuSubItem,
-      SidebarProvider,
-      SidebarRail,
-      SidebarSeparator,
-      SidebarTrigger,
-      useSidebar,
-    }
-    )
+  ) => {
+    // ...existing code...
+  }
 
     // Helper to toggle the sidebar.
     const toggleSidebar = React.useCallback(() => {
