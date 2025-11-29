@@ -24,16 +24,13 @@ export const Preloader = () => {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 backdrop-blur-sm">
       <div className="flex flex-col items-center justify-center space-y-6 px-4">
-        {/* Logo (uses public/logo.png) */}
-        <div className="relative">
-          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg overflow-hidden">
-            <img
-              src="/logo.png"
-              alt="RGSK Technologies logo"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="absolute -inset-1 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 blur-lg -z-10" />
+        {/* Icon (uses public/logo.png) — no background container, larger size */}
+        <div>
+          <img
+            src="/logo.png"
+            alt="RGSK Technologies logo"
+            className="w-24 h-24 sm:w-28 sm:h-28 object-contain"
+          />
         </div>
 
         {/* Company Name + minimal business line */}
