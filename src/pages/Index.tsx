@@ -27,7 +27,7 @@ const Index = () => {
           <WhyChooseUs />
           <Process />
           <Stats />
-          <Portfolio />
+          {/* <Portfolio /> */}
           <Testimonials />
           <CTA />
           <Contact />

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Slot } from '@radix-ui/react-slot'
 import { VariantProps, cva } from 'class-variance-authority'
+import { sidebarMenuButtonVariants } from './sidebar-menu-button-variants'
 import { PanelLeft } from 'lucide-react'
 
 import { useIsMobile } from '@/hooks/use-mobile'
@@ -59,27 +60,32 @@ const SidebarProvider = React.forwardRef<
       ...props
     },
     ref
-  ) => {
-    const isMobile = useIsMobile()
-    const [openMobile, setOpenMobile] = React.useState(false)
-
-    // This is the internal state of the sidebar.
-    // We use openProp and setOpenProp for control from outside the component.
-    const [_open, _setOpen] = React.useState(defaultOpen)
-    const open = openProp ?? _open
-    const setOpen = React.useCallback(
-      (value: boolean | ((value: boolean) => boolean)) => {
-        const openState = typeof value === 'function' ? value(open) : value
-        if (setOpenProp) {
-          setOpenProp(openState)
-        } else {
-          _setOpen(openState)
-        }
-
-        // This sets the cookie to keep the sidebar state.
-        document.cookie = `${SIDEBAR_COOKIE_NAME}=${openState}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`
-      },
-      [setOpenProp, open]
+    export {
+      Sidebar,
+      SidebarContent,
+      SidebarFooter,
+      SidebarGroup,
+      SidebarGroupAction,
+      SidebarGroupContent,
+      SidebarGroupLabel,
+      SidebarHeader,
+      SidebarInput,
+      SidebarInset,
+      SidebarMenu,
+      SidebarMenuAction,
+      SidebarMenuBadge,
+      SidebarMenuButton,
+      SidebarMenuItem,
+      SidebarMenuSkeleton,
+      SidebarMenuSub,
+      SidebarMenuSubButton,
+      SidebarMenuSubItem,
+      SidebarProvider,
+      SidebarRail,
+      SidebarSeparator,
+      SidebarTrigger,
+      useSidebar,
+    }
     )
 
     // Helper to toggle the sidebar.
