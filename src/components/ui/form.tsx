@@ -1,19 +1,12 @@
 import * as React from 'react'
 import * as LabelPrimitive from '@radix-ui/react-label'
 import { Slot } from '@radix-ui/react-slot'
-import {
-  Form,
-  FormField,
-  useFormField,
-  FormFieldContext,
-  FormItemContext
-} from './form-utils'
+import { Form, FormField, useFormField, FormFieldContext, FormItemContext } from './form-utils'
 
 import { cn } from '@/lib/utils'
 import { Label } from '@/components/ui/label'
 
-type FormFieldContextValue<
-type FormItemContextValue = {
+// ...existing code...
 
 const FormItem = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => {

@@ -56,7 +56,7 @@ const Portfolio = () => {
   ]
 
   const allStats = [
-    { icon: Award, value: '50+', label: 'Projects Completed' },
+    { icon: Award, value: '500+', label: 'Projects Completed' },
     { icon: Users, value: '98%', label: 'Client Satisfaction' },
     { icon: TrendingUp, value: '200%', label: 'Average Growth' },
     { icon: Star, value: '4.9/5', label: 'Average Rating' },

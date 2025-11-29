@@ -1,2 +1,2 @@
-import { toast } from 'sonner';
-export { toast };
+import { toast } from 'sonner'
+export { toast }
