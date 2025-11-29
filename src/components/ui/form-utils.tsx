@@ -1,17 +1,15 @@
 import * as React from 'react';
-import { Controller, ControllerProps, FieldPath, FieldValues, FormProvider, useFormContext } from 'react-hook-form';
+type FormFieldContextValue<TFieldValues extends FieldValues = FieldValues, TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>> = {
+type FormFieldProps<TFieldValues extends FieldValues = FieldValues, TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>> = ControllerProps<TFieldValues, TName>;
+type FormItemContextValue = {
+import { Controller, ControllerProps, FormProvider, useFormContext } from 'react-hook-form';
+import { FormFieldContext, FormItemContext } from './form-contexts';
 
 const Form = FormProvider;
 
-type FormFieldContextValue<TFieldValues extends FieldValues = FieldValues, TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>> = {
-  name: TName;
-};
+type FormFieldProps<TFieldValues = any, TName = any> = ControllerProps<TFieldValues, TName>;
 
-const FormFieldContext = React.createContext<FormFieldContextValue>({} as FormFieldContextValue);
-
-type FormFieldProps<TFieldValues extends FieldValues = FieldValues, TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>> = ControllerProps<TFieldValues, TName>;
-
-function FormField<TFieldValues extends FieldValues = FieldValues, TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>>(props: FormFieldProps<TFieldValues, TName>) {
+function FormField<TFieldValues = any, TName = any>(props: FormFieldProps<TFieldValues, TName>) {
   return (
     <FormFieldContext.Provider value={{ name: props.name }}>
       <Controller {...props} />
@@ -42,10 +40,4 @@ const useFormField = () => {
   };
 };
 
-type FormItemContextValue = {
-  id: string;
-};
-
-const FormItemContext = React.createContext<FormItemContextValue>({} as FormItemContextValue);
-
-export { Form, FormField, useFormField, FormFieldContext, FormItemContext };
+export { Form, FormField, useFormField };

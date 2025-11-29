@@ -20,7 +20,7 @@ export const Hero = () => {
   const floatingStats = [
     { icon: Users, value: '500+', label: 'Happy Clients' },
     { icon: Award, value: '98%', label: 'Success Rate' },
-    { icon: TrendingUp, value: '50+', label: 'Projects Completed' },
+    { icon: TrendingUp, value: '500+', label: 'Projects Done' },
   ]
 
   const features = [

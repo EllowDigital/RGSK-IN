@@ -1,7 +1,9 @@
 import * as React from 'react'
 import * as LabelPrimitive from '@radix-ui/react-label'
 import { Slot } from '@radix-ui/react-slot'
-import { Form, FormField, useFormField, FormFieldContext, FormItemContext } from './form-utils'
+import { Form, FormField, useFormField } from './form-utils.tsx'
+import { FormFieldContext, FormItemContext } from './form-contexts'
+import { FormItem } from './form-item-utils'
 
 import { cn } from '@/lib/utils'
 import { Label } from '@/components/ui/label'
@@ -100,10 +102,9 @@ FormMessage.displayName = 'FormMessage'
 export {
   useFormField,
   Form,
-  FormItem,
   FormLabel,
   FormControl,
   FormDescription,
   FormMessage,
   FormField,
-}
+};
