@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { Menu, X, Home, User, Briefcase, Phone, ChevronDown } from 'lucide-react'
+import { Menu, Home, User, Briefcase, Phone } from 'lucide-react'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger, SheetClose } from '@/components/ui/sheet'
 import { cn } from '@/lib/utils'
 
@@ -15,7 +15,6 @@ export const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
 
-      // Update active section based on scroll position
       const sections = ['home', 'about', 'services', 'contact']
       const currentSection = sections.find(section => {
         const element = document.getElementById(section)
@@ -31,7 +30,7 @@ export const Header = () => {
     }
 
     window.addEventListener('scroll', handleScroll)
-    handleScroll() // Initial check
+    handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -68,10 +67,10 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out',
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         isScrolled
-          ? 'bg-background/95 backdrop-blur-xl shadow-lg border-b border-border/40'
-          : 'bg-background/20 backdrop-blur-sm'
+          ? 'bg-background/95 backdrop-blur-sm shadow-sm border-b border-border'
+          : 'bg-transparent'
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -79,18 +78,17 @@ export const Header = () => {
           {/* Logo */}
           <button
             onClick={() => handleNavigation('home', false)}
-            className="flex items-center gap-3 group hover:opacity-90 transition-all duration-300"
+            className="flex items-center gap-3 group hover:opacity-90 transition-opacity"
           >
             <div className="relative flex-shrink-0">
               <img
                 src="/logo.png"
                 alt="RGSK Technologies"
-                className="h-10 w-10 sm:h-12 sm:w-12 lg:h-14 lg:w-14 rounded-xl object-cover border border-primary/20 shadow-lg group-hover:scale-110 transition-transform duration-300"
+                className="h-10 w-10 sm:h-12 sm:w-12 lg:h-14 lg:w-14 rounded-xl object-cover border border-border shadow-sm group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
             <div className="flex flex-col justify-center">
-              <span className="text-lg sm:text-xl lg:text-2xl font-bold leading-none bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+              <span className="text-lg sm:text-xl lg:text-2xl font-bold leading-none text-primary">
                 RGSK Technologies
               </span>
               <span className="text-xs text-muted-foreground leading-tight hidden sm:block">
@@ -109,20 +107,17 @@ export const Header = () => {
                   key={item.id}
                   onClick={() => handleNavigation(item.id, item.isRoute)}
                   className={cn(
-                    'relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 group flex items-center gap-2',
+                    'relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 group flex items-center gap-2',
                     isActive
                       ? 'text-primary bg-primary/10'
-                      : 'text-foreground/80 hover:text-primary hover:bg-primary/5'
+                      : 'text-foreground/80 hover:text-primary hover:bg-accent'
                   )}
                 >
                   <Icon className="w-4 h-4" />
                   <span>{item.label}</span>
-                  <span
-                    className={cn(
-                      'absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300',
-                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
-                    )}
-                  />
+                  {isActive && (
+                    <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 w-full bg-primary" />
+                  )}
                 </button>
               )
             })}
@@ -132,10 +127,10 @@ export const Header = () => {
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <button
-                className="md:hidden relative w-10 h-10 flex items-center justify-center group hover:bg-primary/10 rounded-lg transition-colors duration-300"
+                className="md:hidden relative w-10 h-10 flex items-center justify-center hover:bg-accent rounded-lg transition-colors"
                 aria-label="Toggle menu"
               >
-                <Menu className="w-5 h-5 text-foreground group-hover:text-primary transition-colors" />
+                <Menu className="w-5 h-5 text-foreground" />
               </button>
             </SheetTrigger>
             <SheetContent side="right" className="w-80 sm:w-96">
@@ -150,12 +145,10 @@ export const Header = () => {
                   <img
                     src="/logo.png"
                     alt="RGSK Technologies"
-                    className="h-10 w-10 rounded-lg object-cover border border-primary/20"
+                    className="h-10 w-10 rounded-lg object-cover border border-border"
                   />
                   <div>
-                    <h2 className="text-lg font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                      RGSK Technologies
-                    </h2>
+                    <h2 className="text-lg font-bold text-primary">RGSK Technologies</h2>
                     <p className="text-sm text-muted-foreground">Digital Solutions Provider</p>
                   </div>
                 </div>
@@ -169,10 +162,10 @@ export const Header = () => {
                         <button
                           onClick={() => handleNavigation(item.id, item.isRoute)}
                           className={cn(
-                            'w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all duration-200',
+                            'w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-colors',
                             isActive
                               ? 'bg-primary/10 text-primary border border-primary/20'
-                              : 'hover:bg-muted text-foreground'
+                              : 'hover:bg-accent text-foreground'
                           )}
                         >
                           <Icon className="w-5 h-5" />
@@ -184,7 +177,7 @@ export const Header = () => {
                   })}
                 </nav>
 
-                <div className="border-t pt-4 mt-4">
+                <div className="border-t border-border pt-4 mt-4">
                   <p className="text-sm text-muted-foreground text-center">
                     Ready to transform your digital presence?
                   </p>
