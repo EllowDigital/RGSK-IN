@@ -2,14 +2,11 @@ import * as React from 'react'
 import * as LabelPrimitive from '@radix-ui/react-label'
 import { Slot } from '@radix-ui/react-slot'
 import { Form, FormField } from './form-utils.tsx'
-import { FormFieldContext, FormItemContext } from './form-contexts'
-import { FormItem } from './form-item-utils'
+import { FormItemContext } from './form-contexts'
 import { useFormField } from './use-form-field'
 
 import { cn } from '@/lib/utils'
 import { Label } from '@/components/ui/label'
-
-// ...existing code...
 
 const FormItem = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => {
@@ -100,4 +97,4 @@ const FormMessage = React.forwardRef<
 })
 FormMessage.displayName = 'FormMessage'
 
-export { Form, FormLabel, FormControl, FormDescription, FormMessage, FormField }
+export { Form, FormItem, FormLabel, FormControl, FormDescription, FormMessage, FormField }
