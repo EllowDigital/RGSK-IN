@@ -2,73 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Clean, simple design system with solid colors - no gradients */
+/* Premium Modern Design System */
+/* Deep Navy + Warm Coral palette with elegant neutrals */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 14% 10%;
+    /* Light Mode - Clean, Warm, Professional */
+    --background: 40 20% 99%;
+    --foreground: 220 25% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 14% 10%;
+    --card-foreground: 220 25% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 14% 10%;
+    --popover-foreground: 220 25% 12%;
 
-    --primary: 220 90% 56%;
+    /* Deep Navy Primary */
+    --primary: 222 47% 25%;
     --primary-foreground: 0 0% 100%;
 
+    /* Warm Coral Accent */
+    --accent: 12 76% 61%;
+    --accent-foreground: 0 0% 100%;
+
     --secondary: 220 14% 96%;
-    --secondary-foreground: 220 14% 10%;
+    --secondary-foreground: 220 25% 12%;
 
     --muted: 220 14% 96%;
     --muted-foreground: 220 9% 46%;
-
-    --accent: 220 14% 93%;
-    --accent-foreground: 220 14% 10%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 220 90% 56%;
+    --ring: 222 47% 25%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --shadow-sm: 0 1px 2px 0 hsl(220 14% 10% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(220 14% 10% / 0.1), 0 2px 4px -2px hsl(220 14% 10% / 0.1);
-    --shadow-lg: 0 10px 15px -3px hsl(220 14% 10% / 0.1), 0 4px 6px -4px hsl(220 14% 10% / 0.1);
+    /* Premium Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(220 25% 12% / 0.03);
+    --shadow-md: 0 4px 12px -2px hsl(220 25% 12% / 0.06), 0 2px 4px -2px hsl(220 25% 12% / 0.04);
+    --shadow-lg: 0 12px 32px -4px hsl(220 25% 12% / 0.08), 0 4px 12px -4px hsl(220 25% 12% / 0.04);
+    --shadow-xl: 0 24px 48px -12px hsl(220 25% 12% / 0.12);
   }
 
   .dark {
-    --background: 220 14% 8%;
+    /* Dark Mode - Deep, Rich, Sophisticated */
+    --background: 222 30% 8%;
     --foreground: 220 14% 96%;
 
-    --card: 220 14% 11%;
+    --card: 222 25% 12%;
     --card-foreground: 220 14% 96%;
 
-    --popover: 220 14% 11%;
+    --popover: 222 25% 12%;
     --popover-foreground: 220 14% 96%;
 
-    --primary: 220 90% 56%;
-    --primary-foreground: 0 0% 100%;
+    /* Navy primary stays consistent */
+    --primary: 215 70% 60%;
+    --primary-foreground: 222 30% 8%;
 
-    --secondary: 220 14% 16%;
+    /* Coral accent */
+    --accent: 12 76% 61%;
+    --accent-foreground: 0 0% 100%;
+
+    --secondary: 222 20% 16%;
     --secondary-foreground: 220 14% 96%;
 
-    --muted: 220 14% 16%;
+    --muted: 222 20% 16%;
     --muted-foreground: 220 9% 60%;
-
-    --accent: 220 14% 20%;
-    --accent-foreground: 220 14% 96%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 14% 20%;
-    --input: 220 14% 20%;
-    --ring: 220 90% 56%;
+    --border: 222 20% 18%;
+    --input: 222 20% 18%;
+    --ring: 215 70% 60%;
+
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.2);
+    --shadow-md: 0 4px 12px -2px hsl(0 0% 0% / 0.3);
+    --shadow-lg: 0 12px 32px -4px hsl(0 0% 0% / 0.4);
+    --shadow-xl: 0 24px 48px -12px hsl(0 0% 0% / 0.5);
   }
 }
 
@@ -79,59 +93,62 @@
 
   body {
     @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+    font-variation-settings: "opsz" 32;
   }
 
   html {
     scroll-behavior: smooth;
   }
+
+  /* Typography refinements */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
 }
 
 @layer utilities {
+  /* Smooth fade in animation */
   .animate-fade-in {
-    animation: fadeIn 0.5s ease-out;
+    animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
+  /* Slide up with fade */
   .animate-slide-up {
-    animation: slideUp 0.5s ease-out;
+    animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
+  /* Gentle float */
   .animate-float {
-    animation: float 3s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
   }
 
-  .delay-100 {
-    animation-delay: 100ms;
-  }
-
-  .delay-200 {
-    animation-delay: 200ms;
-  }
-
-  .delay-300 {
-    animation-delay: 300ms;
-  }
-
-  .delay-400 {
-    animation-delay: 400ms;
-  }
-
-  .delay-500 {
-    animation-delay: 500ms;
-  }
+  /* Stagger delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
 
   @keyframes fadeIn {
     from {
       opacity: 0;
+      transform: translateY(12px);
     }
     to {
       opacity: 1;
+      transform: translateY(0);
     }
   }
 
   @keyframes slideUp {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(24px);
     }
     to {
       opacity: 1;
@@ -140,12 +157,26 @@
   }
 
   @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0px);
+    0%, 100% {
+      transform: translateY(0);
     }
     50% {
-      transform: translateY(-10px);
+      transform: translateY(-8px);
     }
+  }
+
+  /* Premium glass effect */
+  .glass {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50;
+  }
+
+  /* Subtle hover lift */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  /* Section padding consistency */
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
   }
 }
