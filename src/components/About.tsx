@@ -1,5 +1,4 @@
-import { Card } from '@/components/ui/card'
-import { Target, Lightbulb, Users, TrendingUp, Award, Rocket } from 'lucide-react'
+import { Target, Lightbulb, Users } from 'lucide-react'
 import founderImage from '@/assets/founder.png'
 
 export const About = () => {
@@ -7,119 +6,102 @@ export const About = () => {
     {
       icon: Target,
       title: 'Mission Driven',
-      description: 'Empowering businesses with innovative digital solutions',
+      description: 'Empowering businesses with innovative digital solutions that drive real results.',
     },
     {
       icon: Lightbulb,
       title: 'Innovation First',
-      description: 'Leading with cutting-edge technology and creative thinking',
+      description: 'Leading with cutting-edge technology and creative thinking to solve complex challenges.',
     },
     {
       icon: Users,
       title: 'Client Focused',
-      description: 'Your success is our priority, always',
+      description: 'Your success is our priority. We build lasting partnerships, not just projects.',
     },
   ]
 
-  const achievements = [
-    { icon: Rocket, number: '50+', label: 'Projects Delivered' },
-    { icon: Users, number: '500+', label: 'Happy Clients' },
-    { icon: Award, number: '15+', label: 'Years Experience' },
-    { icon: TrendingUp, number: '98%', label: 'Success Rate' },
-  ]
-
   return (
-    <section
-      id="about"
-      className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-br from-background via-accent/5 to-secondary/5"
-    >
-      {/* Decorative Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 -left-20 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 -right-20 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-      </div>
-
-      <div className="container relative z-10">
+    <section id="about" className="section-padding bg-muted/30">
+      <div className="container">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 backdrop-blur-sm rounded-full border border-primary/20 mb-6">
-            <Target className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium">About Us</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-              Transforming Ideas
-            </span>
-            <br />
-            <span className="text-foreground">Into Digital Reality</span>
+          <span className="text-sm font-medium text-accent uppercase tracking-wider">About Us</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-3 mb-4">
+            Transforming Ideas Into
+            <span className="text-primary"> Digital Reality</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            RGSK Technologies is a forward-thinking digital solutions company committed to helping
-            businesses thrive in the digital age through innovative technology and strategic
-            communication services.
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            RGSK Technologies is a forward-thinking digital solutions company committed 
+            to helping businesses thrive in the digital age.
           </p>
         </div>
 
         {/* Founder Section */}
-        <Card className="p-8 md:p-12 mb-16 bg-card/50 backdrop-blur-sm border-2 hover:border-primary/50 transition-all duration-300 shadow-xl animate-slide-up">
+        <div className="bg-card rounded-2xl border border-border p-8 md:p-12 mb-16 shadow-lg animate-slide-up">
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="relative group">
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary to-accent rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity" />
-              <div className="relative">
+            <div className="relative">
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-muted">
                 <img
                   src={founderImage}
                   alt="Er. Awanish Kannaujia - Founder & Director"
-                  className="w-full h-auto object-cover rounded-2xl shadow-2xl"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl" />
               </div>
+              {/* Decorative element */}
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent/10 rounded-2xl -z-10" />
             </div>
 
             <div className="space-y-6">
               <div>
-                <h3 className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                <h3 className="text-2xl md:text-3xl font-bold text-foreground">
                   Er. Awanish Kannaujia
                 </h3>
-                <p className="text-xl text-primary font-semibold mb-4">Founder & Director</p>
+                <p className="text-accent font-medium mt-1">Founder & Director</p>
               </div>
 
-              <p className="text-muted-foreground leading-relaxed text-lg">
-                With a vision to revolutionize digital communication and web solutions, Er. Awanish
-                Kannaujia founded RGSK Technologies to bridge the gap between businesses and
-                cutting-edge technology. Under his leadership, the company has grown to become a
-                trusted partner for digital transformation.
+              <p className="text-muted-foreground leading-relaxed">
+                With a vision to revolutionize digital communication and web solutions, 
+                Er. Awanish Kannaujia founded RGSK Technologies to bridge the gap between 
+                businesses and cutting-edge technology. Under his leadership, the company 
+                has grown to become a trusted partner for digital transformation.
               </p>
 
               <div className="grid grid-cols-2 gap-4 pt-4">
-                {achievements.map((achievement, index) => (
-                  <div
-                    key={index}
-                    className="p-4 bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl border border-border hover:border-primary/50 transition-colors"
-                  >
-                    <achievement.icon className="w-6 h-6 text-primary mb-2" />
-                    <p className="text-2xl font-bold text-foreground">{achievement.number}</p>
-                    <p className="text-xs text-muted-foreground">{achievement.label}</p>
-                  </div>
-                ))}
+                <div className="p-4 bg-muted/50 rounded-xl">
+                  <p className="text-2xl font-bold text-foreground">500+</p>
+                  <p className="text-sm text-muted-foreground">Happy Clients</p>
+                </div>
+                <div className="p-4 bg-muted/50 rounded-xl">
+                  <p className="text-2xl font-bold text-foreground">98%</p>
+                  <p className="text-sm text-muted-foreground">Success Rate</p>
+                </div>
+                <div className="p-4 bg-muted/50 rounded-xl">
+                  <p className="text-2xl font-bold text-foreground">5+</p>
+                  <p className="text-sm text-muted-foreground">Years Experience</p>
+                </div>
+                <div className="p-4 bg-muted/50 rounded-xl">
+                  <p className="text-2xl font-bold text-foreground">24/7</p>
+                  <p className="text-sm text-muted-foreground">Support</p>
+                </div>
               </div>
             </div>
           </div>
-        </Card>
+        </div>
 
         {/* Core Values */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-3 gap-6">
           {values.map((value, index) => (
-            <Card
+            <div
               key={index}
-              className="p-8 bg-card/50 backdrop-blur-sm border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-xl group animate-fade-in"
+              className="group p-8 bg-card rounded-2xl border border-border hover:border-primary/30 transition-all duration-300 hover-lift animate-fade-in"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <value.icon className="w-7 h-7 text-white" />
+              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                <value.icon className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-foreground">{value.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{value.description}</p>
-            </Card>
+              <h3 className="text-xl font-semibold mb-3 text-foreground">{value.title}</h3>
+              <p className="text-muted-foreground">{value.description}</p>
+            </div>
           ))}
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { ArrowRight, Sparkles, Zap, Shield, TrendingUp, Users, Award } from 'lucide-react'
+import { ArrowRight, Check } from 'lucide-react'
 
 export const Hero = () => {
   const scrollToContact = () => {
@@ -16,138 +16,85 @@ export const Hero = () => {
     }
   }
 
-  const floatingStats = [
-    { icon: Users, value: '500+', label: 'Happy Clients' },
-    { icon: Award, value: '98%', label: 'Success Rate' },
-    { icon: TrendingUp, value: '500+', label: 'Projects Done' },
-  ]
-
-  const features = [
-    { icon: Zap, text: 'Lightning Fast' },
-    { icon: Shield, text: 'Secure & Reliable' },
-    { icon: Sparkles, text: 'Modern Design' },
+  const highlights = [
+    'Custom Web Development',
+    'Mobile Applications',
+    'Digital Marketing',
   ]
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center bg-background">
-      {/* Simple Background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      </div>
+    <section id="home" className="relative min-h-screen flex items-center pt-20">
+      {/* Subtle Background Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.03),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,hsl(var(--accent)/0.03),transparent_50%)]" />
 
-      <div className="container relative z-10 py-20 md:py-32">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Content */}
-          <div className="space-y-8 animate-fade-in">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
-              <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-foreground">Leading Digital Innovation</span>
-            </div>
-
-            {/* Main Heading */}
-            <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                <span className="text-primary">Transform</span>
-                <br />
-                <span className="text-foreground">Your Digital</span>
-                <br />
-                <span className="text-foreground">Presence</span>
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
-                Empowering businesses with cutting-edge web, mobile, and digital communication
-                solutions that drive growth and innovation.
-              </p>
-            </div>
-
-            {/* Feature Pills */}
-            <div className="flex flex-wrap gap-3">
-              {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-2 px-4 py-2 bg-card rounded-full border border-border hover:border-primary/50 transition-colors duration-300"
-                >
-                  <feature.icon className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-medium text-card-foreground">{feature.text}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4">
-              <Button
-                size="lg"
-                onClick={scrollToContact}
-                className="text-base px-8 py-6 bg-primary hover:bg-primary/90 transition-colors shadow-md group"
-              >
-                Start Your Project
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={scrollToAbout}
-                className="text-base px-8 py-6 border-2 hover:bg-accent"
-              >
-                Learn More
-              </Button>
-            </div>
-
-            {/* Stats Row */}
-            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
-              {floatingStats.map((stat, index) => (
-                <div key={index} className="space-y-1">
-                  <div className="flex items-center gap-2">
-                    <stat.icon className="w-5 h-5 text-primary" />
-                    <p className="text-2xl md:text-3xl font-bold text-foreground">{stat.value}</p>
-                  </div>
-                  <p className="text-sm text-muted-foreground">{stat.label}</p>
-                </div>
-              ))}
-            </div>
+      <div className="container relative z-10 py-16 md:py-24">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 border border-primary/10 rounded-full mb-8 animate-fade-in">
+            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+            <span className="text-sm font-medium text-foreground">Leading Digital Agency</span>
           </div>
 
-          {/* Right Visual Elements */}
-          <div className="relative hidden lg:block animate-fade-in delay-200">
-            <div className="relative w-full h-[600px]">
-              {/* Main Card */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[500px] bg-card rounded-3xl border border-border shadow-lg transform hover:scale-105 transition-transform duration-500 p-8 flex flex-col justify-center items-center">
-                <div className="relative z-10 text-center space-y-6">
-                  <div className="w-20 h-20 mx-auto bg-primary rounded-2xl flex items-center justify-center shadow-md">
-                    <Sparkles className="w-10 h-10 text-primary-foreground" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-foreground">Innovation First</h3>
-                  <p className="text-muted-foreground">
-                    Delivering cutting-edge solutions that transform your business vision into
-                    reality
-                  </p>
-                  <div className="flex items-center justify-center gap-4 pt-4">
-                    <div className="text-center">
-                      <p className="text-3xl font-bold text-primary">24/7</p>
-                      <p className="text-xs text-muted-foreground">Support</p>
-                    </div>
-                    <div className="h-12 w-px bg-border" />
-                    <div className="text-center">
-                      <p className="text-3xl font-bold text-primary">100%</p>
-                      <p className="text-xs text-muted-foreground">Quality</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          {/* Main Heading */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 animate-fade-in delay-100">
+            <span className="text-foreground">Build Your</span>
+            <br />
+            <span className="text-primary">Digital Future</span>
+          </h1>
 
-              {/* Floating Cards */}
-              <div className="absolute top-12 right-12 w-48 h-32 bg-card rounded-2xl border border-border shadow-md p-4 animate-float">
-                <Zap className="w-8 h-8 text-primary mb-2" />
-                <p className="text-sm font-semibold text-card-foreground">Fast Development</p>
-                <p className="text-xs text-muted-foreground mt-1">Rapid deployment</p>
-              </div>
+          {/* Subheading */}
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 animate-fade-in delay-200">
+            We craft exceptional digital experiences that help businesses 
+            grow, engage customers, and achieve measurable results.
+          </p>
 
-              <div className="absolute bottom-12 left-12 w-48 h-32 bg-card rounded-2xl border border-border shadow-md p-4 animate-float delay-300">
-                <Shield className="w-8 h-8 text-primary mb-2" />
-                <p className="text-sm font-semibold text-card-foreground">Enterprise Security</p>
-                <p className="text-xs text-muted-foreground mt-1">Bank-grade protection</p>
+          {/* Highlights */}
+          <div className="flex flex-wrap justify-center gap-4 mb-10 animate-fade-in delay-300">
+            {highlights.map((item, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-2 text-sm text-muted-foreground"
+              >
+                <Check className="w-4 h-4 text-accent" />
+                <span>{item}</span>
               </div>
+            ))}
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in delay-400">
+            <Button
+              size="lg"
+              onClick={scrollToContact}
+              className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20 px-8 py-6 text-base font-medium group"
+            >
+              Start Your Project
+              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={scrollToAbout}
+              className="w-full sm:w-auto border-2 border-border hover:border-primary/50 hover:bg-primary/5 px-8 py-6 text-base"
+            >
+              Learn More
+            </Button>
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-3 gap-8 max-w-lg mx-auto mt-16 pt-12 border-t border-border animate-fade-in delay-500">
+            <div className="text-center">
+              <p className="text-3xl md:text-4xl font-bold text-foreground">500+</p>
+              <p className="text-sm text-muted-foreground mt-1">Clients</p>
+            </div>
+            <div className="text-center">
+              <p className="text-3xl md:text-4xl font-bold text-foreground">500+</p>
+              <p className="text-sm text-muted-foreground mt-1">Projects</p>
+            </div>
+            <div className="text-center">
+              <p className="text-3xl md:text-4xl font-bold text-foreground">5+</p>
+              <p className="text-sm text-muted-foreground mt-1">Years</p>
             </div>
           </div>
         </div>
@@ -155,8 +102,8 @@ export const Hero = () => {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center items-start p-2">
-          <div className="w-1 h-3 bg-primary/50 rounded-full animate-pulse" />
+        <div className="w-6 h-10 border-2 border-border rounded-full flex justify-center pt-2">
+          <div className="w-1 h-2 bg-muted-foreground rounded-full" />
         </div>
       </div>
     </section>
