@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
+import { Menu } from 'lucide-react'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger, SheetClose } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -74,30 +74,30 @@ export const Header = () => {
           : 'bg-transparent'
       )}
     >
-      <div className="container mx-auto">
-        <div className="flex items-center justify-between h-16 md:h-20">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6">
+        <div className="flex items-center justify-between h-14 sm:h-16 md:h-18 lg:h-20">
           {/* Logo */}
           <button
             onClick={() => handleNavigation('home', false)}
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-2 sm:gap-3 group"
           >
             <img
               src="/logo.png"
               alt="RGSK Technologies"
-              className="h-10 w-10 md:h-12 md:w-12 rounded-xl object-cover shadow-sm group-hover:scale-105 transition-transform duration-300"
+              className="h-8 w-8 sm:h-10 sm:w-10 md:h-11 md:w-11 lg:h-12 lg:w-12 rounded-lg sm:rounded-xl object-cover shadow-sm group-hover:scale-105 transition-transform duration-300"
             />
             <div className="flex flex-col">
-              <span className="text-lg md:text-xl font-bold text-foreground">
+              <span className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-foreground leading-tight">
                 RGSK <span className="text-primary">Technologies</span>
               </span>
-              <span className="text-xs text-muted-foreground hidden sm:block">
+              <span className="text-2xs sm:text-xs text-muted-foreground hidden xs:block">
                 Digital Solutions
               </span>
             </div>
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1">
             {navItems.map((item) => {
               const isActive = activeSection === item.id && location.pathname === '/'
               return (
@@ -105,7 +105,7 @@ export const Header = () => {
                   key={item.id}
                   onClick={() => handleNavigation(item.id, item.isRoute)}
                   className={cn(
-                    'relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg',
+                    'relative px-3 xl:px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg',
                     isActive
                       ? 'text-primary'
                       : 'text-muted-foreground hover:text-foreground'
@@ -120,7 +120,7 @@ export const Header = () => {
             })}
             <Button
               onClick={() => handleNavigation('contact', false)}
-              className="ml-4 bg-primary text-primary-foreground hover:bg-primary/90 shadow-md"
+              className="ml-3 xl:ml-4 bg-primary text-primary-foreground hover:bg-primary/90 shadow-md text-sm px-4 xl:px-6"
             >
               Get Started
             </Button>
@@ -130,29 +130,29 @@ export const Header = () => {
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <button
-                className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-muted transition-colors"
+                className="lg:hidden w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-lg hover:bg-muted transition-colors"
                 aria-label="Toggle menu"
               >
                 <Menu className="w-5 h-5 text-foreground" />
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-80 bg-background border-border">
+            <SheetContent side="right" className="w-[280px] sm:w-80 bg-background border-border">
               <SheetHeader>
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                 <SheetDescription className="sr-only">
                   Navigate through different sections
                 </SheetDescription>
               </SheetHeader>
-              <div className="flex flex-col h-full pt-8">
-                <div className="flex items-center gap-3 mb-8 pb-6 border-b border-border">
+              <div className="flex flex-col h-full pt-6 sm:pt-8">
+                <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8 pb-4 sm:pb-6 border-b border-border">
                   <img
                     src="/logo.png"
                     alt="RGSK Technologies"
-                    className="h-12 w-12 rounded-xl object-cover"
+                    className="h-10 w-10 sm:h-12 sm:w-12 rounded-lg sm:rounded-xl object-cover"
                   />
                   <div>
-                    <h2 className="font-bold text-foreground">RGSK Technologies</h2>
-                    <p className="text-sm text-muted-foreground">Digital Solutions</p>
+                    <h2 className="font-bold text-foreground text-sm sm:text-base">RGSK Technologies</h2>
+                    <p className="text-xs sm:text-sm text-muted-foreground">Digital Solutions</p>
                   </div>
                 </div>
 
@@ -164,7 +164,7 @@ export const Header = () => {
                         <button
                           onClick={() => handleNavigation(item.id, item.isRoute)}
                           className={cn(
-                            'w-full flex items-center px-4 py-3 rounded-xl text-left transition-all duration-200',
+                            'w-full flex items-center px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl text-left transition-all duration-200 text-sm sm:text-base',
                             isActive
                               ? 'bg-primary/10 text-primary font-medium'
                               : 'text-muted-foreground hover:text-foreground hover:bg-muted'
@@ -177,11 +177,11 @@ export const Header = () => {
                   })}
                 </nav>
 
-                <div className="pt-6 border-t border-border">
+                <div className="pt-4 sm:pt-6 border-t border-border">
                   <SheetClose asChild>
                     <Button
                       onClick={() => handleNavigation('contact', false)}
-                      className="w-full bg-primary text-primary-foreground"
+                      className="w-full bg-primary text-primary-foreground text-sm sm:text-base py-2.5 sm:py-3"
                     >
                       Get Started
                     </Button>

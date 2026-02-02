@@ -5,7 +5,6 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { PWAInstallPrompt } from '@/components/PWAInstallPrompt'
-import { UpdateNotification } from '@/components/UpdateNotification'
 import Index from './pages/Index'
 import Portfolio from './pages/Portfolio'
 import TentDecorExpo from './pages/projects/TentDecorExpo'
@@ -20,7 +19,6 @@ const App = () => (
         <Toaster />
         <Sonner />
         <PWAInstallPrompt />
-        <UpdateNotification />
         <BrowserRouter future={{
           v7_startTransition: true,
           v7_relativeSplatPath: true
