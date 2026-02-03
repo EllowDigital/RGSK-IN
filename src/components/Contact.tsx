@@ -77,8 +77,12 @@ export const Contact = () => {
   ]
 
   return (
-    <section id="contact" className="section-padding bg-muted/30">
-      <div className="container">
+    <section id="contact" className="section-padding bg-muted/30 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+      
+      <div className="container relative z-10">
         {/* Section Header */}
         <div 
           ref={headerRef}
@@ -87,7 +91,10 @@ export const Contact = () => {
             headerVisible ? "scroll-visible" : "scroll-hidden"
           )}
         >
-          <span className="text-xs sm:text-sm font-medium text-accent uppercase tracking-wider">Get In Touch</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full mb-4">
+            <Mail className="w-4 h-4 text-primary" />
+            <span className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wider">Get In Touch</span>
+          </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mt-2 sm:mt-3 mb-3 sm:mb-4">
             Let's Work
             <span className="text-primary"> Together</span>
@@ -108,7 +115,7 @@ export const Contact = () => {
               contentVisible ? "scroll-visible-left" : "scroll-hidden-left"
             )}
           >
-            <div className="bg-card rounded-xl sm:rounded-2xl border border-border p-5 sm:p-6 lg:p-8 shadow-lg">
+            <div className="bg-card rounded-2xl sm:rounded-3xl border border-border p-5 sm:p-6 lg:p-8 shadow-xl">
               <h3 className="text-lg sm:text-xl font-semibold mb-5 sm:mb-6">Contact Information</h3>
               <div className="space-y-5 sm:space-y-6">
                 {contactInfo.map((item, index) => (
@@ -119,8 +126,8 @@ export const Contact = () => {
                     rel={item.icon === MapPin ? 'noopener noreferrer' : undefined}
                     className="flex items-start gap-3 sm:gap-4 group"
                   >
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                      <item.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary to-primary/80 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform shadow-md">
+                      <item.icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                     </div>
                     <div className="min-w-0">
                       <p className="text-xs sm:text-sm text-muted-foreground">{item.title}</p>
@@ -142,7 +149,7 @@ export const Contact = () => {
             )}
             style={{ transitionDelay: '100ms' }}
           >
-            <div className="bg-card rounded-xl sm:rounded-2xl border border-border p-5 sm:p-6 lg:p-8 shadow-lg">
+            <div className="bg-card rounded-2xl sm:rounded-3xl border border-border p-5 sm:p-6 lg:p-8 shadow-xl">
               <h3 className="text-lg sm:text-xl font-semibold mb-5 sm:mb-6">Send a Message</h3>
               <form
                 action="https://formsubmit.co/rgsktechnologies@gmail.com"

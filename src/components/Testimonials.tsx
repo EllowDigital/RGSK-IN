@@ -1,4 +1,4 @@
-import { Star, Quote } from 'lucide-react'
+import { Star, Quote, MessageSquare } from 'lucide-react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { cn } from '@/lib/utils'
 
@@ -30,8 +30,12 @@ export const Testimonials = () => {
   const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation()
 
   return (
-    <section className="section-padding bg-muted/30">
-      <div className="container">
+    <section className="section-padding bg-muted/30 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
+      
+      <div className="container relative z-10">
         {/* Section Header */}
         <div 
           ref={headerRef}
@@ -40,7 +44,10 @@ export const Testimonials = () => {
             headerVisible ? "scroll-visible" : "scroll-hidden"
           )}
         >
-          <span className="text-xs sm:text-sm font-medium text-accent uppercase tracking-wider">Testimonials</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full mb-4">
+            <MessageSquare className="w-4 h-4 text-primary" />
+            <span className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wider">Testimonials</span>
+          </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mt-2 sm:mt-3 mb-3 sm:mb-4">
             What Our Clients
             <span className="text-primary"> Say</span>
@@ -59,31 +66,33 @@ export const Testimonials = () => {
             <div
               key={index}
               className={cn(
-                "group relative bg-card rounded-xl sm:rounded-2xl border border-border p-5 sm:p-6 lg:p-8 hover:border-primary/30 transition-all duration-300 hover-lift",
+                "group relative bg-card rounded-2xl sm:rounded-3xl border border-border p-5 sm:p-6 lg:p-8 hover:border-primary/40 transition-all duration-300 hover-lift",
                 gridVisible ? "scroll-visible" : "scroll-hidden"
               )}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               {/* Quote Icon */}
-              <Quote className="absolute top-4 right-4 sm:top-6 sm:right-6 w-8 h-8 sm:w-10 sm:h-10 text-muted-foreground/10" />
+              <div className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <Quote className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+              </div>
 
               {/* Rating */}
-              <div className="flex gap-0.5 sm:gap-1 mb-3 sm:mb-4">
+              <div className="flex gap-0.5 sm:gap-1 mb-4 sm:mb-5">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-accent text-accent" />
+                  <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-accent text-accent" />
                 ))}
               </div>
 
               {/* Testimonial Text */}
-              <p className="text-muted-foreground mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+              <p className="text-muted-foreground mb-5 sm:mb-6 leading-relaxed text-sm sm:text-base">
                 "{testimonial.text}"
               </p>
 
               {/* Author Info */}
-              <div className="border-t border-border pt-3 sm:pt-4">
-                <p className="font-semibold text-foreground text-sm sm:text-base">{testimonial.name}</p>
+              <div className="border-t border-border pt-4 sm:pt-5">
+                <p className="font-bold text-foreground text-sm sm:text-base">{testimonial.name}</p>
                 {testimonial.post && (
-                  <p className="text-xs sm:text-sm text-accent">{testimonial.post}</p>
+                  <p className="text-xs sm:text-sm text-accent font-medium">{testimonial.post}</p>
                 )}
                 <p className="text-xs sm:text-sm text-muted-foreground">{testimonial.company}</p>
               </div>
