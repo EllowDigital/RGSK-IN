@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, ArrowUp } from 'lucide-react'
+import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, ArrowUp, Globe } from 'lucide-react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { cn } from '@/lib/utils'
 
@@ -41,10 +41,15 @@ export const EnhancedFooter = () => {
   ]
 
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-gradient-to-b from-primary to-primary/95 text-primary-foreground relative overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(0_0%_100%/0.03)_1px,transparent_1px),linear-gradient(to_bottom,hsl(0_0%_100%/0.03)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+      <div className="absolute top-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+      
       <div 
         ref={ref}
-        className="container py-12 sm:py-14 lg:py-16"
+        className="container py-12 sm:py-14 lg:py-16 relative z-10"
       >
         <div 
           className={cn(
@@ -54,15 +59,20 @@ export const EnhancedFooter = () => {
         >
           {/* Company Info */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-              <img
-                src="/logo.png"
-                alt="RGSK Technologies"
-                className="h-8 w-8 sm:h-10 sm:w-10 rounded-lg object-cover"
-              />
-              <span className="text-lg sm:text-xl font-bold">RGSK Technologies</span>
+            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-5">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/10 flex items-center justify-center backdrop-blur-sm">
+                <img
+                  src="/logo.png"
+                  alt="RGSK Technologies"
+                  className="h-7 w-7 sm:h-9 sm:w-9 rounded-lg object-cover"
+                />
+              </div>
+              <div>
+                <span className="text-lg sm:text-xl font-bold block">RGSK Technologies</span>
+                <span className="text-xs text-primary-foreground/60">Digital Solutions</span>
+              </div>
             </div>
-            <p className="text-primary-foreground/70 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+            <p className="text-primary-foreground/70 mb-5 sm:mb-6 leading-relaxed text-sm sm:text-base">
               Empowering businesses with innovative digital solutions and cutting-edge technology.
             </p>
             <div className="flex gap-2 sm:gap-3">
@@ -72,10 +82,10 @@ export const EnhancedFooter = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 sm:w-10 sm:h-10 bg-primary-foreground/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors"
+                  className="w-10 h-10 sm:w-11 sm:h-11 bg-white/10 hover:bg-accent rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-105 backdrop-blur-sm"
                   aria-label={social.label}
                 >
-                  <social.icon className="w-4 h-4" />
+                  <social.icon className="w-4 h-4 sm:w-5 sm:h-5" />
                 </a>
               ))}
             </div>
@@ -83,13 +93,16 @@ export const EnhancedFooter = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-base sm:text-lg font-semibold mb-4 sm:mb-5">Quick Links</h4>
-            <ul className="space-y-2 sm:space-y-3">
+            <h4 className="text-base sm:text-lg font-bold mb-4 sm:mb-5 flex items-center gap-2">
+              <Globe className="w-4 h-4 text-accent" />
+              Quick Links
+            </h4>
+            <ul className="space-y-2.5 sm:space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <button
                     onClick={() => scrollToSection(link.id)}
-                    className="text-primary-foreground/70 hover:text-accent transition-colors text-sm sm:text-base"
+                    className="text-primary-foreground/70 hover:text-accent transition-all duration-300 text-sm sm:text-base hover:translate-x-1 inline-block"
                   >
                     {link.label}
                   </button>
@@ -100,13 +113,16 @@ export const EnhancedFooter = () => {
 
           {/* Services */}
           <div>
-            <h4 className="text-base sm:text-lg font-semibold mb-4 sm:mb-5">Our Services</h4>
-            <ul className="space-y-2 sm:space-y-3">
+            <h4 className="text-base sm:text-lg font-bold mb-4 sm:mb-5 flex items-center gap-2">
+              <Globe className="w-4 h-4 text-accent" />
+              Our Services
+            </h4>
+            <ul className="space-y-2.5 sm:space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
                   <button
                     onClick={() => scrollToSection('services')}
-                    className="text-primary-foreground/70 hover:text-accent transition-colors text-sm sm:text-base"
+                    className="text-primary-foreground/70 hover:text-accent transition-all duration-300 text-sm sm:text-base hover:translate-x-1 inline-block"
                   >
                     {service}
                   </button>
@@ -117,10 +133,15 @@ export const EnhancedFooter = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-base sm:text-lg font-semibold mb-4 sm:mb-5">Contact Info</h4>
+            <h4 className="text-base sm:text-lg font-bold mb-4 sm:mb-5 flex items-center gap-2">
+              <Globe className="w-4 h-4 text-accent" />
+              Contact Info
+            </h4>
             <ul className="space-y-3 sm:space-y-4">
-              <li className="flex items-start gap-2 sm:gap-3">
-                <Phone className="w-4 h-4 mt-0.5 sm:mt-1 text-accent flex-shrink-0" />
+              <li className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-4 h-4 text-accent" />
+                </div>
                 <div className="text-primary-foreground/70 text-xs sm:text-sm">
                   <a href="tel:7054466111" className="hover:text-accent transition-colors block">
                     7054466111
@@ -130,8 +151,10 @@ export const EnhancedFooter = () => {
                   </a>
                 </div>
               </li>
-              <li className="flex items-start gap-2 sm:gap-3">
-                <Mail className="w-4 h-4 mt-0.5 sm:mt-1 text-accent flex-shrink-0" />
+              <li className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-4 h-4 text-accent" />
+                </div>
                 <a
                   href="mailto:rgsktechnologies@gmail.com"
                   className="text-primary-foreground/70 text-xs sm:text-sm hover:text-accent transition-colors break-all"
@@ -139,8 +162,10 @@ export const EnhancedFooter = () => {
                   rgsktechnologies@gmail.com
                 </a>
               </li>
-              <li className="flex items-start gap-2 sm:gap-3">
-                <MapPin className="w-4 h-4 mt-0.5 sm:mt-1 text-accent flex-shrink-0" />
+              <li className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-4 h-4 text-accent" />
+                </div>
                 <a
                   href={googleMapsUrl}
                   target="_blank"
@@ -156,7 +181,7 @@ export const EnhancedFooter = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-primary-foreground/10">
+      <div className="border-t border-white/10 relative z-10">
         <div className="container py-4 sm:py-6 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
           <p className="text-primary-foreground/60 text-xs sm:text-sm text-center sm:text-left">
             © 2025 RGSK Technologies. All Rights Reserved. Made with ❤️ by{' '}
@@ -164,7 +189,7 @@ export const EnhancedFooter = () => {
               href="https://ellowdigital.netlify.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-accent hover:underline"
+              className="text-accent hover:underline font-medium"
             >
               EllowDigital
             </a>
@@ -172,10 +197,10 @@ export const EnhancedFooter = () => {
 
           <button
             onClick={scrollToTop}
-            className="w-9 h-9 sm:w-10 sm:h-10 bg-accent rounded-lg flex items-center justify-center hover:bg-accent/90 transition-colors"
+            className="w-10 h-10 sm:w-11 sm:h-11 bg-accent rounded-xl flex items-center justify-center hover:bg-accent/90 transition-all duration-300 hover:scale-105 shadow-lg"
             aria-label="Scroll to top"
           >
-            <ArrowUp className="w-4 h-4 text-accent-foreground" />
+            <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5 text-accent-foreground" />
           </button>
         </div>
       </div>

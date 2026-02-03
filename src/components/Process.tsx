@@ -1,4 +1,4 @@
-import { Lightbulb, FileSearch, Code, Rocket, CheckCircle } from 'lucide-react'
+import { Lightbulb, FileSearch, Code, Rocket, CheckCircle, Settings } from 'lucide-react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { cn } from '@/lib/utils'
 
@@ -9,6 +9,7 @@ const processSteps = [
     title: 'Discovery & Planning',
     description: 'We understand your business goals and project requirements through detailed consultation.',
     features: ['Requirement Analysis', 'Market Research', 'Project Roadmap'],
+    color: 'bg-primary',
   },
   {
     icon: FileSearch,
@@ -16,6 +17,7 @@ const processSteps = [
     title: 'Design & Prototyping',
     description: 'Our creative team crafts intuitive designs and interactive prototypes.',
     features: ['UI/UX Design', 'Wireframing', 'Prototype Creation'],
+    color: 'bg-accent',
   },
   {
     icon: Code,
@@ -23,6 +25,7 @@ const processSteps = [
     title: 'Development',
     description: 'Expert developers transform designs into robust, scalable solutions.',
     features: ['Clean Code', 'Agile Development', 'Quality Assurance'],
+    color: 'bg-primary',
   },
   {
     icon: Rocket,
@@ -30,6 +33,7 @@ const processSteps = [
     title: 'Testing & Launch',
     description: 'Rigorous testing ensures flawless performance before deployment.',
     features: ['Cross-browser Testing', 'Performance Optimization', 'Deployment'],
+    color: 'bg-accent',
   },
   {
     icon: CheckCircle,
@@ -37,6 +41,7 @@ const processSteps = [
     title: 'Support & Maintenance',
     description: 'Continuous support and updates to keep your project running smoothly.',
     features: ['24/7 Support', 'Regular Updates', 'Performance Monitoring'],
+    color: 'bg-primary',
   },
 ]
 
@@ -45,8 +50,12 @@ export const Process = () => {
   const { ref: stepsRef, isVisible: stepsVisible } = useScrollAnimation()
 
   return (
-    <section id="process" className="section-padding">
-      <div className="container">
+    <section id="process" className="section-padding relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2" />
+      <div className="absolute top-1/2 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -translate-y-1/2" />
+      
+      <div className="container relative z-10">
         {/* Section Header */}
         <div 
           ref={headerRef}
@@ -55,7 +64,10 @@ export const Process = () => {
             headerVisible ? "scroll-visible" : "scroll-hidden"
           )}
         >
-          <span className="text-xs sm:text-sm font-medium text-accent uppercase tracking-wider">Our Process</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full mb-4">
+            <Settings className="w-4 h-4 text-primary" />
+            <span className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wider">Our Process</span>
+          </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mt-2 sm:mt-3 mb-3 sm:mb-4">
             How We
             <span className="text-primary"> Work</span>
@@ -82,32 +94,34 @@ export const Process = () => {
               >
                 {/* Timeline */}
                 <div className="hidden sm:flex flex-col items-center">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center text-primary font-bold text-sm sm:text-base group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full ${step.color} flex items-center justify-center text-white font-bold text-sm sm:text-base group-hover:scale-110 transition-all shadow-lg`}>
                     {step.number}
                   </div>
                   {index < processSteps.length - 1 && (
-                    <div className="w-0.5 flex-1 bg-border mt-2" />
+                    <div className="w-0.5 flex-1 bg-gradient-to-b from-border to-transparent mt-2" />
                   )}
                 </div>
 
                 {/* Content Card */}
                 <div className="flex-1 pb-4 sm:pb-6">
-                  <div className="bg-card rounded-xl sm:rounded-2xl border border-border p-4 sm:p-6 hover:border-primary/30 transition-all duration-300 hover-lift">
+                  <div className="bg-card rounded-2xl sm:rounded-3xl border border-border p-4 sm:p-6 hover:border-primary/40 transition-all duration-300 hover-lift">
                     <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                      <div className="sm:hidden w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                        <span className="text-xs sm:text-sm font-bold text-primary">{step.number}</span>
+                      <div className={`sm:hidden w-10 h-10 rounded-lg ${step.color} flex items-center justify-center`}>
+                        <span className="text-xs font-bold text-white">{step.number}</span>
                       </div>
-                      <step.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-                      <h3 className="text-base sm:text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                      <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg ${step.color}/10 flex items-center justify-center`}>
+                        <step.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                      </div>
+                      <h3 className="text-base sm:text-lg font-bold text-foreground group-hover:text-primary transition-colors">
                         {step.title}
                       </h3>
                     </div>
-                    <p className="text-muted-foreground mb-3 sm:mb-4 text-sm sm:text-base">{step.description}</p>
+                    <p className="text-muted-foreground mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">{step.description}</p>
                     <div className="flex flex-wrap gap-1.5 sm:gap-2">
                       {step.features.map((feature, i) => (
                         <span
                           key={i}
-                          className="inline-flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 bg-muted rounded-full text-2xs sm:text-xs text-muted-foreground"
+                          className="inline-flex items-center gap-1 px-2.5 sm:px-3 py-1 sm:py-1.5 bg-muted rounded-full text-2xs sm:text-xs font-medium text-muted-foreground"
                         >
                           <div className="w-1 h-1 rounded-full bg-accent" />
                           {feature}

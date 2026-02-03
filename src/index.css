@@ -2,82 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Premium Modern Design System */
-/* Deep Navy + Warm Coral palette with elegant neutrals */
+/* RGSK Technologies Brand Design System */
+/* Forest Green + Vibrant Red palette matching brand identity */
 
 @layer base {
   :root {
-    /* Light Mode - Clean, Warm, Professional */
-    --background: 40 20% 99%;
-    --foreground: 220 25% 12%;
+    /* Light Mode - Clean, Professional, Brand-Aligned */
+    --background: 0 0% 99%;
+    --foreground: 150 15% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 25% 12%;
+    --card-foreground: 150 15% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 12%;
+    --popover-foreground: 150 15% 10%;
 
-    /* Deep Navy Primary */
-    --primary: 222 47% 25%;
+    /* Forest Green Primary - Matches RGSK Logo */
+    --primary: 152 55% 27%;
     --primary-foreground: 0 0% 100%;
 
-    /* Warm Coral Accent */
-    --accent: 12 76% 61%;
+    /* Vibrant Red Accent - Matches RGSK Logo */
+    --accent: 4 76% 55%;
     --accent-foreground: 0 0% 100%;
 
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 220 25% 12%;
+    --secondary: 150 10% 96%;
+    --secondary-foreground: 150 15% 10%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 150 10% 96%;
+    --muted-foreground: 150 5% 45%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 4 76% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 222 47% 25%;
+    --border: 150 10% 90%;
+    --input: 150 10% 90%;
+    --ring: 152 55% 27%;
 
     --radius: 0.75rem;
 
     /* Premium Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(220 25% 12% / 0.03);
-    --shadow-md: 0 4px 12px -2px hsl(220 25% 12% / 0.06), 0 2px 4px -2px hsl(220 25% 12% / 0.04);
-    --shadow-lg: 0 12px 32px -4px hsl(220 25% 12% / 0.08), 0 4px 12px -4px hsl(220 25% 12% / 0.04);
-    --shadow-xl: 0 24px 48px -12px hsl(220 25% 12% / 0.12);
+    --shadow-sm: 0 1px 2px 0 hsl(150 15% 10% / 0.03);
+    --shadow-md: 0 4px 12px -2px hsl(150 15% 10% / 0.06), 0 2px 4px -2px hsl(150 15% 10% / 0.04);
+    --shadow-lg: 0 12px 32px -4px hsl(150 15% 10% / 0.08), 0 4px 12px -4px hsl(150 15% 10% / 0.04);
+    --shadow-xl: 0 24px 48px -12px hsl(150 15% 10% / 0.12);
   }
 
   .dark {
-    /* Dark Mode - Deep, Rich, Sophisticated */
-    --background: 222 30% 8%;
-    --foreground: 220 14% 96%;
+    /* Dark Mode - Rich, Sophisticated, Brand-Aligned */
+    --background: 150 20% 6%;
+    --foreground: 150 10% 96%;
 
-    --card: 222 25% 12%;
-    --card-foreground: 220 14% 96%;
+    --card: 150 18% 10%;
+    --card-foreground: 150 10% 96%;
 
-    --popover: 222 25% 12%;
-    --popover-foreground: 220 14% 96%;
+    --popover: 150 18% 10%;
+    --popover-foreground: 150 10% 96%;
 
-    /* Navy primary stays consistent */
-    --primary: 215 70% 60%;
-    --primary-foreground: 222 30% 8%;
+    /* Forest Green primary - brighter for dark mode */
+    --primary: 152 60% 42%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Coral accent */
-    --accent: 12 76% 61%;
+    /* Vibrant Red accent */
+    --accent: 4 76% 55%;
     --accent-foreground: 0 0% 100%;
 
-    --secondary: 222 20% 16%;
-    --secondary-foreground: 220 14% 96%;
+    --secondary: 150 15% 14%;
+    --secondary-foreground: 150 10% 96%;
 
-    --muted: 222 20% 16%;
-    --muted-foreground: 220 9% 60%;
+    --muted: 150 15% 14%;
+    --muted-foreground: 150 5% 55%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 4 76% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 222 20% 18%;
-    --input: 222 20% 18%;
-    --ring: 215 70% 60%;
+    --border: 150 15% 16%;
+    --input: 150 15% 16%;
+    --ring: 152 60% 42%;
 
     --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.2);
     --shadow-md: 0 4px 12px -2px hsl(0 0% 0% / 0.3);
