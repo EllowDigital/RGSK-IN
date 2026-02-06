@@ -10,6 +10,8 @@ import {
 import { Button } from '@/components/ui/button'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { cn } from '@/lib/utils'
+import { useContentLoading } from '@/hooks/useContentLoading'
+import { CardSkeleton } from '@/components/ui/skeletons'
 
 const services = [
   {
@@ -52,6 +54,7 @@ const services = [
 export const Services = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation()
   const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation()
+  const { isReady } = useContentLoading({ minDelay: 400 })
 
   const scrollToContact = () => {
     const element = document.getElementById('contact')
@@ -93,45 +96,53 @@ export const Services = () => {
           ref={gridRef}
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-10 sm:mb-12"
         >
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className={cn(
-                "group relative p-5 sm:p-6 lg:p-8 bg-card rounded-2xl sm:rounded-3xl border border-border hover:border-primary/40 transition-all duration-500 hover-lift overflow-hidden",
-                gridVisible ? "scroll-visible" : "scroll-hidden"
-              )}
-              style={{ transitionDelay: `${index * 80}ms` }}
-            >
-              {/* Gradient Background */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-              
-              {/* Icon */}
-              <div className="relative w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary to-primary/80 rounded-xl sm:rounded-2xl flex items-center justify-center mb-5 sm:mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg shadow-primary/20">
-                <service.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary-foreground" />
-              </div>
+          {!isReady ? (
+            <>
+              {Array.from({ length: 5 }).map((_, i) => (
+                <CardSkeleton key={i} />
+              ))}
+            </>
+          ) : (
+            services.map((service, index) => (
+              <div
+                key={index}
+                className={cn(
+                  "group relative p-5 sm:p-6 lg:p-8 bg-card rounded-2xl sm:rounded-3xl border border-border hover:border-primary/40 transition-all duration-500 hover-lift overflow-hidden animate-content-reveal",
+                  gridVisible ? "scroll-visible" : "scroll-hidden"
+                )}
+                style={{ transitionDelay: `${index * 80}ms`, animationDelay: `${index * 80}ms` }}
+              >
+                {/* Gradient Background */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                
+                {/* Icon */}
+                <div className="relative w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary to-primary/80 rounded-xl sm:rounded-2xl flex items-center justify-center mb-5 sm:mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg shadow-primary/20">
+                  <service.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary-foreground" />
+                </div>
 
-              {/* Content */}
-              <h3 className="relative text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-foreground group-hover:text-primary transition-colors">
-                {service.title}
-              </h3>
-              <p className="relative text-muted-foreground mb-4 sm:mb-6 text-sm sm:text-base leading-relaxed">{service.description}</p>
+                {/* Content */}
+                <h3 className="relative text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-foreground group-hover:text-primary transition-colors">
+                  {service.title}
+                </h3>
+                <p className="relative text-muted-foreground mb-4 sm:mb-6 text-sm sm:text-base leading-relaxed">{service.description}</p>
 
-              {/* Features */}
-              <div className="relative space-y-2">
-                {service.features.map((feature, idx) => (
-                  <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm text-muted-foreground">
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
-                    <span>{feature}</span>
-                  </div>
-                ))}
-              </div>
+                {/* Features */}
+                <div className="relative space-y-2">
+                  {service.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
 
-              {/* Hover Arrow */}
-              <div className="absolute bottom-5 right-5 sm:bottom-8 sm:right-8 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1">
-                <ArrowRight className="w-4 h-4 text-primary" />
+                {/* Hover Arrow */}
+                <div className="absolute bottom-5 right-5 sm:bottom-8 sm:right-8 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1">
+                  <ArrowRight className="w-4 h-4 text-primary" />
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
 
         {/* CTA */}

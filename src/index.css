@@ -127,6 +127,21 @@
     animation: float 4s ease-in-out infinite;
   }
 
+  /* Shimmer animation for skeletons */
+  .animate-shimmer {
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+
+  /* Page enter animation */
+  .animate-page-enter {
+    animation: pageEnter 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Content reveal with blur */
+  .animate-content-reveal {
+    animation: contentReveal 0.5s ease-out forwards;
+  }
+
   /* Stagger delays */
   .delay-100 { animation-delay: 100ms; }
   .delay-200 { animation-delay: 200ms; }
@@ -162,6 +177,48 @@
     }
     50% {
       transform: translateY(-8px);
+    }
+  }
+
+  /* Skeleton shimmer effect */
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* Page enter animation */
+  @keyframes pageEnter {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Content reveal with blur effect */
+  @keyframes contentReveal {
+    from {
+      opacity: 0;
+      filter: blur(8px);
+    }
+    to {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
+  /* Preloader exit animation */
+  @keyframes preloaderExit {
+    to {
+      opacity: 0;
+      transform: scale(1.05);
     }
   }
 

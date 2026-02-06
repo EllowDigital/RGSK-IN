@@ -12,6 +12,7 @@ import { Contact } from '@/components/Contact'
 import { EnhancedFooter } from '@/components/EnhancedFooter'
 import { SEO } from '@/components/SEO'
 import { Preloader } from '@/components/Preloader'
+import { PageTransition } from '@/components/PageTransition'
 
 const Index = () => {
   return (
@@ -21,9 +22,15 @@ const Index = () => {
       <div className="min-h-screen">
         <Header />
         <main>
-          <Hero />
-          <About />
-          <Services />
+          <PageTransition delay={1300}>
+            <Hero />
+          </PageTransition>
+          <PageTransition delay={1400}>
+            <About />
+          </PageTransition>
+          <PageTransition delay={1500}>
+            <Services />
+          </PageTransition>
           <WhyChooseUs />
           <Process />
           <Stats />

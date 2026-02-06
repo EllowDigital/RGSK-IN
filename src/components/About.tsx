@@ -2,11 +2,14 @@ import { Target, Lightbulb, Users, Rocket, Shield, Heart } from 'lucide-react'
 import founderImage from '@/assets/founder.png'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { cn } from '@/lib/utils'
+import { useImageLoading } from '@/hooks/useContentLoading'
+import { ImageSkeleton } from '@/components/ui/skeletons'
 
 export const About = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation()
   const { ref: founderRef, isVisible: founderVisible } = useScrollAnimation()
   const { ref: valuesRef, isVisible: valuesVisible } = useScrollAnimation()
+  const { isLoaded: imageLoaded } = useImageLoading(founderImage)
 
   const values = [
     {
@@ -77,11 +80,17 @@ export const About = () => {
           
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center relative">
             <div className="relative order-2 md:order-1">
-              <div className="aspect-[4/5] rounded-xl sm:rounded-2xl overflow-hidden bg-muted max-w-sm mx-auto md:max-w-none shadow-lg">
+              <div className="aspect-[4/5] rounded-xl sm:rounded-2xl overflow-hidden bg-muted max-w-sm mx-auto md:max-w-none shadow-lg relative">
+                {!imageLoaded && (
+                  <ImageSkeleton aspectRatio="4/5" className="absolute inset-0 w-full h-full" />
+                )}
                 <img
                   src={founderImage}
                   alt="Er. Awanish Kannaujia - Founder & Director"
-                  className="w-full h-full object-cover"
+                  className={cn(
+                    "w-full h-full object-cover transition-opacity duration-500",
+                    imageLoaded ? "opacity-100" : "opacity-0"
+                  )}
                 />
               </div>
               {/* Decorative elements */}

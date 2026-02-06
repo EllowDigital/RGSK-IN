@@ -2,9 +2,12 @@ import { Button } from '@/components/ui/button'
 import { ArrowRight, Globe, Smartphone, Zap } from 'lucide-react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { cn } from '@/lib/utils'
+import { useContentLoading } from '@/hooks/useContentLoading'
+import { StatSkeleton } from '@/components/ui/skeletons'
 
 export const Hero = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 })
+  const { isReady } = useContentLoading({ minDelay: 200 })
 
   const scrollToContact = () => {
     const element = document.getElementById('contact')
@@ -132,18 +135,28 @@ export const Hero = () => {
             )}
             style={{ transitionDelay: '500ms' }}
           >
-            <div className="text-center group">
-              <p className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary group-hover:scale-105 transition-transform">500+</p>
-              <p className="text-xs sm:text-sm lg:text-base text-muted-foreground mt-1 font-medium">Happy Clients</p>
-            </div>
-            <div className="text-center group">
-              <p className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary group-hover:scale-105 transition-transform">500+</p>
-              <p className="text-xs sm:text-sm lg:text-base text-muted-foreground mt-1 font-medium">Projects Done</p>
-            </div>
-            <div className="text-center group">
-              <p className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary group-hover:scale-105 transition-transform">5+</p>
-              <p className="text-xs sm:text-sm lg:text-base text-muted-foreground mt-1 font-medium">Years of Trust</p>
-            </div>
+            {!isReady ? (
+              <>
+                <StatSkeleton />
+                <StatSkeleton />
+                <StatSkeleton />
+              </>
+            ) : (
+              <>
+                <div className="text-center group">
+                  <p className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary group-hover:scale-105 transition-transform animate-content-reveal">500+</p>
+                  <p className="text-xs sm:text-sm lg:text-base text-muted-foreground mt-1 font-medium">Happy Clients</p>
+                </div>
+                <div className="text-center group">
+                  <p className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary group-hover:scale-105 transition-transform animate-content-reveal" style={{ animationDelay: '100ms' }}>500+</p>
+                  <p className="text-xs sm:text-sm lg:text-base text-muted-foreground mt-1 font-medium">Projects Done</p>
+                </div>
+                <div className="text-center group">
+                  <p className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary group-hover:scale-105 transition-transform animate-content-reveal" style={{ animationDelay: '200ms' }}>5+</p>
+                  <p className="text-xs sm:text-sm lg:text-base text-muted-foreground mt-1 font-medium">Years of Trust</p>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
