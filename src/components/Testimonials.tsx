@@ -1,6 +1,8 @@
 import { Star, Quote, MessageSquare } from 'lucide-react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { cn } from '@/lib/utils'
+import { useContentLoading } from '@/hooks/useContentLoading'
+import { TestimonialSkeleton } from '@/components/ui/skeletons'
 
 const testimonials = [
   {
@@ -28,6 +30,7 @@ const testimonials = [
 export const Testimonials = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation()
   const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation()
+  const { isReady } = useContentLoading({ minDelay: 300 })
 
   return (
     <section className="section-padding bg-muted/30 relative overflow-hidden">
@@ -62,42 +65,50 @@ export const Testimonials = () => {
           ref={gridRef}
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto"
         >
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className={cn(
-                "group relative bg-card rounded-2xl sm:rounded-3xl border border-border p-5 sm:p-6 lg:p-8 hover:border-primary/40 transition-all duration-300 hover-lift",
-                gridVisible ? "scroll-visible" : "scroll-hidden"
-              )}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              {/* Quote Icon */}
-              <div className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <Quote className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-              </div>
-
-              {/* Rating */}
-              <div className="flex gap-0.5 sm:gap-1 mb-4 sm:mb-5">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-accent text-accent" />
-                ))}
-              </div>
-
-              {/* Testimonial Text */}
-              <p className="text-muted-foreground mb-5 sm:mb-6 leading-relaxed text-sm sm:text-base">
-                "{testimonial.text}"
-              </p>
-
-              {/* Author Info */}
-              <div className="border-t border-border pt-4 sm:pt-5">
-                <p className="font-bold text-foreground text-sm sm:text-base">{testimonial.name}</p>
-                {testimonial.post && (
-                  <p className="text-xs sm:text-sm text-accent font-medium">{testimonial.post}</p>
+          {!isReady ? (
+            <>
+              {Array.from({ length: 3 }).map((_, i) => (
+                <TestimonialSkeleton key={i} />
+              ))}
+            </>
+          ) : (
+            testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className={cn(
+                  "group relative bg-card rounded-2xl sm:rounded-3xl border border-border p-5 sm:p-6 lg:p-8 hover:border-primary/40 transition-all duration-300 hover-lift animate-content-reveal",
+                  gridVisible ? "scroll-visible" : "scroll-hidden"
                 )}
-                <p className="text-xs sm:text-sm text-muted-foreground">{testimonial.company}</p>
+                style={{ transitionDelay: `${index * 100}ms`, animationDelay: `${index * 100}ms` }}
+              >
+                {/* Quote Icon */}
+                <div className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Quote className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                </div>
+
+                {/* Rating */}
+                <div className="flex gap-0.5 sm:gap-1 mb-4 sm:mb-5">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-accent text-accent" />
+                  ))}
+                </div>
+
+                {/* Testimonial Text */}
+                <p className="text-muted-foreground mb-5 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                  "{testimonial.text}"
+                </p>
+
+                {/* Author Info */}
+                <div className="border-t border-border pt-4 sm:pt-5">
+                  <p className="font-bold text-foreground text-sm sm:text-base">{testimonial.name}</p>
+                  {testimonial.post && (
+                    <p className="text-xs sm:text-sm text-accent font-medium">{testimonial.post}</p>
+                  )}
+                  <p className="text-xs sm:text-sm text-muted-foreground">{testimonial.company}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
     </section>
