@@ -1,7 +1,24 @@
+# RGSK Technologies Pvt Ltd - robots.txt
+# Website: https://rgsktechnologies.in
+
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
 Allow: /
 
 User-agent: Twitterbot
@@ -10,7 +27,20 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
+User-agent: LinkedInBot
 Allow: /
 
-Sitemap: https://rgsktechnologies.netlify.app/sitemap.xml
+User-agent: WhatsApp
+Allow: /
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+
+# Sitemap location
+Sitemap: https://rgsktechnologies.in/sitemap.xml
+
+# Host directive
+Host: https://rgsktechnologies.in
