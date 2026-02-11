@@ -1,1 +1,6 @@
+# Redirect Netlify subdomain to custom domain
+https://rgsktechnologies.netlify.app/* https://rgsktechnologies.in/:splat 301!
+http://rgsktechnologies.netlify.app/* https://rgsktechnologies.in/:splat 301!
+
+# SPA fallback
 /*    /index.html   200
