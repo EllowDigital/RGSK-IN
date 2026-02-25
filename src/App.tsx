@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { PWAInstallPrompt } from '@/components/PWAInstallPrompt'
 import Index from './pages/Index'
+import Blog from './pages/Blog'
+import BlogPost from './pages/BlogPost'
 import Portfolio from './pages/Portfolio'
 import TentDecorExpo from './pages/projects/TentDecorExpo'
 import NotFound from './pages/NotFound'
@@ -25,9 +27,10 @@ const App = () => (
         }}>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             {/* <Route path="/portfolio" element={<Portfolio />} /> */}
             {/* <Route path="/projects/tent-decor-expo" element={<TentDecorExpo />} /> */}
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

@@ -8,6 +8,7 @@ import { Stats } from '@/components/Stats'
 import { Portfolio } from '@/components/Portfolio'
 import { Testimonials } from '@/components/Testimonials'
 import { CTA } from '@/components/CTA'
+import { BlogPreview } from '@/components/BlogPreview'
 import { Contact } from '@/components/Contact'
 import { EnhancedFooter } from '@/components/EnhancedFooter'
 import { SEO } from '@/components/SEO'
@@ -36,6 +37,7 @@ const Index = () => {
           <Stats />
           {/* <Portfolio /> */}
           <Testimonials />
+          <BlogPreview />
           <CTA />
           <Contact />
         </main>
