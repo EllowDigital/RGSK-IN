@@ -9,6 +9,7 @@ import { Portfolio } from '@/components/Portfolio'
 import { Testimonials } from '@/components/Testimonials'
 import { CTA } from '@/components/CTA'
 import { BlogPreview } from '@/components/BlogPreview'
+import { FAQ } from '@/components/FAQ'
 import { Contact } from '@/components/Contact'
 import { EnhancedFooter } from '@/components/EnhancedFooter'
 import { SEO } from '@/components/SEO'
@@ -38,6 +39,7 @@ const Index = () => {
           {/* <Portfolio /> */}
           <Testimonials />
           <BlogPreview />
+          <FAQ />
           <CTA />
           <Contact />
         </main>
