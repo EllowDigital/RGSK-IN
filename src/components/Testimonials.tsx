@@ -3,6 +3,7 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { cn } from '@/lib/utils'
 import { useContentLoading } from '@/hooks/useContentLoading'
 import { TestimonialSkeleton } from '@/components/ui/skeletons'
+import { Helmet } from 'react-helmet-async'
 
 const testimonials = [
   {
@@ -32,8 +33,49 @@ export const Testimonials = () => {
   const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation()
   const { isReady } = useContentLoading({ minDelay: 300 })
 
+  const reviewStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': 'https://rgsktechnologies.in/#localbusiness',
+    name: 'RGSK Technologies Pvt Ltd',
+    image: 'https://rgsktechnologies.in/logo.png',
+    url: 'https://rgsktechnologies.in',
+    telephone: '+91-7054466111',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'C-Block, Shivaji Market, near Eram College, Indira Nagar',
+      addressLocality: 'Lucknow',
+      addressRegion: 'Uttar Pradesh',
+      postalCode: '226016',
+      addressCountry: 'IN',
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5.0',
+      reviewCount: String(testimonials.length),
+      bestRating: '5',
+      worstRating: '1',
+    },
+    review: testimonials.map((t) => ({
+      '@type': 'Review',
+      author: { '@type': 'Person', name: t.name },
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: String(t.rating),
+        bestRating: '5',
+        worstRating: '1',
+      },
+      reviewBody: t.text,
+      publisher: { '@type': 'Organization', name: t.company },
+    })),
+  }
+
   return (
-    <section className="section-padding bg-muted/30 relative overflow-hidden">
+    <>
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(reviewStructuredData)}</script>
+      </Helmet>
+      <section className="section-padding bg-muted/30 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
@@ -112,5 +154,6 @@ export const Testimonials = () => {
         </div>
       </div>
     </section>
+    </>
   )
 }

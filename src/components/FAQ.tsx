@@ -50,6 +50,31 @@ const faqs = [
     answer:
       'Yes, SEO optimization is built into every website we develop. We implement on-page SEO, technical SEO, structured data markup, mobile optimization, page speed optimization, and content strategy. We also offer dedicated SEO services to help your website rank higher on Google for relevant keywords in your industry.',
   },
+  {
+    question: 'What payment methods does RGSK Technologies accept?',
+    answer:
+      'We accept multiple payment methods for your convenience including bank transfers (NEFT/RTGS/IMPS), UPI payments (Google Pay, PhonePe, Paytm), credit/debit cards, and online payment gateways. We offer flexible payment plans — typically 50% advance and 50% on project completion. For larger projects, milestone-based payment schedules are available.',
+  },
+  {
+    question: 'What is your refund policy?',
+    answer:
+      'RGSK Technologies follows a transparent refund policy. If we are unable to deliver the agreed-upon project scope, a full refund is provided. For partial work completed, refunds are calculated proportionally. We provide detailed project milestones upfront so both parties have clear expectations. Customer satisfaction is our top priority, and we work closely with clients to resolve any concerns before considering refunds.',
+  },
+  {
+    question: 'What is the typical project development process at RGSK Technologies?',
+    answer:
+      'Our development process follows 6 key phases: 1) Discovery & Consultation — understanding your requirements and goals, 2) Planning & Strategy — creating wireframes, project timelines, and technical architecture, 3) Design — UI/UX design with client approval, 4) Development — coding and building the solution using latest technologies, 5) Testing & QA — thorough quality assurance and bug fixing, 6) Launch & Support — deployment, training, and ongoing maintenance support.',
+  },
+  {
+    question: 'Do you provide custom software development for specific business needs?',
+    answer:
+      'Yes, we specialize in custom software development tailored to your unique business requirements. Whether you need a CRM system, inventory management, ERP solution, booking platform, or any industry-specific application, our experienced developers build scalable and secure solutions. We use modern technologies like React, Node.js, Python, and cloud platforms to deliver high-performance applications.',
+  },
+  {
+    question: 'How can I get a free consultation or project estimate from RGSK Technologies?',
+    answer:
+      'Getting a free consultation is easy! You can reach us through multiple channels: call or WhatsApp us at +91-7054466111, email us at rgsktechnologies@gmail.com, or fill out the contact form on our website. Our team will schedule a consultation within 24 hours to discuss your project requirements and provide a detailed estimate with timeline and pricing.',
+  },
 ]
 
 export const FAQ = () => {
