@@ -16,7 +16,8 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'why-your-business-needs-a-website-in-2026',
     title: 'Why Your Business Needs a Professional Website in 2026',
-    excerpt: 'In today\'s digital-first world, having a professional website is no longer optional. Learn why every business in Lucknow and India needs a strong online presence.',
+    excerpt:
+      "In today's digital-first world, having a professional website is no longer optional. Learn why every business in Lucknow and India needs a strong online presence.",
     content: `
 ## The Digital Imperative for Indian Businesses
 
@@ -51,12 +52,14 @@ At RGSK Technologies Pvt Ltd, we specialize in creating stunning, high-performan
     category: 'Web Development',
     tags: ['website', 'business', 'digital presence', 'Lucknow', 'web development'],
     metaTitle: 'Why Your Business Needs a Website in 2026 | RGSK Technologies Lucknow',
-    metaDescription: 'Discover why every business in Lucknow needs a professional website in 2026. RGSK Technologies explains the benefits of having a strong online presence.',
+    metaDescription:
+      'Discover why every business in Lucknow needs a professional website in 2026. RGSK Technologies explains the benefits of having a strong online presence.',
   },
   {
     slug: 'bulk-sms-marketing-guide-india',
     title: 'The Complete Guide to Bulk SMS Marketing in India',
-    excerpt: 'Bulk SMS remains one of the most effective marketing channels in India. Learn strategies, compliance tips, and best practices for successful SMS campaigns.',
+    excerpt:
+      'Bulk SMS remains one of the most effective marketing channels in India. Learn strategies, compliance tips, and best practices for successful SMS campaigns.',
     content: `
 ## Why Bulk SMS Marketing Still Works in India
 
@@ -96,12 +99,14 @@ We provide enterprise-grade bulk SMS services with high delivery rates, real-tim
     category: 'Digital Marketing',
     tags: ['bulk SMS', 'SMS marketing', 'digital marketing', 'India', 'TRAI compliance'],
     metaTitle: 'Complete Bulk SMS Marketing Guide India 2026 | RGSK Technologies',
-    metaDescription: 'Learn bulk SMS marketing strategies, TRAI compliance, and best practices for India. RGSK Technologies provides enterprise-grade SMS solutions in Lucknow.',
+    metaDescription:
+      'Learn bulk SMS marketing strategies, TRAI compliance, and best practices for India. RGSK Technologies provides enterprise-grade SMS solutions in Lucknow.',
   },
   {
     slug: 'whatsapp-marketing-business-growth',
     title: 'How WhatsApp Marketing Can 10x Your Business Growth',
-    excerpt: 'With over 500 million users in India, WhatsApp is the ultimate marketing platform. Learn how to leverage WhatsApp Business API for explosive growth.',
+    excerpt:
+      'With over 500 million users in India, WhatsApp is the ultimate marketing platform. Learn how to leverage WhatsApp Business API for explosive growth.',
     content: `
 ## WhatsApp: India's Most Powerful Marketing Channel
 
@@ -144,12 +149,14 @@ Our WhatsApp marketing solutions include bulk messaging, chatbot development, an
     category: 'Digital Marketing',
     tags: ['WhatsApp marketing', 'WhatsApp Business API', 'digital marketing', 'business growth'],
     metaTitle: 'WhatsApp Marketing Guide: 10x Business Growth | RGSK Technologies',
-    metaDescription: 'Learn how WhatsApp marketing can transform your business. RGSK Technologies offers bulk WhatsApp, chatbots, and campaign management in Lucknow, India.',
+    metaDescription:
+      'Learn how WhatsApp marketing can transform your business. RGSK Technologies offers bulk WhatsApp, chatbots, and campaign management in Lucknow, India.',
   },
   {
     slug: 'social-media-management-small-business',
     title: 'Social Media Management: A Complete Guide for Small Businesses',
-    excerpt: 'Master social media marketing for your small business. From content strategy to paid ads, learn everything you need to grow your brand online.',
+    excerpt:
+      'Master social media marketing for your small business. From content strategy to paid ads, learn everything you need to grow your brand online.',
     content: `
 ## Why Social Media Matters for Small Businesses
 
@@ -189,14 +196,23 @@ We offer complete social media management — from strategy development to conte
     date: '2026-02-05',
     readTime: '8 min read',
     category: 'Social Media',
-    tags: ['social media', 'small business', 'marketing', 'content strategy', 'Facebook', 'Instagram'],
+    tags: [
+      'social media',
+      'small business',
+      'marketing',
+      'content strategy',
+      'Facebook',
+      'Instagram',
+    ],
     metaTitle: 'Social Media Management Guide for Small Business | RGSK Technologies',
-    metaDescription: 'Complete social media management guide for small businesses. RGSK Technologies offers social media services including content creation and paid ads in Lucknow.',
+    metaDescription:
+      'Complete social media management guide for small businesses. RGSK Technologies offers social media services including content creation and paid ads in Lucknow.',
   },
   {
     slug: 'mobile-app-development-trends-2026',
     title: 'Top Mobile App Development Trends to Watch in 2026',
-    excerpt: 'Stay ahead of the curve with the latest mobile app development trends including AI integration, cross-platform frameworks, and progressive web apps.',
+    excerpt:
+      'Stay ahead of the curve with the latest mobile app development trends including AI integration, cross-platform frameworks, and progressive web apps.',
     content: `
 ## The Future of Mobile App Development
 
@@ -238,12 +254,14 @@ Whether you need a native app, cross-platform solution, or PWA, our experienced 
     category: 'App Development',
     tags: ['mobile app', 'app development', 'React Native', 'Flutter', 'PWA', 'AI'],
     metaTitle: 'Mobile App Development Trends 2026 | RGSK Technologies Lucknow',
-    metaDescription: 'Discover top mobile app development trends for 2026 including AI, cross-platform, and PWAs. RGSK Technologies builds custom mobile apps in Lucknow, India.',
+    metaDescription:
+      'Discover top mobile app development trends for 2026 including AI, cross-platform, and PWAs. RGSK Technologies builds custom mobile apps in Lucknow, India.',
   },
   {
     slug: 'voice-call-marketing-ivr-solutions',
     title: 'Voice Call Marketing & IVR Solutions: The Untapped Channel',
-    excerpt: 'Discover how automated voice calls and IVR systems can boost your customer engagement, lead generation, and support efficiency.',
+    excerpt:
+      'Discover how automated voice calls and IVR systems can boost your customer engagement, lead generation, and support efficiency.',
     content: `
 ## The Power of Voice in Digital Marketing
 
@@ -289,6 +307,7 @@ We offer comprehensive voice call marketing and IVR solutions, including campaig
     category: 'Marketing',
     tags: ['voice call', 'IVR', 'marketing', 'automation', 'customer engagement'],
     metaTitle: 'Voice Call Marketing & IVR Solutions India | RGSK Technologies',
-    metaDescription: 'Explore voice call marketing and IVR solutions for business growth. RGSK Technologies provides automated voice call services in Lucknow, India.',
+    metaDescription:
+      'Explore voice call marketing and IVR solutions for business growth. RGSK Technologies provides automated voice call services in Lucknow, India.',
   },
 ]

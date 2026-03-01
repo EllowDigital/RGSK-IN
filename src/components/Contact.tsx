@@ -81,19 +81,21 @@ export const Contact = () => {
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-      
+
       <div className="container relative z-10">
         {/* Section Header */}
-        <div 
+        <div
           ref={headerRef}
           className={cn(
-            "text-center mb-12 sm:mb-16 lg:mb-20",
-            headerVisible ? "scroll-visible" : "scroll-hidden"
+            'text-center mb-12 sm:mb-16 lg:mb-20',
+            headerVisible ? 'scroll-visible' : 'scroll-hidden'
           )}
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full mb-4">
             <Mail className="w-4 h-4 text-primary" />
-            <span className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wider">Get In Touch</span>
+            <span className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wider">
+              Get In Touch
+            </span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mt-2 sm:mt-3 mb-3 sm:mb-4">
             Let's Work
@@ -104,15 +106,12 @@ export const Contact = () => {
           </p>
         </div>
 
-        <div 
-          ref={contentRef}
-          className="grid lg:grid-cols-5 gap-6 sm:gap-8 max-w-6xl mx-auto"
-        >
+        <div ref={contentRef} className="grid lg:grid-cols-5 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {/* Contact Info */}
-          <div 
+          <div
             className={cn(
-              "lg:col-span-2 space-y-4 sm:space-y-6",
-              contentVisible ? "scroll-visible-left" : "scroll-hidden-left"
+              'lg:col-span-2 space-y-4 sm:space-y-6',
+              contentVisible ? 'scroll-visible-left' : 'scroll-hidden-left'
             )}
           >
             <div className="bg-card rounded-2xl sm:rounded-3xl border border-border p-5 sm:p-6 lg:p-8 shadow-xl">
@@ -142,10 +141,10 @@ export const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div 
+          <div
             className={cn(
-              "lg:col-span-3",
-              contentVisible ? "scroll-visible-right" : "scroll-hidden-right"
+              'lg:col-span-3',
+              contentVisible ? 'scroll-visible-right' : 'scroll-hidden-right'
             )}
             style={{ transitionDelay: '100ms' }}
           >

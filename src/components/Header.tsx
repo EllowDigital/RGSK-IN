@@ -1,7 +1,15 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { Menu } from 'lucide-react'
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger, SheetClose } from '@/components/ui/sheet'
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+  SheetTrigger,
+  SheetClose,
+} from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
@@ -17,7 +25,7 @@ export const Header = () => {
       setIsScrolled(window.scrollY > 20)
 
       const sections = ['home', 'about', 'services', 'contact']
-      const currentSection = sections.find(section => {
+      const currentSection = sections.find((section) => {
         const element = document.getElementById(section)
         if (element) {
           const rect = element.getBoundingClientRect()
@@ -110,9 +118,7 @@ export const Header = () => {
                   onClick={() => handleNavigation(item.id, item.isRoute)}
                   className={cn(
                     'relative px-3 xl:px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg',
-                    isActive
-                      ? 'text-primary'
-                      : 'text-muted-foreground hover:text-foreground'
+                    isActive ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
                   )}
                 >
                   {item.label}
@@ -155,7 +161,9 @@ export const Header = () => {
                     className="h-10 w-10 sm:h-12 sm:w-12 rounded-lg sm:rounded-xl object-cover"
                   />
                   <div>
-                    <h2 className="font-bold text-foreground text-sm sm:text-base">RGSK Technologies</h2>
+                    <h2 className="font-bold text-foreground text-sm sm:text-base">
+                      RGSK Technologies
+                    </h2>
                     <p className="text-xs sm:text-sm text-muted-foreground">Digital Solutions</p>
                   </div>
                 </div>

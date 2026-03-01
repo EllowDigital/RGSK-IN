@@ -46,7 +46,7 @@ const faqs = [
       'Absolutely! We provide comprehensive post-delivery support including bug fixes, security updates, performance optimization, and feature enhancements. Our 24/7 support team ensures your digital solutions run smoothly at all times. We also offer annual maintenance contracts for long-term partnerships.',
   },
   {
-    question: 'Can RGSK Technologies help improve my website\'s SEO and Google ranking?',
+    question: "Can RGSK Technologies help improve my website's SEO and Google ranking?",
     answer:
       'Yes, SEO optimization is built into every website we develop. We implement on-page SEO, technical SEO, structured data markup, mobile optimization, page speed optimization, and content strategy. We also offer dedicated SEO services to help your website rank higher on Google for relevant keywords in your industry.',
   },
@@ -130,10 +130,7 @@ export const FAQ = () => {
           {/* FAQ Accordion */}
           <div
             ref={faqRef}
-            className={cn(
-              'max-w-3xl mx-auto',
-              faqVisible ? 'scroll-visible' : 'scroll-hidden'
-            )}
+            className={cn('max-w-3xl mx-auto', faqVisible ? 'scroll-visible' : 'scroll-hidden')}
           >
             <Accordion type="single" collapsible className="space-y-3">
               {faqs.map((faq, index) => (

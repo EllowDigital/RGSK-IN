@@ -1,4 +1,14 @@
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, ArrowUp, Globe } from 'lucide-react'
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
+  ArrowUp,
+  Globe,
+} from 'lucide-react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { cn } from '@/lib/utils'
 
@@ -23,7 +33,11 @@ export const EnhancedFooter = () => {
     { icon: Facebook, href: 'https://www.facebook.com/rgsktech/', label: 'Facebook' },
     { icon: Twitter, href: 'https://x.com/rgsktech', label: 'Twitter' },
     { icon: Instagram, href: 'https://www.instagram.com/rgsktech/', label: 'Instagram' },
-    { icon: Linkedin, href: 'https://in.linkedin.com/in/awanish-kannaujia-946502141', label: 'LinkedIn' },
+    {
+      icon: Linkedin,
+      href: 'https://in.linkedin.com/in/awanish-kannaujia-946502141',
+      label: 'LinkedIn',
+    },
   ]
 
   const quickLinks = [
@@ -33,12 +47,7 @@ export const EnhancedFooter = () => {
     { label: 'Contact', id: 'contact' },
   ]
 
-  const services = [
-    'Web Development',
-    'Mobile Apps',
-    'Digital Marketing',
-    'UI/UX Design',
-  ]
+  const services = ['Web Development', 'Mobile Apps', 'Digital Marketing', 'UI/UX Design']
 
   return (
     <footer className="bg-gradient-to-b from-primary to-primary/95 text-primary-foreground relative overflow-hidden">
@@ -46,15 +55,12 @@ export const EnhancedFooter = () => {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(0_0%_100%/0.03)_1px,transparent_1px),linear-gradient(to_bottom,hsl(0_0%_100%/0.03)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       <div className="absolute top-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
-      
-      <div 
-        ref={ref}
-        className="container py-12 sm:py-14 lg:py-16 relative z-10"
-      >
-        <div 
+
+      <div ref={ref} className="container py-12 sm:py-14 lg:py-16 relative z-10">
+        <div
           className={cn(
-            "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-8",
-            isVisible ? "scroll-visible" : "scroll-hidden"
+            'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-8',
+            isVisible ? 'scroll-visible' : 'scroll-hidden'
           )}
         >
           {/* Company Info */}

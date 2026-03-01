@@ -11,9 +11,7 @@ interface UseContentLoadingReturn {
   setLoaded: () => void
 }
 
-export function useContentLoading(
-  options: UseContentLoadingOptions = {}
-): UseContentLoadingReturn {
+export function useContentLoading(options: UseContentLoadingOptions = {}): UseContentLoadingReturn {
   const { minDelay = 300, initialDelay = 0 } = options
   const [isLoading, setIsLoading] = useState(true)
   const [isReady, setIsReady] = useState(false)
@@ -24,10 +22,10 @@ export function useContentLoading(
     if (loadTriggered) {
       const elapsed = Date.now() - startTime
       const remainingDelay = Math.max(0, minDelay - elapsed)
-      
+
       const timer = setTimeout(() => {
         setIsLoading(false)
-        
+
         // Small delay before showing content for smooth transition
         setTimeout(() => {
           setIsReady(true)

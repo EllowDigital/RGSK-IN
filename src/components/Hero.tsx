@@ -30,61 +30,71 @@ export const Hero = () => {
   ]
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-16 sm:pt-20 overflow-hidden">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center pt-16 sm:pt-20 overflow-hidden"
+    >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-      
+      <div
+        className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float"
+        style={{ animationDelay: '2s' }}
+      />
+
       {/* Grid Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border)/0.3)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.3)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
 
       <div ref={ref} className="container relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28">
         <div className="max-w-5xl mx-auto text-center">
           {/* Badge */}
-          <div 
+          <div
             className={cn(
-              "inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-primary/10 border border-primary/20 rounded-full mb-6 sm:mb-8",
-              isVisible ? "scroll-visible" : "scroll-hidden"
+              'inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-primary/10 border border-primary/20 rounded-full mb-6 sm:mb-8',
+              isVisible ? 'scroll-visible' : 'scroll-hidden'
             )}
           >
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent"></span>
             </span>
-            <span className="text-xs sm:text-sm font-semibold text-primary">Trusted by 500+ Businesses</span>
+            <span className="text-xs sm:text-sm font-semibold text-primary">
+              Trusted by 500+ Businesses
+            </span>
           </div>
 
           {/* Main Heading */}
-          <h1 
+          <h1
             className={cn(
-              "text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 3xl:text-9xl font-bold tracking-tight mb-4 sm:mb-6",
-              isVisible ? "scroll-visible" : "scroll-hidden"
+              'text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 3xl:text-9xl font-bold tracking-tight mb-4 sm:mb-6',
+              isVisible ? 'scroll-visible' : 'scroll-hidden'
             )}
             style={{ transitionDelay: '100ms' }}
           >
             <span className="text-foreground">Transform Your</span>
             <br />
-            <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">Digital Vision</span>
+            <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
+              Digital Vision
+            </span>
           </h1>
 
           {/* Subheading */}
-          <p 
+          <p
             className={cn(
-              "text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8 sm:mb-10 px-2",
-              isVisible ? "scroll-visible" : "scroll-hidden"
+              'text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8 sm:mb-10 px-2',
+              isVisible ? 'scroll-visible' : 'scroll-hidden'
             )}
             style={{ transitionDelay: '200ms' }}
           >
-            RGSK Technologies delivers innovative web, mobile, and marketing solutions 
-            that drive growth and create lasting impact for your business.
+            RGSK Technologies delivers innovative web, mobile, and marketing solutions that drive
+            growth and create lasting impact for your business.
           </p>
 
           {/* Service Highlights */}
-          <div 
+          <div
             className={cn(
-              "flex flex-wrap justify-center gap-3 sm:gap-4 lg:gap-6 mb-8 sm:mb-10",
-              isVisible ? "scroll-visible" : "scroll-hidden"
+              'flex flex-wrap justify-center gap-3 sm:gap-4 lg:gap-6 mb-8 sm:mb-10',
+              isVisible ? 'scroll-visible' : 'scroll-hidden'
             )}
             style={{ transitionDelay: '300ms' }}
           >
@@ -102,10 +112,10 @@ export const Hero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div 
+          <div
             className={cn(
-              "flex flex-col xs:flex-row items-center justify-center gap-3 sm:gap-4",
-              isVisible ? "scroll-visible" : "scroll-hidden"
+              'flex flex-col xs:flex-row items-center justify-center gap-3 sm:gap-4',
+              isVisible ? 'scroll-visible' : 'scroll-hidden'
             )}
             style={{ transitionDelay: '400ms' }}
           >
@@ -128,10 +138,10 @@ export const Hero = () => {
           </div>
 
           {/* Stats */}
-          <div 
+          <div
             className={cn(
-              "grid grid-cols-3 gap-4 sm:gap-8 lg:gap-16 max-w-xs sm:max-w-lg lg:max-w-2xl mx-auto mt-12 sm:mt-16 lg:mt-20 pt-8 sm:pt-12 border-t border-border",
-              isVisible ? "scroll-visible" : "scroll-hidden"
+              'grid grid-cols-3 gap-4 sm:gap-8 lg:gap-16 max-w-xs sm:max-w-lg lg:max-w-2xl mx-auto mt-12 sm:mt-16 lg:mt-20 pt-8 sm:pt-12 border-t border-border',
+              isVisible ? 'scroll-visible' : 'scroll-hidden'
             )}
             style={{ transitionDelay: '500ms' }}
           >
@@ -144,16 +154,34 @@ export const Hero = () => {
             ) : (
               <>
                 <div className="text-center group">
-                  <p className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary group-hover:scale-105 transition-transform animate-content-reveal">500+</p>
-                  <p className="text-xs sm:text-sm lg:text-base text-muted-foreground mt-1 font-medium">Happy Clients</p>
+                  <p className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary group-hover:scale-105 transition-transform animate-content-reveal">
+                    500+
+                  </p>
+                  <p className="text-xs sm:text-sm lg:text-base text-muted-foreground mt-1 font-medium">
+                    Happy Clients
+                  </p>
                 </div>
                 <div className="text-center group">
-                  <p className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary group-hover:scale-105 transition-transform animate-content-reveal" style={{ animationDelay: '100ms' }}>500+</p>
-                  <p className="text-xs sm:text-sm lg:text-base text-muted-foreground mt-1 font-medium">Projects Done</p>
+                  <p
+                    className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary group-hover:scale-105 transition-transform animate-content-reveal"
+                    style={{ animationDelay: '100ms' }}
+                  >
+                    500+
+                  </p>
+                  <p className="text-xs sm:text-sm lg:text-base text-muted-foreground mt-1 font-medium">
+                    Projects Done
+                  </p>
                 </div>
                 <div className="text-center group">
-                  <p className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary group-hover:scale-105 transition-transform animate-content-reveal" style={{ animationDelay: '200ms' }}>5+</p>
-                  <p className="text-xs sm:text-sm lg:text-base text-muted-foreground mt-1 font-medium">Years of Trust</p>
+                  <p
+                    className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary group-hover:scale-105 transition-transform animate-content-reveal"
+                    style={{ animationDelay: '200ms' }}
+                  >
+                    5+
+                  </p>
+                  <p className="text-xs sm:text-sm lg:text-base text-muted-foreground mt-1 font-medium">
+                    Years of Trust
+                  </p>
                 </div>
               </>
             )}

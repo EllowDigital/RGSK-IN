@@ -1,4 +1,3 @@
-
 # Smooth Page Loading Animations and Skeleton Loaders
 
 This plan will enhance the user experience with polished loading states, smooth page transitions, and skeleton loaders that provide visual feedback while content loads.
@@ -8,6 +7,7 @@ This plan will enhance the user experience with polished loading states, smooth 
 ## Overview
 
 We'll implement:
+
 1. An enhanced preloader with smooth exit animation
 2. Page-level transition animations
 3. Reusable skeleton loader components for different content types
@@ -23,6 +23,7 @@ We'll implement:
 **File: `src/components/Preloader.tsx`**
 
 Upgrade the existing preloader with:
+
 - Smooth fade-out and scale animation when loading completes
 - Brand-aligned animated logo with pulse and glow effects
 - Progress indicator with animated gradient
@@ -41,6 +42,7 @@ Preloader Flow:
 **New File: `src/components/PageTransition.tsx`**
 
 Create a reusable wrapper that:
+
 - Wraps page content with entry/exit animations
 - Provides smooth fade-in on mount
 - Supports configurable animation duration and delay
@@ -52,16 +54,17 @@ Create a reusable wrapper that:
 
 Create specialized skeleton variants:
 
-| Skeleton Type | Use Case |
-|---------------|----------|
-| `TextSkeleton` | Paragraph text, headings |
-| `CardSkeleton` | Service cards, testimonial cards |
-| `ImageSkeleton` | Hero images, founder photo |
-| `StatSkeleton` | Statistics numbers |
-| `FormSkeleton` | Contact form fields |
+| Skeleton Type         | Use Case                            |
+| --------------------- | ----------------------------------- |
+| `TextSkeleton`        | Paragraph text, headings            |
+| `CardSkeleton`        | Service cards, testimonial cards    |
+| `ImageSkeleton`       | Hero images, founder photo          |
+| `StatSkeleton`        | Statistics numbers                  |
+| `FormSkeleton`        | Contact form fields                 |
 | `TestimonialSkeleton` | Full testimonial card loading state |
 
 Each skeleton will feature:
+
 - Shimmer animation effect (moving gradient)
 - Rounded corners matching the design system
 - Responsive sizing
@@ -76,25 +79,44 @@ Add new animation utilities:
 ```css
 /* Shimmer effect for skeletons */
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 /* Page fade in */
 @keyframes pageEnter {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Content reveal with blur */
 @keyframes contentReveal {
-  from { opacity: 0; filter: blur(10px); }
-  to { opacity: 1; filter: blur(0); }
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
 }
 
 /* Preloader exit */
 @keyframes preloaderExit {
-  to { opacity: 0; transform: scale(1.05); }
+  to {
+    opacity: 0;
+    transform: scale(1.05);
+  }
 }
 ```
 
@@ -103,6 +125,7 @@ Add new animation utilities:
 **New File: `src/hooks/useContentLoading.ts`**
 
 Create a hook to manage loading states:
+
 - Track when content is ready to display
 - Provide `isLoading` and `isReady` states
 - Support artificial minimum delay for consistent UX
@@ -112,20 +135,21 @@ Create a hook to manage loading states:
 
 **Updates to existing components:**
 
-| Component | Enhancement |
-|-----------|-------------|
-| `Hero.tsx` | Add staggered content reveal, skeleton for stats |
-| `About.tsx` | Image skeleton loader with shimmer |
-| `Services.tsx` | Card skeleton grid during initial load |
-| `Testimonials.tsx` | Testimonial card skeletons |
-| `Contact.tsx` | Form skeleton loader |
-| `Stats.tsx` | Number counter animation with skeleton fallback |
+| Component          | Enhancement                                      |
+| ------------------ | ------------------------------------------------ |
+| `Hero.tsx`         | Add staggered content reveal, skeleton for stats |
+| `About.tsx`        | Image skeleton loader with shimmer               |
+| `Services.tsx`     | Card skeleton grid during initial load           |
+| `Testimonials.tsx` | Testimonial card skeletons                       |
+| `Contact.tsx`      | Form skeleton loader                             |
+| `Stats.tsx`        | Number counter animation with skeleton fallback  |
 
 ### 7. Staggered Animation System
 
 **File: `src/hooks/useScrollAnimation.ts`**
 
 Enhance with:
+
 - Configurable stagger delays per item
 - Support for different animation variants
 - Intersection observer optimization
@@ -168,24 +192,24 @@ Enhance with:
 
 ## Files to Create
 
-| File | Purpose |
-|------|---------|
+| File                                | Purpose                           |
+| ----------------------------------- | --------------------------------- |
 | `src/components/PageTransition.tsx` | Page entry/exit animation wrapper |
-| `src/components/ui/skeletons.tsx` | All skeleton loader variants |
-| `src/hooks/useContentLoading.ts` | Loading state management |
+| `src/components/ui/skeletons.tsx`   | All skeleton loader variants      |
+| `src/hooks/useContentLoading.ts`    | Loading state management          |
 
 ## Files to Modify
 
-| File | Changes |
-|------|---------|
-| `src/components/Preloader.tsx` | Enhanced animations, smooth exit |
-| `src/index.css` | New animation keyframes and utilities |
-| `src/hooks/useScrollAnimation.ts` | Stagger animation improvements |
-| `src/components/Hero.tsx` | Add page transition, skeleton stats |
-| `src/components/About.tsx` | Image skeleton, content reveal |
-| `src/components/Services.tsx` | Card skeleton grid |
-| `src/components/Testimonials.tsx` | Testimonial skeletons |
-| `src/pages/Index.tsx` | Wrap with PageTransition |
+| File                              | Changes                               |
+| --------------------------------- | ------------------------------------- |
+| `src/components/Preloader.tsx`    | Enhanced animations, smooth exit      |
+| `src/index.css`                   | New animation keyframes and utilities |
+| `src/hooks/useScrollAnimation.ts` | Stagger animation improvements        |
+| `src/components/Hero.tsx`         | Add page transition, skeleton stats   |
+| `src/components/About.tsx`        | Image skeleton, content reveal        |
+| `src/components/Services.tsx`     | Card skeleton grid                    |
+| `src/components/Testimonials.tsx` | Testimonial skeletons                 |
+| `src/pages/Index.tsx`             | Wrap with PageTransition              |
 
 ---
 

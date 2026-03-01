@@ -12,44 +12,30 @@ const SkeletonBase = ({ className, ...props }: React.HTMLAttributes<HTMLDivEleme
 )
 
 // Text skeleton for paragraphs and headings
-export const TextSkeleton = ({ 
-  lines = 3, 
-  className 
-}: { 
-  lines?: number
-  className?: string 
-}) => (
+export const TextSkeleton = ({ lines = 3, className }: { lines?: number; className?: string }) => (
   <div className={cn('space-y-3', className)}>
     {Array.from({ length: lines }).map((_, i) => (
-      <SkeletonBase
-        key={i}
-        className={cn(
-          'h-4',
-          i === lines - 1 ? 'w-3/4' : 'w-full'
-        )}
-      />
+      <SkeletonBase key={i} className={cn('h-4', i === lines - 1 ? 'w-3/4' : 'w-full')} />
     ))}
   </div>
 )
 
 // Heading skeleton
-export const HeadingSkeleton = ({ 
+export const HeadingSkeleton = ({
   size = 'md',
-  className 
-}: { 
+  className,
+}: {
   size?: 'sm' | 'md' | 'lg' | 'xl'
-  className?: string 
+  className?: string
 }) => {
   const heights = {
     sm: 'h-5',
     md: 'h-7',
     lg: 'h-10',
-    xl: 'h-14'
+    xl: 'h-14',
   }
-  
-  return (
-    <SkeletonBase className={cn(heights[size], 'w-2/3', className)} />
-  )
+
+  return <SkeletonBase className={cn(heights[size], 'w-2/3', className)} />
 }
 
 // Card skeleton for service cards, testimonial cards
@@ -57,17 +43,17 @@ export const CardSkeleton = ({ className }: { className?: string }) => (
   <div className={cn('p-6 bg-card rounded-2xl border border-border space-y-4', className)}>
     {/* Icon */}
     <SkeletonBase className="w-14 h-14 rounded-xl" />
-    
+
     {/* Title */}
     <SkeletonBase className="h-6 w-3/4" />
-    
+
     {/* Description */}
     <div className="space-y-2">
       <SkeletonBase className="h-4 w-full" />
       <SkeletonBase className="h-4 w-5/6" />
       <SkeletonBase className="h-4 w-4/6" />
     </div>
-    
+
     {/* Features */}
     <div className="space-y-2 pt-2">
       <SkeletonBase className="h-3 w-1/2" />
@@ -78,18 +64,13 @@ export const CardSkeleton = ({ className }: { className?: string }) => (
 )
 
 // Image skeleton with aspect ratio
-export const ImageSkeleton = ({ 
+export const ImageSkeleton = ({
   aspectRatio = '4/5',
-  className 
-}: { 
+  className,
+}: {
   aspectRatio?: string
-  className?: string 
-}) => (
-  <SkeletonBase 
-    className={cn('rounded-xl', className)}
-    style={{ aspectRatio }}
-  />
-)
+  className?: string
+}) => <SkeletonBase className={cn('rounded-xl', className)} style={{ aspectRatio }} />
 
 // Stat skeleton for hero stats
 export const StatSkeleton = ({ className }: { className?: string }) => (
@@ -113,19 +94,19 @@ export const FormSkeleton = ({ className }: { className?: string }) => (
         <SkeletonBase className="h-12 w-full rounded-lg" />
       </div>
     </div>
-    
+
     {/* Email */}
     <div className="space-y-2">
       <SkeletonBase className="h-4 w-12" />
       <SkeletonBase className="h-12 w-full rounded-lg" />
     </div>
-    
+
     {/* Textarea */}
     <div className="space-y-2">
       <SkeletonBase className="h-4 w-16" />
       <SkeletonBase className="h-32 w-full rounded-lg" />
     </div>
-    
+
     {/* Button */}
     <SkeletonBase className="h-12 w-40 rounded-lg" />
   </div>
@@ -140,14 +121,14 @@ export const TestimonialSkeleton = ({ className }: { className?: string }) => (
         <SkeletonBase key={i} className="w-5 h-5 rounded" />
       ))}
     </div>
-    
+
     {/* Quote */}
     <div className="space-y-2">
       <SkeletonBase className="h-4 w-full" />
       <SkeletonBase className="h-4 w-full" />
       <SkeletonBase className="h-4 w-3/4" />
     </div>
-    
+
     {/* Author */}
     <div className="border-t border-border pt-4 space-y-2">
       <SkeletonBase className="h-5 w-32" />

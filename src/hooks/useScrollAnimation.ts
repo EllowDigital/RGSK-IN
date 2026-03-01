@@ -50,7 +50,7 @@ export function useStaggerAnimation(
   options: UseScrollAnimationOptions = {}
 ): UseScrollAnimationReturn & { getItemDelay: (index: number) => number } {
   const result = useScrollAnimation(options)
-  
+
   const getItemDelay = (index: number) => index * 100
 
   return { ...result, getItemDelay }

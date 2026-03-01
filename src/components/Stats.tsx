@@ -18,16 +18,13 @@ export const Stats = () => {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(0_0%_100%/0.05)_1px,transparent_1px),linear-gradient(to_bottom,hsl(0_0%_100%/0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]" />
       <div className="absolute top-0 left-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
-      
+
       <div className="container relative z-10" ref={ref}>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 max-w-5xl mx-auto">
           {stats.map((stat, index) => (
-            <div 
-              key={index} 
-              className={cn(
-                "text-center group",
-                isVisible ? "scroll-visible" : "scroll-hidden"
-              )}
+            <div
+              key={index}
+              className={cn('text-center group', isVisible ? 'scroll-visible' : 'scroll-hidden')}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="w-12 h-12 sm:w-14 sm:h-14 mx-auto mb-3 sm:mb-4 rounded-xl sm:rounded-2xl bg-white/10 flex items-center justify-center group-hover:scale-110 group-hover:bg-white/20 transition-all duration-300">

@@ -33,7 +33,8 @@ const Blog = () => {
                 RGSK Technologies <span className="text-primary">Blog</span>
               </h1>
               <p className="text-muted-foreground text-base sm:text-lg max-w-xl mx-auto">
-                Expert insights on web development, digital marketing, and technology trends to help your business grow.
+                Expert insights on web development, digital marketing, and technology trends to help
+                your business grow.
               </p>
             </div>
           </section>
