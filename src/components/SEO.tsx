@@ -15,7 +15,7 @@ export const SEO = ({
   title = 'RGSK Technologies Pvt Ltd | Web Development & Digital Solutions in Lucknow',
   description = 'RGSK Technologies Pvt Ltd - Leading digital solutions company in Lucknow offering web development, mobile apps, bulk SMS, WhatsApp marketing, social media management & voice call services. Contact: +91-7054466111',
   keywords = 'RGSK Technologies, RGSK Technologies Pvt Ltd, web development Lucknow, mobile app development India, digital marketing agency, bulk SMS service, bulk WhatsApp marketing, social media management, voice call services, IT company Lucknow, software development company, best web development company Lucknow',
-  ogImage = 'https://rgsktechnologies.in/logo.png',
+  ogImage = 'https://rgsktechnologies.in/og-image.jpg',
   canonicalUrl = 'https://rgsktechnologies.in',
   type = 'website',
   publishedTime,
@@ -162,7 +162,7 @@ export const SEO = ({
     '@type': 'LocalBusiness',
     '@id': `${canonicalUrl}/#localbusiness`,
     name: 'RGSK Technologies Pvt Ltd',
-    image: `${canonicalUrl}/logo.png`,
+    image: `${canonicalUrl}/og-image.jpg`,
     telephone: '+91-7054466111',
     email: 'rgsktechnologies@gmail.com',
     url: canonicalUrl,
@@ -176,8 +176,8 @@ export const SEO = ({
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: '26.8867',
-      longitude: '80.9462',
+      latitude: 26.8867,
+      longitude: 80.9462,
     },
     openingHoursSpecification: [
       {
@@ -192,6 +192,35 @@ export const SEO = ({
       ratingValue: '4.9',
       reviewCount: '500',
     },
+    areaServed: [
+      {
+        '@type': 'City',
+        name: 'Lucknow',
+        '@id': 'https://www.wikidata.org/wiki/Q48403',
+      },
+      {
+        '@type': 'State',
+        name: 'Uttar Pradesh',
+      },
+      {
+        '@type': 'Country',
+        name: 'India',
+      },
+    ],
+    serviceArea: {
+      '@type': 'GeoCircle',
+      geoMidpoint: {
+        '@type': 'GeoCoordinates',
+        latitude: 26.8867,
+        longitude: 80.9462,
+      },
+      geoRadius: '50000',
+    },
+    hasMap: 'https://maps.google.com/?q=RGSK+Technologies+Lucknow',
+    priceRange: '$$',
+    currenciesAccepted: 'INR',
+    paymentAccepted: 'Cash, Credit Card, UPI, Bank Transfer',
+    slogan: 'Transform Your Digital Vision',
   }
 
   const websiteData = {
