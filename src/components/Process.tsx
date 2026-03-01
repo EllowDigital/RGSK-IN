@@ -1,6 +1,7 @@
 import { Lightbulb, FileSearch, Code, Rocket, CheckCircle, Settings } from 'lucide-react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { cn } from '@/lib/utils'
+import { Helmet } from 'react-helmet-async'
 
 const processSteps = [
   {
@@ -49,8 +50,27 @@ export const Process = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation()
   const { ref: stepsRef, isVisible: stepsVisible } = useScrollAnimation()
 
+  const howToStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How RGSK Technologies Builds Your Digital Product',
+    description: 'A streamlined 5-step process that transforms your ideas into exceptional digital experiences, from discovery to ongoing support.',
+    totalTime: 'P30D',
+    step: processSteps.map((step, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      name: step.title,
+      text: step.description,
+      url: `https://rgsktechnologies.in/#process`,
+    })),
+  }
+
   return (
-    <section id="process" className="section-padding relative overflow-hidden">
+    <>
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(howToStructuredData)}</script>
+      </Helmet>
+      <section id="process" className="section-padding relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2" />
       <div className="absolute top-1/2 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -translate-y-1/2" />
@@ -136,5 +156,6 @@ export const Process = () => {
         </div>
       </div>
     </section>
+    </>
   )
 }
