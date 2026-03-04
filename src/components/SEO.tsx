@@ -239,6 +239,78 @@ export const SEO = ({
     },
   }
 
+  const servicesData = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Website Development',
+      description: 'Custom, responsive websites built with modern technologies like React, Next.js, and TypeScript. Includes SEO optimization, fast loading speeds, and mobile-first design for businesses in Lucknow and across India.',
+      provider: { '@type': 'Organization', name: 'RGSK Technologies Pvt Ltd', url: canonicalUrl },
+      areaServed: { '@type': 'Country', name: 'India' },
+      serviceType: 'Web Development',
+      category: 'IT Services',
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Web Development Services',
+        itemListElement: [
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Responsive Website Design' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'E-Commerce Development' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Web Application Development' } },
+        ],
+      },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Mobile App Development',
+      description: 'Native and cross-platform mobile applications for iOS and Android. Built with React Native and Flutter for seamless user experiences.',
+      provider: { '@type': 'Organization', name: 'RGSK Technologies Pvt Ltd', url: canonicalUrl },
+      areaServed: { '@type': 'Country', name: 'India' },
+      serviceType: 'Mobile App Development',
+      category: 'IT Services',
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Bulk SMS Services',
+      description: 'Reliable bulk SMS messaging with high delivery rates, real-time reports, and DLT-compliant templates for promotional and transactional messaging across India.',
+      provider: { '@type': 'Organization', name: 'RGSK Technologies Pvt Ltd', url: canonicalUrl },
+      areaServed: { '@type': 'Country', name: 'India' },
+      serviceType: 'Bulk SMS Marketing',
+      category: 'Digital Marketing',
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Bulk WhatsApp Marketing',
+      description: 'Mass WhatsApp messaging solutions with rich media support, API integration, and instant delivery for customer engagement and promotional campaigns.',
+      provider: { '@type': 'Organization', name: 'RGSK Technologies Pvt Ltd', url: canonicalUrl },
+      areaServed: { '@type': 'Country', name: 'India' },
+      serviceType: 'WhatsApp Marketing',
+      category: 'Digital Marketing',
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Social Media Management',
+      description: 'Complete social media marketing including content strategy, analytics, audience engagement, and paid advertising on Facebook, Instagram, LinkedIn, and Twitter.',
+      provider: { '@type': 'Organization', name: 'RGSK Technologies Pvt Ltd', url: canonicalUrl },
+      areaServed: { '@type': 'Country', name: 'India' },
+      serviceType: 'Social Media Marketing',
+      category: 'Digital Marketing',
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Voice Call Services',
+      description: 'Automated bulk voice call and IVR solutions for customer outreach, surveys, reminders, and promotional campaigns with detailed call analytics.',
+      provider: { '@type': 'Organization', name: 'RGSK Technologies Pvt Ltd', url: canonicalUrl },
+      areaServed: { '@type': 'Country', name: 'India' },
+      serviceType: 'Voice Call Marketing',
+      category: 'Digital Marketing',
+    },
+  ]
+
   return (
     <Helmet>
       <html lang="en" />
@@ -267,10 +339,7 @@ export const SEO = ({
       <meta property="og:image" content={ogImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta
-        property="og:image:alt"
-        content="RGSK Technologies Pvt Ltd - Digital Solutions Company"
-      />
+      <meta property="og:image:alt" content="RGSK Technologies Pvt Ltd - Digital Solutions Company" />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:type" content={type} />
       <meta property="og:site_name" content="RGSK Technologies Pvt Ltd" />
@@ -292,6 +361,9 @@ export const SEO = ({
       <script type="application/ld+json">{JSON.stringify(breadcrumbData)}</script>
       <script type="application/ld+json">{JSON.stringify(localBusinessData)}</script>
       <script type="application/ld+json">{JSON.stringify(websiteData)}</script>
+      {servicesData.map((service, index) => (
+        <script key={`service-${index}`} type="application/ld+json">{JSON.stringify(service)}</script>
+      ))}
     </Helmet>
   )
 }
