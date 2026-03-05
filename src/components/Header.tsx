@@ -69,7 +69,7 @@ export const Header = () => {
   const navItems = [
     { label: 'Home', id: 'home', isRoute: false },
     { label: 'About', id: 'about', isRoute: false },
-    { label: 'Services', id: 'services', isRoute: false },
+    { label: 'Services', id: '/services', isRoute: true },
     { label: 'Blog', id: '/blog', isRoute: true },
     { label: 'Contact', id: 'contact', isRoute: false },
   ]
