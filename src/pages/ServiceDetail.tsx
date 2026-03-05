@@ -1,0 +1,154 @@
+import { useParams, Link, Navigate } from 'react-router-dom'
+import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react'
+import { Helmet } from 'react-helmet-async'
+import { Button } from '@/components/ui/button'
+import { Header } from '@/components/Header'
+import { EnhancedFooter } from '@/components/EnhancedFooter'
+import { SEO } from '@/components/SEO'
+import { servicesData } from '@/data/services'
+
+const ServiceDetail = () => {
+  const { slug } = useParams<{ slug: string }>()
+  const service = servicesData.find((s) => s.slug === slug)
+
+  if (!service) return <Navigate to="/services" replace />
+
+  const canonicalUrl = `https://rgsktechnologies.in/services/${service.slug}`
+
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: service.title,
+    description: service.longDescription,
+    provider: {
+      '@type': 'Organization',
+      name: 'RGSK Technologies Pvt Ltd',
+      url: 'https://rgsktechnologies.in',
+    },
+    areaServed: { '@type': 'Country', name: 'India' },
+    serviceType: service.title,
+    url: canonicalUrl,
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://rgsktechnologies.in' },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://rgsktechnologies.in/services' },
+      { '@type': 'ListItem', position: 3, name: service.title, item: canonicalUrl },
+    ],
+  }
+
+  const otherServices = servicesData.filter((s) => s.slug !== slug).slice(0, 3)
+
+  return (
+    <>
+      <SEO
+        title={`${service.title} | RGSK Technologies Pvt Ltd`}
+        description={service.longDescription}
+        canonicalUrl={canonicalUrl}
+        keywords={service.keywords}
+      />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+      </Helmet>
+
+      <div className="min-h-screen">
+        <Header />
+        <main className="pt-24 pb-16">
+          <div className="container max-w-4xl">
+            {/* Breadcrumb */}
+            <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
+              <Link to="/" className="hover:text-primary transition-colors">Home</Link>
+              <span>/</span>
+              <Link to="/services" className="hover:text-primary transition-colors">Services</Link>
+              <span>/</span>
+              <span className="text-foreground font-medium">{service.shortTitle}</span>
+            </nav>
+
+            {/* Hero */}
+            <div className="mb-12">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-primary/20">
+                <service.icon className="w-8 h-8 text-primary-foreground" />
+              </div>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
+                {service.title}
+              </h1>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {service.longDescription}
+              </p>
+            </div>
+
+            {/* Features & Benefits */}
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <div className="bg-card rounded-2xl border border-border p-6">
+                <h2 className="text-xl font-bold mb-4 text-foreground">What's Included</h2>
+                <div className="space-y-3">
+                  {service.features.map((feature) => (
+                    <div key={feature} className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="bg-card rounded-2xl border border-border p-6">
+                <h2 className="text-xl font-bold mb-4 text-foreground">Key Benefits</h2>
+                <div className="space-y-3">
+                  {service.benefits.map((benefit) => (
+                    <div key={benefit} className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0" />
+                      <span>{benefit}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="bg-primary/5 rounded-3xl p-8 text-center mb-16">
+              <h2 className="text-2xl font-bold mb-3 text-foreground">Ready to Get Started?</h2>
+              <p className="text-muted-foreground mb-6">Contact us today for a free consultation about {service.title.toLowerCase()}.</p>
+              <Link to="/#contact">
+                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/25 px-8 py-6 font-semibold group">
+                  Contact Us <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+            </div>
+
+            {/* Related Services */}
+            <div>
+              <h2 className="text-2xl font-bold mb-6 text-foreground">Other Services</h2>
+              <div className="grid sm:grid-cols-3 gap-4">
+                {otherServices.map((s) => (
+                  <Link
+                    key={s.slug}
+                    to={`/services/${s.slug}`}
+                    className="group p-5 bg-card rounded-2xl border border-border hover:border-primary/40 transition-all duration-300"
+                  >
+                    <s.icon className="w-6 h-6 text-primary mb-3" />
+                    <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors text-sm">
+                      {service.slug === s.slug ? '' : s.title}
+                    </h3>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Back link */}
+            <div className="mt-8">
+              <Link to="/services" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+                <ArrowLeft className="w-4 h-4" /> Back to all services
+              </Link>
+            </div>
+          </div>
+        </main>
+        <EnhancedFooter />
+      </div>
+    </>
+  )
+}
+
+export default ServiceDetail
