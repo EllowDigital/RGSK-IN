@@ -35,7 +35,12 @@ const ServiceDetail = () => {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://rgsktechnologies.in' },
-      { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://rgsktechnologies.in/services' },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Services',
+        item: 'https://rgsktechnologies.in/services',
+      },
       { '@type': 'ListItem', position: 3, name: service.title, item: canonicalUrl },
     ],
   }
@@ -61,9 +66,13 @@ const ServiceDetail = () => {
           <div className="container max-w-4xl">
             {/* Breadcrumb */}
             <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
-              <Link to="/" className="hover:text-primary transition-colors">Home</Link>
+              <Link to="/" className="hover:text-primary transition-colors">
+                Home
+              </Link>
               <span>/</span>
-              <Link to="/services" className="hover:text-primary transition-colors">Services</Link>
+              <Link to="/services" className="hover:text-primary transition-colors">
+                Services
+              </Link>
               <span>/</span>
               <span className="text-foreground font-medium">{service.shortTitle}</span>
             </nav>
@@ -87,7 +96,10 @@ const ServiceDetail = () => {
                 <h2 className="text-xl font-bold mb-4 text-foreground">What's Included</h2>
                 <div className="space-y-3">
                   {service.features.map((feature) => (
-                    <div key={feature} className="flex items-center gap-3 text-sm text-muted-foreground">
+                    <div
+                      key={feature}
+                      className="flex items-center gap-3 text-sm text-muted-foreground"
+                    >
                       <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
                       <span>{feature}</span>
                     </div>
@@ -98,7 +110,10 @@ const ServiceDetail = () => {
                 <h2 className="text-xl font-bold mb-4 text-foreground">Key Benefits</h2>
                 <div className="space-y-3">
                   {service.benefits.map((benefit) => (
-                    <div key={benefit} className="flex items-center gap-3 text-sm text-muted-foreground">
+                    <div
+                      key={benefit}
+                      className="flex items-center gap-3 text-sm text-muted-foreground"
+                    >
                       <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0" />
                       <span>{benefit}</span>
                     </div>
@@ -110,10 +125,16 @@ const ServiceDetail = () => {
             {/* CTA */}
             <div className="bg-primary/5 rounded-3xl p-8 text-center mb-16">
               <h2 className="text-2xl font-bold mb-3 text-foreground">Ready to Get Started?</h2>
-              <p className="text-muted-foreground mb-6">Contact us today for a free consultation about {service.title.toLowerCase()}.</p>
+              <p className="text-muted-foreground mb-6">
+                Contact us today for a free consultation about {service.title.toLowerCase()}.
+              </p>
               <Link to="/#contact">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/25 px-8 py-6 font-semibold group">
-                  Contact Us <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <Button
+                  size="lg"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/25 px-8 py-6 font-semibold group"
+                >
+                  Contact Us{' '}
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
             </div>
@@ -139,7 +160,10 @@ const ServiceDetail = () => {
 
             {/* Back link */}
             <div className="mt-8">
-              <Link to="/services" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+              <Link
+                to="/services"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
                 <ArrowLeft className="w-4 h-4" /> Back to all services
               </Link>
             </div>

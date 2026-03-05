@@ -32,7 +32,8 @@ const ServicesPage = () => {
                 Comprehensive <span className="text-primary">Digital Solutions</span>
               </h1>
               <p className="text-muted-foreground max-w-2xl mx-auto text-base lg:text-lg">
-                Tailored services to elevate your business in the digital landscape. Click any service to learn more.
+                Tailored services to elevate your business in the digital landscape. Click any
+                service to learn more.
               </p>
             </div>
 
@@ -44,7 +45,9 @@ const ServicesPage = () => {
                   to={`/services/${service.slug}`}
                   className="group relative p-6 lg:p-8 bg-card rounded-3xl border border-border hover:border-primary/40 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl overflow-hidden"
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                  />
                   <div className="relative">
                     <div className="w-14 h-14 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg shadow-primary/20">
                       <service.icon className="w-7 h-7 text-primary-foreground" />
@@ -56,7 +59,8 @@ const ServicesPage = () => {
                       {service.description}
                     </p>
                     <div className="flex items-center gap-2 text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                      Learn more <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      Learn more{' '}
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </Link>
@@ -66,7 +70,10 @@ const ServicesPage = () => {
             {/* CTA */}
             <div className="text-center">
               <Link to="/#contact">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/25 px-8 py-6 text-base font-semibold group">
+                <Button
+                  size="lg"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/25 px-8 py-6 text-base font-semibold group"
+                >
                   Get Started Today
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
