@@ -1,11 +1,16 @@
+import { useState } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
-import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react'
+import { ArrowLeft, ArrowRight, CheckCircle2, Send, Loader2 } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { Label } from '@/components/ui/label'
 import { Header } from '@/components/Header'
 import { EnhancedFooter } from '@/components/EnhancedFooter'
 import { SEO } from '@/components/SEO'
 import { servicesData } from '@/data/services'
+import { toast } from 'sonner'
 
 const ServiceDetail = () => {
   const { slug } = useParams<{ slug: string }>()
