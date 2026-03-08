@@ -15,6 +15,10 @@ import { toast } from 'sonner'
 const ServiceDetail = () => {
   const { slug } = useParams<{ slug: string }>()
   const service = servicesData.find((s) => s.slug === slug)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' })
+  const { slug } = useParams<{ slug: string }>()
+  const service = servicesData.find((s) => s.slug === slug)
 
   if (!service) return <Navigate to="/services" replace />
 
