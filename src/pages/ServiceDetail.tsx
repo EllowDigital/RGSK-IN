@@ -129,21 +129,110 @@ const ServiceDetail = () => {
               </div>
             </div>
 
-            {/* CTA */}
-            <div className="bg-primary/5 rounded-3xl p-8 text-center mb-16">
-              <h2 className="text-2xl font-bold mb-3 text-foreground">Ready to Get Started?</h2>
+            {/* Contact Form */}
+            <div className="bg-card rounded-3xl border border-border p-8 mb-16" id="inquiry">
+              <h2 className="text-2xl font-bold mb-2 text-foreground">
+                Inquire About {service.title}
+              </h2>
               <p className="text-muted-foreground mb-6">
-                Contact us today for a free consultation about {service.title.toLowerCase()}.
+                Fill out the form below and we'll get back to you within 24 hours.
               </p>
-              <Link to="/#contact">
-                <Button
-                  size="lg"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/25 px-8 py-6 font-semibold group"
-                >
-                  Contact Us{' '}
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
+              <form
+                onSubmit={async (e) => {
+                  e.preventDefault()
+                  if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+                    toast.error('Please fill in all required fields.')
+                    return
+                  }
+                  setIsSubmitting(true)
+                  try {
+                    const res = await fetch('https://formsubmit.co/ajax/rgsktechnologies@gmail.com', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                      body: JSON.stringify({
+                        name: formData.name,
+                        email: formData.email,
+                        phone: formData.phone,
+                        message: formData.message,
+                        _subject: `Service Inquiry: ${service.title}`,
+                        service: service.title,
+                      }),
+                    })
+                    if (res.ok) {
+                      toast.success('Your inquiry has been sent! We\'ll contact you soon.')
+                      setFormData({ name: '', email: '', phone: '', message: '' })
+                    } else {
+                      toast.error('Something went wrong. Please try again.')
+                    }
+                  } catch {
+                    toast.error('Network error. Please try again later.')
+                  } finally {
+                    setIsSubmitting(false)
+                  }
+                }}
+                className="grid sm:grid-cols-2 gap-4"
+              >
+                <div className="space-y-2">
+                  <Label htmlFor="name">Name *</Label>
+                  <Input
+                    id="name"
+                    placeholder="Your name"
+                    value={formData.name}
+                    onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))}
+                    maxLength={100}
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email *</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="you@example.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))}
+                    maxLength={255}
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Phone</Label>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    placeholder="+91 XXXXX XXXXX"
+                    value={formData.phone}
+                    onChange={(e) => setFormData((p) => ({ ...p, phone: e.target.value }))}
+                    maxLength={20}
+                  />
+                </div>
+                <div className="sm:col-span-2 space-y-2">
+                  <Label htmlFor="message">Message *</Label>
+                  <Textarea
+                    id="message"
+                    placeholder={`Tell us about your ${service.title.toLowerCase()} requirements...`}
+                    value={formData.message}
+                    onChange={(e) => setFormData((p) => ({ ...p, message: e.target.value }))}
+                    maxLength={1000}
+                    rows={4}
+                    required
+                  />
+                </div>
+                <div className="sm:col-span-2">
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    size="lg"
+                    className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/25 px-8 py-6 font-semibold w-full sm:w-auto"
+                  >
+                    {isSubmitting ? (
+                      <><Loader2 className="mr-2 w-4 h-4 animate-spin" /> Sending...</>
+                    ) : (
+                      <><Send className="mr-2 w-4 h-4" /> Send Inquiry</>
+                    )}
+                  </Button>
+                </div>
+              </form>
             </div>
 
             {/* Related Services */}
