@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { Menu } from 'lucide-react'
 import {
@@ -38,12 +38,12 @@ export const Header = () => {
       }
     }
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const handleNavigation = (id: string, isRoute: boolean) => {
+  const handleNavigation = useCallback((id: string, isRoute: boolean) => {
     if (isRoute) {
       navigate(id)
       setIsMobileMenuOpen(false)
@@ -64,7 +64,7 @@ export const Header = () => {
       }
       setIsMobileMenuOpen(false)
     }
-  }
+  }, [navigate, location.pathname])
 
   const navItems = [
     { label: 'Home', id: 'home', isRoute: false },
@@ -82,6 +82,7 @@ export const Header = () => {
           ? 'bg-background/95 backdrop-blur-xl shadow-lg border-b border-border/50'
           : 'bg-transparent'
       )}
+      role="banner"
     >
       <div className="container mx-auto px-3 sm:px-4 lg:px-6">
         <div className="flex items-center justify-between h-14 sm:h-16 md:h-18 lg:h-20">
@@ -89,11 +90,14 @@ export const Header = () => {
           <button
             onClick={() => handleNavigation('home', false)}
             className="flex items-center gap-2 sm:gap-3 group"
+            aria-label="Go to homepage"
           >
             <div className="relative">
               <img
                 src="/logo.png"
-                alt="RGSK Technologies"
+                alt="RGSK Technologies Logo"
+                width={48}
+                height={48}
                 className="h-9 w-9 sm:h-11 sm:w-11 md:h-12 md:w-12 lg:h-13 lg:w-13 rounded-xl object-cover shadow-md group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute -inset-1 bg-primary/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
@@ -109,7 +113,7 @@ export const Header = () => {
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1">
+          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1" aria-label="Main navigation">
             {navItems.map((item) => {
               const isActive = activeSection === item.id && location.pathname === '/'
               return (
@@ -120,6 +124,7 @@ export const Header = () => {
                     'relative px-3 xl:px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg',
                     isActive ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
                   )}
+                  aria-current={isActive ? 'page' : undefined}
                 >
                   {item.label}
                   {isActive && (
@@ -141,7 +146,7 @@ export const Header = () => {
             <SheetTrigger asChild>
               <button
                 className="lg:hidden w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-lg hover:bg-muted transition-colors"
-                aria-label="Toggle menu"
+                aria-label="Open navigation menu"
               >
                 <Menu className="w-5 h-5 text-foreground" />
               </button>
@@ -158,6 +163,8 @@ export const Header = () => {
                   <img
                     src="/logo.png"
                     alt="RGSK Technologies"
+                    width={48}
+                    height={48}
                     className="h-10 w-10 sm:h-12 sm:w-12 rounded-lg sm:rounded-xl object-cover"
                   />
                   <div>
@@ -168,7 +175,7 @@ export const Header = () => {
                   </div>
                 </div>
 
-                <nav className="flex-1 space-y-1">
+                <nav className="flex-1 space-y-1" aria-label="Mobile navigation">
                   {navItems.map((item) => {
                     const isActive = activeSection === item.id && location.pathname === '/'
                     return (

@@ -2,14 +2,13 @@ import { Target, Lightbulb, Users, Rocket, Shield, Heart } from 'lucide-react'
 import founderImage from '@/assets/founder.png'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { cn } from '@/lib/utils'
-import { useImageLoading } from '@/hooks/useContentLoading'
-import { ImageSkeleton } from '@/components/ui/skeletons'
+import { useState } from 'react'
 
 export const About = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation()
   const { ref: founderRef, isVisible: founderVisible } = useScrollAnimation()
   const { ref: valuesRef, isVisible: valuesVisible } = useScrollAnimation()
-  const { isLoaded: imageLoaded } = useImageLoading(founderImage)
+  const [imageLoaded, setImageLoaded] = useState(false)
 
   const values = [
     {
@@ -87,11 +86,16 @@ export const About = () => {
             <div className="relative order-2 md:order-1">
               <div className="aspect-[4/5] rounded-xl sm:rounded-2xl overflow-hidden bg-muted max-w-sm mx-auto md:max-w-none shadow-lg relative">
                 {!imageLoaded && (
-                  <ImageSkeleton aspectRatio="4/5" className="absolute inset-0 w-full h-full" />
+                  <div className="absolute inset-0 bg-muted animate-pulse rounded-xl" />
                 )}
                 <img
                   src={founderImage}
-                  alt="Er. Awanish Kannaujia - Founder & Director"
+                  alt="Er. Awanish Kannaujia - Founder & Director of RGSK Technologies"
+                  width={400}
+                  height={500}
+                  loading="lazy"
+                  decoding="async"
+                  onLoad={() => setImageLoaded(true)}
                   className={cn(
                     'w-full h-full object-cover transition-opacity duration-500',
                     imageLoaded ? 'opacity-100' : 'opacity-0'
@@ -171,7 +175,7 @@ export const About = () => {
               <div
                 className={`w-12 h-12 sm:w-14 sm:h-14 ${value.color} rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-5 group-hover:scale-110 transition-transform shadow-lg`}
               >
-                <value.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                <value.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-foreground group-hover:text-primary transition-colors">
                 {value.title}
