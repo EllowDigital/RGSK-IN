@@ -10,28 +10,26 @@ export const Preloader = () => {
   useEffect(() => {
     document.body.style.overflow = 'hidden'
 
-    // Animate progress bar
     const progressInterval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(progressInterval)
           return 100
         }
-        return prev + Math.random() * 15 + 5
+        return prev + Math.random() * 25 + 10
       })
-    }, 100)
+    }, 80)
 
-    // Start exit animation after minimum display time
+    // Reduced from 1200ms to 600ms for faster FCP
     const exitTimer = setTimeout(() => {
       setProgress(100)
       setIsExiting(true)
 
-      // Complete exit after animation
       setTimeout(() => {
         setIsLoading(false)
         document.body.style.overflow = ''
-      }, 400)
-    }, 1200)
+      }, 300)
+    }, 600)
 
     return () => {
       clearInterval(progressInterval)
@@ -45,46 +43,42 @@ export const Preloader = () => {
   return (
     <div
       className={cn(
-        'fixed inset-0 z-[100] flex items-center justify-center bg-background transition-all duration-400',
+        'fixed inset-0 z-[100] flex items-center justify-center bg-background transition-all duration-300',
         isExiting && 'opacity-0 scale-105'
       )}
+      aria-hidden="true"
     >
       <div
         className={cn(
-          'flex flex-col items-center justify-center space-y-6 transition-all duration-300',
+          'flex flex-col items-center justify-center space-y-6 transition-all duration-200',
           isExiting && 'scale-95 opacity-0'
         )}
       >
-        {/* Logo with pulse and glow */}
         <div className="relative">
           <div className="absolute inset-0 w-20 h-20 bg-primary/20 rounded-2xl blur-xl animate-pulse" />
           <img
             src="/logo.png"
             alt="RGSK Technologies"
-            className={cn(
-              'relative w-20 h-20 rounded-2xl object-contain',
-              'animate-pulse shadow-lg shadow-primary/20'
-            )}
+            width={80}
+            height={80}
+            className="relative w-20 h-20 rounded-2xl object-contain animate-pulse shadow-lg shadow-primary/20"
           />
         </div>
 
-        {/* Company Name */}
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-foreground">
+          <p className="text-2xl font-bold text-foreground" aria-label="RGSK Technologies loading">
             RGSK <span className="text-primary">Technologies</span>
-          </h1>
+          </p>
           <p className="text-sm text-muted-foreground mt-1">
             {isExiting ? 'Welcome!' : 'Loading...'}
           </p>
         </div>
 
-        {/* Progress bar */}
         <div className="w-48">
           <Progress value={Math.min(progress, 100)} className="h-1.5 bg-muted" />
         </div>
 
-        {/* Loading dots */}
-        <div className="flex gap-1">
+        <div className="flex gap-1" aria-hidden="true">
           {[0, 1, 2].map((i) => (
             <div
               key={i}
