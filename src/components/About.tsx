@@ -88,7 +88,7 @@ export const About = () => {
                   <div className="absolute inset-0 bg-muted animate-pulse rounded-xl" />
                 )}
                 <img
-                  src="/founder-opt.webp"
+                  src={founderImage}
                   alt="Er. Awanish Kannaujia - Founder & Director of RGSK Technologies"
                   width={400}
                   height={500}
