@@ -8,8 +8,47 @@ import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
+const BLOG_URL = 'https://rgsktechnologies.in/blog'
+
 const Blog = () => {
   const { ref, isVisible } = useScrollAnimation()
+
+  const blogCollectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    '@id': `${BLOG_URL}#blog`,
+    url: BLOG_URL,
+    name: 'RGSK Technologies Blog',
+    description:
+      'Expert insights on web development, digital marketing, bulk SMS, WhatsApp marketing, and mobile app development from RGSK Technologies Pvt Ltd.',
+    publisher: {
+      '@id': 'https://rgsktechnologies.in/#organization',
+    },
+    inLanguage: 'en-IN',
+  }
+
+  const blogItemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    '@id': `${BLOG_URL}#posts`,
+    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    numberOfItems: blogPosts.length,
+    itemListElement: blogPosts.map((post, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: `${BLOG_URL}/${post.slug}`,
+      name: post.title,
+    })),
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://rgsktechnologies.in' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: BLOG_URL },
+    ],
+  }
 
   return (
     <>
@@ -17,7 +56,8 @@ const Blog = () => {
         title="Blog | RGSK Technologies Pvt Ltd - Digital Marketing & Web Development Insights"
         description="Read expert insights on web development, digital marketing, bulk SMS, WhatsApp marketing, and mobile app development from RGSK Technologies Pvt Ltd, Lucknow."
         keywords="RGSK Technologies blog, web development tips, digital marketing insights, bulk SMS guide, WhatsApp marketing, Lucknow IT company blog"
-        canonicalUrl="https://rgsktechnologies.in/blog"
+        canonicalUrl={BLOG_URL}
+        structuredData={[blogCollectionSchema, blogItemListSchema, breadcrumbSchema]}
       />
       <div className="min-h-screen">
         <Header />

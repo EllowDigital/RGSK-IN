@@ -7,14 +7,54 @@ import { SEO } from '@/components/SEO'
 import { servicesData } from '@/data/services'
 import { cn } from '@/lib/utils'
 
+const SERVICES_URL = 'https://rgsktechnologies.in/services'
+
 const ServicesPage = () => {
+  const servicesCollectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${SERVICES_URL}#collection`,
+    url: SERVICES_URL,
+    name: 'RGSK Technologies Services',
+    description:
+      'Explore web development, mobile app development, social media marketing, bulk SMS, WhatsApp marketing, and SEO services from RGSK Technologies.',
+    mainEntity: {
+      '@id': `${SERVICES_URL}#services`,
+    },
+  }
+
+  const servicesItemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    '@id': `${SERVICES_URL}#services`,
+    itemListOrder: 'https://schema.org/ItemListUnordered',
+    numberOfItems: servicesData.length,
+    itemListElement: servicesData.map((service, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: `${SERVICES_URL}/${service.slug}`,
+      name: service.title,
+      description: service.description,
+    })),
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://rgsktechnologies.in' },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: SERVICES_URL },
+    ],
+  }
+
   return (
     <>
       <SEO
         title="Our Services | RGSK Technologies Pvt Ltd"
         description="Explore RGSK Technologies' digital services: Website Development, Mobile Apps, Bulk SMS, WhatsApp Marketing, Social Media Management & Digital Marketing in Lucknow."
-        canonicalUrl="https://rgsktechnologies.in/services"
+        canonicalUrl={SERVICES_URL}
         keywords="RGSK Technologies services, web development, mobile apps, bulk SMS, WhatsApp marketing, social media, digital marketing Lucknow"
+        structuredData={[servicesCollectionSchema, servicesItemListSchema, breadcrumbSchema]}
       />
       <div className="min-h-screen">
         <Header />

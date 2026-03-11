@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, CheckCircle2, Send, Loader2 } from 'lucide-react'
-import { Helmet } from 'react-helmet-async'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -25,12 +24,11 @@ const ServiceDetail = () => {
   const serviceSchema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
+    '@id': `${canonicalUrl}#service`,
     name: service.title,
     description: service.longDescription,
     provider: {
-      '@type': 'Organization',
-      name: 'RGSK Technologies Pvt Ltd',
-      url: 'https://rgsktechnologies.in',
+      '@id': 'https://rgsktechnologies.in/#organization',
     },
     areaServed: { '@type': 'Country', name: 'India' },
     serviceType: service.title,
@@ -61,11 +59,8 @@ const ServiceDetail = () => {
         description={service.longDescription}
         canonicalUrl={canonicalUrl}
         keywords={service.keywords}
+        structuredData={[serviceSchema, breadcrumbSchema]}
       />
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-      </Helmet>
 
       <div className="min-h-screen">
         <Header />

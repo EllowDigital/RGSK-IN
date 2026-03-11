@@ -15,11 +15,14 @@ const BlogPost = () => {
   if (!post) return <Navigate to="/blog" replace />
 
   const relatedPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 3)
+  const canonicalUrl = `https://rgsktechnologies.in/blog/${post.slug}`
 
   const articleStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
+    '@id': `${canonicalUrl}#article`,
     headline: post.title,
+    name: post.title,
     description: post.excerpt,
     author: {
       '@type': 'Organization',
@@ -33,8 +36,23 @@ const BlogPost = () => {
     },
     datePublished: post.date,
     dateModified: post.date,
-    mainEntityOfPage: `https://rgsktechnologies.in/blog/${post.slug}`,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': canonicalUrl,
+    },
+    url: canonicalUrl,
     keywords: post.tags.join(', '),
+    articleSection: post.category,
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://rgsktechnologies.in' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://rgsktechnologies.in/blog' },
+      { '@type': 'ListItem', position: 3, name: post.title, item: canonicalUrl },
+    ],
   }
 
   const handleShare = () => {
@@ -94,13 +112,12 @@ const BlogPost = () => {
         title={post.metaTitle}
         description={post.metaDescription}
         keywords={post.tags.join(', ')}
-        canonicalUrl={`https://rgsktechnologies.in/blog/${post.slug}`}
+        canonicalUrl={canonicalUrl}
         type="article"
         publishedTime={post.date}
         modifiedTime={post.date}
+        structuredData={[articleStructuredData, breadcrumbSchema]}
       />
-      {/* Article Structured Data */}
-      <script type="application/ld+json">{JSON.stringify(articleStructuredData)}</script>
 
       <div className="min-h-screen">
         <Header />
