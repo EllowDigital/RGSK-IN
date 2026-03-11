@@ -146,20 +146,23 @@ const ServiceDetail = () => {
                   }
                   setIsSubmitting(true)
                   try {
-                    const res = await fetch('https://formsubmit.co/ajax/rgsktechnologies@gmail.com', {
-                      method: 'POST',
-                      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-                      body: JSON.stringify({
-                        name: formData.name,
-                        email: formData.email,
-                        phone: formData.phone,
-                        message: formData.message,
-                        _subject: `Service Inquiry: ${service.title}`,
-                        service: service.title,
-                      }),
-                    })
+                    const res = await fetch(
+                      'https://formsubmit.co/ajax/rgsktechnologies@gmail.com',
+                      {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                        body: JSON.stringify({
+                          name: formData.name,
+                          email: formData.email,
+                          phone: formData.phone,
+                          message: formData.message,
+                          _subject: `Service Inquiry: ${service.title}`,
+                          service: service.title,
+                        }),
+                      }
+                    )
                     if (res.ok) {
-                      toast.success('Your inquiry has been sent! We\'ll contact you soon.')
+                      toast.success("Your inquiry has been sent! We'll contact you soon.")
                       setFormData({ name: '', email: '', phone: '', message: '' })
                     } else {
                       toast.error('Something went wrong. Please try again.')
@@ -226,9 +229,13 @@ const ServiceDetail = () => {
                     className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/25 px-8 py-6 font-semibold w-full sm:w-auto"
                   >
                     {isSubmitting ? (
-                      <><Loader2 className="mr-2 w-4 h-4 animate-spin" /> Sending...</>
+                      <>
+                        <Loader2 className="mr-2 w-4 h-4 animate-spin" /> Sending...
+                      </>
                     ) : (
-                      <><Send className="mr-2 w-4 h-4" /> Send Inquiry</>
+                      <>
+                        <Send className="mr-2 w-4 h-4" /> Send Inquiry
+                      </>
                     )}
                   </Button>
                 </div>

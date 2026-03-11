@@ -6,17 +6,25 @@ import { Preloader } from '@/components/Preloader'
 import { PageTransition } from '@/components/PageTransition'
 
 // Lazy load below-the-fold sections
-const About = lazy(() => import('@/components/About').then(m => ({ default: m.About })))
-const Services = lazy(() => import('@/components/Services').then(m => ({ default: m.Services })))
-const WhyChooseUs = lazy(() => import('@/components/WhyChooseUs').then(m => ({ default: m.WhyChooseUs })))
-const Process = lazy(() => import('@/components/Process').then(m => ({ default: m.Process })))
-const Stats = lazy(() => import('@/components/Stats').then(m => ({ default: m.Stats })))
-const Testimonials = lazy(() => import('@/components/Testimonials').then(m => ({ default: m.Testimonials })))
-const BlogPreview = lazy(() => import('@/components/BlogPreview').then(m => ({ default: m.BlogPreview })))
-const FAQ = lazy(() => import('@/components/FAQ').then(m => ({ default: m.FAQ })))
-const CTA = lazy(() => import('@/components/CTA').then(m => ({ default: m.CTA })))
-const Contact = lazy(() => import('@/components/Contact').then(m => ({ default: m.Contact })))
-const EnhancedFooter = lazy(() => import('@/components/EnhancedFooter').then(m => ({ default: m.EnhancedFooter })))
+const About = lazy(() => import('@/components/About').then((m) => ({ default: m.About })))
+const Services = lazy(() => import('@/components/Services').then((m) => ({ default: m.Services })))
+const WhyChooseUs = lazy(() =>
+  import('@/components/WhyChooseUs').then((m) => ({ default: m.WhyChooseUs }))
+)
+const Process = lazy(() => import('@/components/Process').then((m) => ({ default: m.Process })))
+const Stats = lazy(() => import('@/components/Stats').then((m) => ({ default: m.Stats })))
+const Testimonials = lazy(() =>
+  import('@/components/Testimonials').then((m) => ({ default: m.Testimonials }))
+)
+const BlogPreview = lazy(() =>
+  import('@/components/BlogPreview').then((m) => ({ default: m.BlogPreview }))
+)
+const FAQ = lazy(() => import('@/components/FAQ').then((m) => ({ default: m.FAQ })))
+const CTA = lazy(() => import('@/components/CTA').then((m) => ({ default: m.CTA })))
+const Contact = lazy(() => import('@/components/Contact').then((m) => ({ default: m.Contact })))
+const EnhancedFooter = lazy(() =>
+  import('@/components/EnhancedFooter').then((m) => ({ default: m.EnhancedFooter }))
+)
 
 const SectionFallback = () => (
   <div className="py-20 flex items-center justify-center">

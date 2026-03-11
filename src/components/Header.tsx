@@ -43,28 +43,31 @@ export const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const handleNavigation = useCallback((id: string, isRoute: boolean) => {
-    if (isRoute) {
-      navigate(id)
-      setIsMobileMenuOpen(false)
-    } else {
-      if (location.pathname !== '/') {
-        navigate('/')
-        setTimeout(() => {
+  const handleNavigation = useCallback(
+    (id: string, isRoute: boolean) => {
+      if (isRoute) {
+        navigate(id)
+        setIsMobileMenuOpen(false)
+      } else {
+        if (location.pathname !== '/') {
+          navigate('/')
+          setTimeout(() => {
+            const element = document.getElementById(id)
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth' })
+            }
+          }, 100)
+        } else {
           const element = document.getElementById(id)
           if (element) {
             element.scrollIntoView({ behavior: 'smooth' })
           }
-        }, 100)
-      } else {
-        const element = document.getElementById(id)
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' })
         }
+        setIsMobileMenuOpen(false)
       }
-      setIsMobileMenuOpen(false)
-    }
-  }, [navigate, location.pathname])
+    },
+    [navigate, location.pathname]
+  )
 
   const navItems = [
     { label: 'Home', id: 'home', isRoute: false },
@@ -113,7 +116,10 @@ export const Header = () => {
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1" aria-label="Main navigation">
+          <nav
+            className="hidden lg:flex items-center gap-0.5 xl:gap-1"
+            aria-label="Main navigation"
+          >
             {navItems.map((item) => {
               const isActive = activeSection === item.id && location.pathname === '/'
               return (
