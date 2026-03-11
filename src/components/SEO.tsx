@@ -200,16 +200,16 @@ export const SEO = ({
   }
 
   const serviceSchemas = serviceCatalog.map((service) => ({
-      '@type': 'Service',
-      '@id': `${SITE_URL}/services/${service.slug}#service`,
-      name: service.title,
-      description: service.longDescription,
-      provider: { '@id': `${SITE_URL}/#organization` },
-      areaServed: { '@type': 'Country', name: 'India' },
-      serviceType: service.title,
-      category: 'Digital Services',
-      url: `${SITE_URL}/services/${service.slug}`,
-    }))
+    '@type': 'Service',
+    '@id': `${SITE_URL}/services/${service.slug}#service`,
+    name: service.title,
+    description: service.longDescription,
+    provider: { '@id': `${SITE_URL}/#organization` },
+    areaServed: { '@type': 'Country', name: 'India' },
+    serviceType: service.title,
+    category: 'Digital Services',
+    url: `${SITE_URL}/services/${service.slug}`,
+  }))
 
   const defaultStructuredData = [
     organizationData,
