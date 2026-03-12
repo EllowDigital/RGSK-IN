@@ -1,5 +1,7 @@
 import { Target, Lightbulb, Users, Rocket, Shield, Heart } from 'lucide-react'
-import founderImage from '@/assets/images/founder.png'
+import founderAvif from '@/assets/images/about/founder.avif'
+import founderPng from '@/assets/images/about/founder.png'
+import founderWebp from '@/assets/images/about/founder.webp'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { cn } from '@/lib/utils'
 import { useState } from 'react'
@@ -88,19 +90,23 @@ export const About = () => {
                 {!imageLoaded && (
                   <div className="absolute inset-0 bg-muted animate-pulse rounded-xl" />
                 )}
-                <img
-                  src={founderImage}
-                  alt="Er. Awanish Kannaujia - Founder & Director of RGSK Technologies"
-                  width={400}
-                  height={500}
-                  loading="lazy"
-                  decoding="async"
-                  onLoad={() => setImageLoaded(true)}
-                  className={cn(
-                    'w-full h-full object-cover transition-opacity duration-500',
-                    imageLoaded ? 'opacity-100' : 'opacity-0'
-                  )}
-                />
+                <picture>
+                  <source srcSet={founderAvif} type="image/avif" />
+                  <source srcSet={founderWebp} type="image/webp" />
+                  <img
+                    src={founderPng}
+                    alt="Er. Awanish Kannaujia - Founder & Director of RGSK Technologies"
+                    width={400}
+                    height={500}
+                    loading="lazy"
+                    decoding="async"
+                    onLoad={() => setImageLoaded(true)}
+                    className={cn(
+                      'w-full h-full object-cover transition-opacity duration-500',
+                      imageLoaded ? 'opacity-100' : 'opacity-0'
+                    )}
+                  />
+                </picture>
               </div>
               {/* Decorative elements */}
               <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-20 h-20 sm:w-28 sm:h-28 bg-accent/20 rounded-xl sm:rounded-2xl -z-10 hidden sm:block" />

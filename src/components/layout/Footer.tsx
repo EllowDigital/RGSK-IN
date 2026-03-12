@@ -68,7 +68,7 @@ const Footer = () => {
             <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-5">
               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/10 flex items-center justify-center backdrop-blur-sm">
                 <img
-                  src="/logo.png"
+                  src="/brand/logo.png"
                   alt="RGSK Technologies"
                   className="h-7 w-7 sm:h-9 sm:w-9 rounded-lg object-cover"
                 />

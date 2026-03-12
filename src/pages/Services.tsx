@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Header } from '@/components/layout/Header'
-import { EnhancedFooter } from '@/components/layout/Footer'
-import { SEO } from '@/components/common/SEO'
+import { SEO } from '@/components/common'
+import { Header, EnhancedFooter } from '@/components/layout'
 import { servicesData } from '@/constants/services'
 import { cn } from '@/lib/utils'
 

@@ -1,9 +1,7 @@
 import { lazy, Suspense } from 'react'
-import { Header } from '@/components/layout/Header'
-import { Hero } from '@/components/sections/HeroSection'
-import { SEO } from '@/components/common/SEO'
-import { PagePreloader } from '@/components/layout/PagePreloader'
-import { PageTransition } from '@/components/common/PageTransition'
+import { SEO, PageTransition } from '@/components/common'
+import { Header, PagePreloader } from '@/components/layout'
+import { Hero } from '@/components/sections'
 
 // Lazy load below-the-fold sections
 const About = lazy(() =>

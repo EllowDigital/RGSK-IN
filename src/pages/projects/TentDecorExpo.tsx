@@ -1,6 +1,5 @@
-import { Header } from '@/components/layout/Header'
-import { EnhancedFooter } from '@/components/layout/Footer'
-import { SEO } from '@/components/common/SEO'
+import { SEO } from '@/components/common'
+import { Header, EnhancedFooter } from '@/components/layout'
 import { Button } from '@/components/ui/button'
 import { ArrowLeft, CheckCircle2, Users, Building2, Coffee } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'

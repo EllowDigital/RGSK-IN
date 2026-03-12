@@ -1,6 +1,5 @@
-import { Header } from '@/components/layout/Header'
-import { EnhancedFooter } from '@/components/layout/Footer'
-import { SEO } from '@/components/common/SEO'
+import { SEO } from '@/components/common'
+import { Header, EnhancedFooter } from '@/components/layout'
 import { useNavigate } from 'react-router-dom'
 import { ArrowRight, Calendar, Users, Star, TrendingUp, Award } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'

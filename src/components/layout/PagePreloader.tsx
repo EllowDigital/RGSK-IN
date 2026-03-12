@@ -57,7 +57,7 @@ const PagePreloader = () => {
         <div className="relative">
           <div className="absolute inset-0 w-20 h-20 bg-primary/20 rounded-2xl blur-xl animate-pulse" />
           <img
-            src="/logo.png"
+            src="/brand/logo.png"
             alt="RGSK Technologies"
             width={80}
             height={80}

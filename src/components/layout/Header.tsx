@@ -97,7 +97,7 @@ export const Header = () => {
           >
             <div className="relative">
               <img
-                src="/logo.png"
+                src="/brand/logo.png"
                 alt="RGSK Technologies Logo"
                 width={48}
                 height={48}
@@ -167,7 +167,7 @@ export const Header = () => {
               <div className="flex flex-col h-full pt-6 sm:pt-8">
                 <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8 pb-4 sm:pb-6 border-b border-border">
                   <img
-                    src="/logo.png"
+                    src="/brand/logo.png"
                     alt="RGSK Technologies"
                     width={48}
                     height={48}

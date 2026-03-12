@@ -15,9 +15,16 @@ export default defineConfig(({ mode }) => ({
     mode === 'development' && componentTagger(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon/*.png', 'logo.png', 'robots.txt', 'sitemap.xml'],
+      includeAssets: [
+        'favicon/*.png',
+        'brand/logo.png',
+        'seo/og-image.jpg',
+        'ui/placeholder.svg',
+        'robots.txt',
+        'sitemap.xml',
+      ],
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,jpg,jpeg,svg,webp,woff,woff2}'],
+        globPatterns: ['**/*.{js,css,html,ico,png,jpg,jpeg,svg,webp,avif,woff,woff2}'],
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
@@ -48,7 +55,7 @@ export default defineConfig(({ mode }) => ({
             },
           },
           {
-            urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp)$/i,
+            urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp|avif)$/i,
             handler: 'CacheFirst',
             options: {
               cacheName: 'images-cache',
