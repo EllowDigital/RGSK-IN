@@ -1,3 +1,6 @@
 export { CTA } from './CTA'
+export { MediaFrame } from './MediaFrame'
+export { PageIntro } from './PageIntro'
 export { PageTransition } from './PageTransition'
+export { PremiumCard } from './PremiumCard'
 export { SEO } from './SEO'
