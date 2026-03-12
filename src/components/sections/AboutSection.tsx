@@ -84,9 +84,9 @@ export const About = () => {
           {/* Decorative gradient */}
           <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
 
-          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center relative">
-            <div className="relative order-2 md:order-1">
-              <div className="aspect-[4/5] rounded-xl sm:rounded-2xl overflow-hidden bg-muted max-w-sm mx-auto md:max-w-none shadow-lg relative">
+          <div className="grid gap-8 sm:gap-10 md:grid-cols-[minmax(0,280px)_minmax(0,1fr)] lg:grid-cols-[minmax(320px,360px)_minmax(0,1fr)] items-center relative">
+            <div className="relative order-2 md:order-1 mx-auto md:mx-0 md:w-full">
+              <div className="aspect-[4/5] rounded-xl sm:rounded-2xl overflow-hidden bg-muted w-full max-w-[240px] sm:max-w-[280px] md:max-w-[320px] lg:max-w-[360px] mx-auto shadow-lg relative border border-border/60">
                 {!imageLoaded && (
                   <div className="absolute inset-0 bg-muted animate-pulse rounded-xl" />
                 )}
@@ -102,18 +102,18 @@ export const About = () => {
                     decoding="async"
                     onLoad={() => setImageLoaded(true)}
                     className={cn(
-                      'w-full h-full object-cover transition-opacity duration-500',
+                      'w-full h-full object-cover object-top transition-opacity duration-500',
                       imageLoaded ? 'opacity-100' : 'opacity-0'
                     )}
                   />
                 </picture>
               </div>
               {/* Decorative elements */}
-              <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-20 h-20 sm:w-28 sm:h-28 bg-accent/20 rounded-xl sm:rounded-2xl -z-10 hidden sm:block" />
-              <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-16 h-16 sm:w-20 sm:h-20 bg-primary/20 rounded-xl sm:rounded-2xl -z-10 hidden sm:block" />
+              <div className="absolute -bottom-2 right-4 sm:right-0 sm:-bottom-4 w-16 h-16 sm:w-24 sm:h-24 bg-accent/15 rounded-xl sm:rounded-2xl -z-10 hidden sm:block" />
+              <div className="absolute -top-2 left-4 sm:left-0 sm:-top-4 w-14 h-14 sm:w-18 sm:h-18 bg-primary/15 rounded-xl sm:rounded-2xl -z-10 hidden sm:block" />
             </div>
 
-            <div className="space-y-4 sm:space-y-6 order-1 md:order-2">
+            <div className="space-y-4 sm:space-y-6 order-1 md:order-2 max-w-2xl">
               <div>
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground">
                   Er. Awanish Kannaujia
@@ -129,6 +129,16 @@ export const About = () => {
                 cutting-edge technology. Under his leadership, the company has grown to become a
                 trusted partner for digital transformation.
               </p>
+
+              <div className="inline-flex items-center gap-3 px-4 py-3 rounded-2xl bg-secondary/70 border border-border/70 shadow-sm">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold">
+                  5+
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-foreground">Years Building Digital Products</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">Practical delivery across web, apps, and growth services.</p>
+                </div>
+              </div>
 
               {/* Badges */}
               <div className="flex flex-wrap gap-2 sm:gap-3">
