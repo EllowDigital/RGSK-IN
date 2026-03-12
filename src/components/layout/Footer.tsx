@@ -12,7 +12,7 @@ import {
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { cn } from '@/lib/utils'
 
-export const EnhancedFooter = () => {
+const Footer = () => {
   const { ref, isVisible } = useScrollAnimation()
 
   const scrollToSection = (id: string) => {
@@ -213,3 +213,5 @@ export const EnhancedFooter = () => {
     </footer>
   )
 }
+
+export { Footer, Footer as EnhancedFooter }

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
 import { Progress } from '@/components/ui/progress'
 
-export const Preloader = () => {
+const PagePreloader = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [isExiting, setIsExiting] = useState(false)
   const [progress, setProgress] = useState(0)
@@ -91,3 +91,5 @@ export const Preloader = () => {
     </div>
   )
 }
+
+export { PagePreloader, PagePreloader as Preloader }
