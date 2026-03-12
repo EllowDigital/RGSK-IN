@@ -25,9 +25,7 @@ const Testimonials = lazy(() =>
 const BlogPreview = lazy(() =>
   import('@/components/sections/BlogPreviewSection').then((m) => ({ default: m.BlogPreview }))
 )
-const FAQ = lazy(() =>
-  import('@/components/sections/FAQSection').then((m) => ({ default: m.FAQ }))
-)
+const FAQ = lazy(() => import('@/components/sections/FAQSection').then((m) => ({ default: m.FAQ })))
 const CTA = lazy(() => import('@/components/common/CTA').then((m) => ({ default: m.CTA })))
 const Contact = lazy(() =>
   import('@/components/sections/ContactSection').then((m) => ({ default: m.Contact }))

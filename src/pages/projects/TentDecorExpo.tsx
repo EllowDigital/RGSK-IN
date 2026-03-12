@@ -39,31 +39,54 @@ const TentDecorExpo = () => {
         <Header />
         <main className="flex-1 pt-24">
           {/* Hero Section */}
-          <section className="relative py-20 overflow-hidden">
+          <section className="relative py-16 md:py-20 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10" />
+            <div className="absolute top-10 right-0 w-[28rem] h-[28rem] bg-primary/8 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-[22rem] h-[22rem] bg-secondary/10 rounded-full blur-3xl" />
             <div className="container mx-auto px-4 relative z-10">
               <Button
                 variant="ghost"
                 onClick={() => navigate('/portfolio')}
-                className="mb-8 hover:bg-primary/10"
+                className="mb-8 hover:bg-primary/10 rounded-full px-4"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Portfolio
               </Button>
 
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                <div className="animate-fade-in">
-                  <div className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(320px,520px)] gap-10 xl:gap-16 items-center">
+                <div className="animate-fade-in max-w-2xl">
+                  <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-5 border border-primary/15">
                     Web Application • 2025
                   </div>
-                  <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                  <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-[0.95] mb-6 tracking-tight">
                     Tent Decor Expo <span className="text-primary">UP 2025</span>
                   </h1>
-                  <p className="text-2xl text-muted-foreground mb-8">
+                  <p className="text-lg md:text-2xl text-muted-foreground mb-8 max-w-xl">
                     Event Registration & Entry Management System
                   </p>
-                  <div className="bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 rounded-lg p-6">
-                    <p className="text-lg font-medium">
+
+                  <div className="grid sm:grid-cols-3 gap-3 mb-8 max-w-xl">
+                    {stats.map((stat, index) => {
+                      const Icon = stat.icon
+                      return (
+                        <div
+                          key={index}
+                          className="rounded-2xl border border-border/70 bg-card/80 backdrop-blur-sm p-4 shadow-sm"
+                        >
+                          <Icon className={`w-5 h-5 ${stat.color} mb-3`} />
+                          <div className="text-2xl font-bold text-foreground leading-none mb-1">
+                            {stat.value}
+                          </div>
+                          <div className="text-xs text-muted-foreground leading-snug">
+                            {stat.label}
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+
+                  <div className="bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 rounded-2xl p-6 shadow-sm max-w-xl">
+                    <p className="text-base md:text-lg font-medium">
                       Special thanks to{' '}
                       <span className="text-primary">
                         Tent, Caterers & Decorators Welfare Association of UP
@@ -73,12 +96,29 @@ const TentDecorExpo = () => {
                 </div>
 
                 <div className="animate-fade-in" style={{ animationDelay: '200ms' }}>
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                    <img
-                      src={heroImage}
-                      alt="Tent Decor Expo Dashboard"
-                      className="w-full h-auto"
-                    />
+                  <div className="relative max-w-[520px] mx-auto">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-secondary/20 rounded-[2rem] blur-2xl scale-95" />
+                    <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-border/70 bg-card p-3">
+                      <div className="rounded-[1.35rem] overflow-hidden aspect-[4/3] bg-muted">
+                        <img
+                          src={heroImage}
+                          alt="Tent Decor Expo Dashboard"
+                          className="w-full h-full object-cover object-top"
+                        />
+                      </div>
+                      <div className="flex items-center justify-between gap-3 px-2 pt-4 pb-1 text-sm">
+                        <div>
+                          <p className="font-semibold text-foreground">Live operations dashboard</p>
+                          <p className="text-muted-foreground text-xs sm:text-sm">
+                            Registration, exhibitor management, and check-in visibility in one
+                            system.
+                          </p>
+                        </div>
+                        <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary border border-border/70 text-foreground font-medium whitespace-nowrap">
+                          2025 launch
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -115,13 +155,13 @@ const TentDecorExpo = () => {
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-8">
+              <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
                 {stats.map((stat, index) => {
                   const Icon = stat.icon
                   return (
                     <div
                       key={index}
-                      className="text-center p-8 bg-card rounded-xl shadow-lg border border-border hover:shadow-2xl transition-all animate-fade-in hover:scale-105"
+                      className="text-center p-7 md:p-8 bg-card rounded-2xl shadow-lg border border-border/70 hover:shadow-2xl transition-all animate-fade-in hover:-translate-y-1"
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
                       <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full mb-6">

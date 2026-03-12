@@ -135,8 +135,12 @@ export const About = () => {
                   5+
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-foreground">Years Building Digital Products</p>
-                  <p className="text-xs sm:text-sm text-muted-foreground">Practical delivery across web, apps, and growth services.</p>
+                  <p className="text-sm font-semibold text-foreground">
+                    Years Building Digital Products
+                  </p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">
+                    Practical delivery across web, apps, and growth services.
+                  </p>
                 </div>
               </div>
 
