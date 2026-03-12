@@ -1,5 +1,5 @@
 import { Target, Lightbulb, Users, Rocket, Shield, Heart } from 'lucide-react'
-import founderImage from '@/assets/founder.png'
+import founderImage from '@/assets/images/founder.png'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { cn } from '@/lib/utils'
 import { useState } from 'react'

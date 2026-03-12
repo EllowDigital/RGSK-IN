@@ -3,7 +3,7 @@ import { Calendar, Clock, ArrowRight, BookOpen } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
-import { blogPosts } from '@/data/blogPosts'
+import { blogPosts } from '@/constants/blogPosts'
 import { cn } from '@/lib/utils'
 
 export const BlogPreview = () => {

@@ -1,29 +1,41 @@
 import { lazy, Suspense } from 'react'
-import { Header } from '@/components/Header'
-import { Hero } from '@/components/Hero'
-import { SEO } from '@/components/SEO'
-import { Preloader } from '@/components/Preloader'
-import { PageTransition } from '@/components/PageTransition'
+import { Header } from '@/components/layout/Header'
+import { Hero } from '@/components/sections/HeroSection'
+import { SEO } from '@/components/common/SEO'
+import { PagePreloader } from '@/components/layout/PagePreloader'
+import { PageTransition } from '@/components/common/PageTransition'
 
 // Lazy load below-the-fold sections
-const About = lazy(() => import('@/components/About').then((m) => ({ default: m.About })))
-const Services = lazy(() => import('@/components/Services').then((m) => ({ default: m.Services })))
-const WhyChooseUs = lazy(() =>
-  import('@/components/WhyChooseUs').then((m) => ({ default: m.WhyChooseUs }))
+const About = lazy(() =>
+  import('@/components/sections/AboutSection').then((m) => ({ default: m.About }))
 )
-const Process = lazy(() => import('@/components/Process').then((m) => ({ default: m.Process })))
-const Stats = lazy(() => import('@/components/Stats').then((m) => ({ default: m.Stats })))
+const Services = lazy(() =>
+  import('@/components/sections/ServicesSection').then((m) => ({ default: m.Services }))
+)
+const WhyChooseUs = lazy(() =>
+  import('@/components/sections/WhyChooseUsSection').then((m) => ({ default: m.WhyChooseUs }))
+)
+const Process = lazy(() =>
+  import('@/components/sections/ProcessSection').then((m) => ({ default: m.Process }))
+)
+const Stats = lazy(() =>
+  import('@/components/sections/StatsSection').then((m) => ({ default: m.Stats }))
+)
 const Testimonials = lazy(() =>
-  import('@/components/Testimonials').then((m) => ({ default: m.Testimonials }))
+  import('@/components/sections/TestimonialsSection').then((m) => ({ default: m.Testimonials }))
 )
 const BlogPreview = lazy(() =>
-  import('@/components/BlogPreview').then((m) => ({ default: m.BlogPreview }))
+  import('@/components/sections/BlogPreviewSection').then((m) => ({ default: m.BlogPreview }))
 )
-const FAQ = lazy(() => import('@/components/FAQ').then((m) => ({ default: m.FAQ })))
-const CTA = lazy(() => import('@/components/CTA').then((m) => ({ default: m.CTA })))
-const Contact = lazy(() => import('@/components/Contact').then((m) => ({ default: m.Contact })))
+const FAQ = lazy(() =>
+  import('@/components/sections/FAQSection').then((m) => ({ default: m.FAQ }))
+)
+const CTA = lazy(() => import('@/components/common/CTA').then((m) => ({ default: m.CTA })))
+const Contact = lazy(() =>
+  import('@/components/sections/ContactSection').then((m) => ({ default: m.Contact }))
+)
 const EnhancedFooter = lazy(() =>
-  import('@/components/EnhancedFooter').then((m) => ({ default: m.EnhancedFooter }))
+  import('@/components/layout/Footer').then((m) => ({ default: m.EnhancedFooter }))
 )
 
 const SectionFallback = () => (
@@ -36,7 +48,7 @@ const Index = () => {
   return (
     <>
       <SEO />
-      <Preloader />
+      <PagePreloader />
       <div className="min-h-screen">
         <Header />
         <main>

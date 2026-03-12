@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async'
-import { servicesData as serviceCatalog } from '@/data/services'
+import { servicesData as serviceCatalog } from '@/constants/services'
 
 interface SEOProps {
   title?: string
