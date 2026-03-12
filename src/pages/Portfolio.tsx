@@ -7,7 +7,6 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import tentExpoThumb from '@/assets/projects/tent-expo-thumb.jpg'
 import ecommerceThumb from '@/assets/projects/project-ecommerce.jpg'
-import appThumb from '@/assets/projects/project-app.jpg'
 import marketingThumb from '@/assets/projects/project-marketing.jpg'
 
 const Portfolio = () => {
