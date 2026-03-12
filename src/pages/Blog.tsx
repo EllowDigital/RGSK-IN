@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Calendar, Clock, ArrowRight, Tag } from 'lucide-react'
-import { SEO } from '@/components/common'
+import { PageIntro, PremiumCard, SEO } from '@/components/common'
 import { Header, EnhancedFooter } from '@/components/layout'
 import { blogPosts } from '@/constants/blogPosts'
 import { Badge } from '@/components/ui/badge'
@@ -63,19 +63,33 @@ const Blog = () => {
         <main className="pt-24 sm:pt-28 pb-16">
           {/* Hero Section */}
           <section className="container mx-auto px-4 mb-12 sm:mb-16">
-            <div className="max-w-3xl mx-auto text-center">
-              <Badge variant="outline" className="mb-4 text-primary border-primary/30">
-                <Tag className="w-3 h-3 mr-1" />
-                Insights & Resources
-              </Badge>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-                RGSK Technologies <span className="text-primary">Blog</span>
-              </h1>
-              <p className="text-muted-foreground text-base sm:text-lg max-w-xl mx-auto">
-                Expert insights on web development, digital marketing, and technology trends to help
-                your business grow.
-              </p>
-            </div>
+            <PageIntro
+              eyebrow={
+                <Badge variant="outline" className="text-primary border-primary/30">
+                  <Tag className="w-3 h-3 mr-1" />
+                  Insights & Resources
+                </Badge>
+              }
+              title={
+                <>
+                  RGSK Technologies <span className="text-primary">Blog</span>
+                </>
+              }
+              description="Expert insights on web development, digital marketing, and technology trends to help your business grow."
+              aside={
+                <div className="inline-flex items-center gap-3 px-4 py-3 rounded-2xl bg-background/80 backdrop-blur-xl border border-border/70 shadow-sm text-left">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold">
+                    {blogPosts.length}
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">Curated growth articles</p>
+                    <p className="text-xs text-muted-foreground">
+                      Actionable reads across web, marketing, and product delivery.
+                    </p>
+                  </div>
+                </div>
+              }
+            />
           </section>
 
           {/* Blog Grid */}
@@ -91,45 +105,62 @@ const Blog = () => {
                 <Link
                   key={post.slug}
                   to={`/blog/${post.slug}`}
-                  className="group bg-card rounded-2xl border border-border overflow-hidden hover-lift transition-all duration-300"
+                  className="group block"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  {/* Category color bar */}
-                  <div className="h-1 bg-gradient-to-r from-primary to-accent" />
-
-                  <div className="p-5 sm:p-6 flex flex-col h-full">
-                    <div className="flex items-center gap-2 mb-3">
-                      <Badge variant="secondary" className="text-xs font-medium">
-                        {post.category}
-                      </Badge>
-                    </div>
-
-                    <h2 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                      {post.title}
-                    </h2>
-
-                    <p className="text-sm text-muted-foreground mb-4 line-clamp-3 flex-1">
-                      {post.excerpt}
-                    </p>
-
-                    <div className="flex items-center justify-between pt-4 border-t border-border">
-                      <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                        <span className="flex items-center gap-1">
-                          <Calendar className="w-3 h-3" />
-                          {new Date(post.date).toLocaleDateString('en-IN', {
-                            day: 'numeric',
-                            month: 'short',
-                            year: 'numeric',
-                          })}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <Clock className="w-3 h-3" />
-                          {post.readTime}
-                        </span>
+                  <PremiumCard interactive className="h-full">
+                    <div className="h-1 bg-gradient-to-r from-primary to-accent" />
+                    <div className="p-5 sm:p-6 flex flex-col h-full">
+                      <div className="flex items-center justify-between gap-3 mb-4">
+                        <Badge variant="secondary" className="text-xs font-medium">
+                          {post.category}
+                        </Badge>
+                        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+                          {post.author}
+                        </div>
                       </div>
-                      <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+
+                      <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-3 group-hover:text-primary transition-colors line-clamp-2 leading-tight">
+                        {post.title}
+                      </h2>
+
+                      <p className="text-sm sm:text-[15px] text-muted-foreground mb-5 line-clamp-3 flex-1 leading-relaxed">
+                        {post.excerpt}
+                      </p>
+
+                      <div className="flex flex-wrap gap-2 mb-5">
+                        {post.tags.slice(0, 2).map((tag) => (
+                          <span
+                            key={tag}
+                            className="inline-flex items-center rounded-full border border-border/70 bg-background px-3 py-1 text-[11px] font-medium text-muted-foreground"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="flex items-center justify-between pt-4 border-t border-border/70">
+                        <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                          <span className="flex items-center gap-1">
+                            <Calendar className="w-3 h-3" />
+                            {new Date(post.date).toLocaleDateString('en-IN', {
+                              day: 'numeric',
+                              month: 'short',
+                              year: 'numeric',
+                            })}
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <Clock className="w-3 h-3" />
+                            {post.readTime}
+                          </span>
+                        </div>
+                        <div className="inline-flex items-center text-sm font-semibold text-primary group-hover:gap-2 transition-all">
+                          Read article
+                          <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  </PremiumCard>
                 </Link>
               ))}
             </div>

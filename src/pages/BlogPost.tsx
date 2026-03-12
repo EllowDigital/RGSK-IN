@@ -1,6 +1,6 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { ArrowLeft, Calendar, Clock, Tag, Share2 } from 'lucide-react'
-import { CTA, SEO } from '@/components/common'
+import { CTA, PageIntro, PremiumCard, SEO } from '@/components/common'
 import { Header, EnhancedFooter } from '@/components/layout'
 import { blogPosts } from '@/constants/blogPosts'
 import { Badge } from '@/components/ui/badge'
@@ -30,7 +30,7 @@ const BlogPost = () => {
     publisher: {
       '@type': 'Organization',
       name: 'RGSK Technologies Pvt Ltd',
-      logo: { '@type': 'ImageObject', url: 'https://rgsktechnologies.in/logo.png' },
+      logo: { '@type': 'ImageObject', url: 'https://rgsktechnologies.in/brand/logo.png' },
     },
     datePublished: post.date,
     dateModified: post.date,
@@ -120,7 +120,7 @@ const BlogPost = () => {
       <div className="min-h-screen">
         <Header />
         <main className="pt-24 sm:pt-28 pb-16">
-          <article className="container mx-auto px-4 max-w-3xl">
+          <article className="container mx-auto px-4 max-w-5xl">
             {/* Back link */}
             <Link
               to="/blog"
@@ -131,48 +131,87 @@ const BlogPost = () => {
             </Link>
 
             {/* Header */}
-            <header className="mb-8">
-              <div className="flex items-center gap-2 mb-4">
-                <Badge variant="secondary">{post.category}</Badge>
-              </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
-                {post.title}
-              </h1>
-              <p className="text-lg text-muted-foreground mb-6">{post.excerpt}</p>
-
-              <div className="flex items-center justify-between flex-wrap gap-4 pb-6 border-b border-border">
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1.5">
-                    <Calendar className="w-4 h-4" />
-                    {new Date(post.date).toLocaleDateString('en-IN', {
-                      day: 'numeric',
-                      month: 'long',
-                      year: 'numeric',
-                    })}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <Clock className="w-4 h-4" />
-                    {post.readTime}
-                  </span>
-                </div>
-                <Button variant="outline" size="sm" onClick={handleShare} className="gap-2">
-                  <Share2 className="w-4 h-4" />
-                  Share
-                </Button>
-              </div>
+            <header className="mb-10">
+              <PageIntro
+                align="left"
+                eyebrow={<Badge variant="secondary">{post.category}</Badge>}
+                title={post.title}
+                description={post.excerpt}
+                aside={
+                  <div className="flex flex-wrap items-center gap-3">
+                    <div className="inline-flex items-center gap-2 px-3 py-2 rounded-2xl bg-background border border-border/70 shadow-sm text-sm text-muted-foreground">
+                      <Calendar className="w-4 h-4" />
+                      {new Date(post.date).toLocaleDateString('en-IN', {
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric',
+                      })}
+                    </div>
+                    <div className="inline-flex items-center gap-2 px-3 py-2 rounded-2xl bg-background border border-border/70 shadow-sm text-sm text-muted-foreground">
+                      <Clock className="w-4 h-4" />
+                      {post.readTime}
+                    </div>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={handleShare}
+                      className="gap-2 rounded-2xl"
+                    >
+                      <Share2 className="w-4 h-4" />
+                      Share
+                    </Button>
+                  </div>
+                }
+              />
             </header>
 
             {/* Content */}
-            <div className="prose-custom">{renderContent(post.content)}</div>
+            <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-start">
+              <div className="min-w-0">
+                <div className="prose-custom">{renderContent(post.content)}</div>
 
-            {/* Tags */}
-            <div className="flex items-center gap-2 flex-wrap mt-10 pt-6 border-t border-border">
-              <Tag className="w-4 h-4 text-muted-foreground" />
-              {post.tags.map((tag) => (
-                <Badge key={tag} variant="outline" className="text-xs">
-                  {tag}
-                </Badge>
-              ))}
+                <div className="flex items-center gap-2 flex-wrap mt-10 pt-6 border-t border-border">
+                  <Tag className="w-4 h-4 text-muted-foreground" />
+                  {post.tags.map((tag) => (
+                    <Badge key={tag} variant="outline" className="text-xs">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+
+              <aside className="lg:sticky lg:top-28">
+                <PremiumCard className="p-5 sm:p-6">
+                  <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">
+                    Article Snapshot
+                  </p>
+                  <h2 className="text-lg font-semibold text-foreground mb-4">Why this matters</h2>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                    A practical read for teams looking to turn digital channels into measurable
+                    growth, not just online presence.
+                  </p>
+                  <div className="space-y-3">
+                    <div className="rounded-2xl border border-border/70 bg-secondary/50 px-4 py-3">
+                      <p className="text-xs text-muted-foreground">Category</p>
+                      <p className="font-medium text-foreground mt-1">{post.category}</p>
+                    </div>
+                    <div className="rounded-2xl border border-border/70 bg-secondary/50 px-4 py-3">
+                      <p className="text-xs text-muted-foreground">Published</p>
+                      <p className="font-medium text-foreground mt-1">
+                        {new Date(post.date).toLocaleDateString('en-IN', {
+                          day: 'numeric',
+                          month: 'short',
+                          year: 'numeric',
+                        })}
+                      </p>
+                    </div>
+                    <div className="rounded-2xl border border-border/70 bg-secondary/50 px-4 py-3">
+                      <p className="text-xs text-muted-foreground">Read Time</p>
+                      <p className="font-medium text-foreground mt-1">{post.readTime}</p>
+                    </div>
+                  </div>
+                </PremiumCard>
+              </aside>
             </div>
           </article>
 
@@ -181,18 +220,22 @@ const BlogPost = () => {
             <h2 className="text-2xl font-bold mb-6 text-center">Related Articles</h2>
             <div className="grid gap-6 md:grid-cols-3">
               {relatedPosts.map((rp) => (
-                <Link
-                  key={rp.slug}
-                  to={`/blog/${rp.slug}`}
-                  className="group bg-card rounded-xl border border-border p-5 hover-lift"
-                >
-                  <Badge variant="secondary" className="text-xs mb-3">
-                    {rp.category}
-                  </Badge>
-                  <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                    {rp.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground line-clamp-2">{rp.excerpt}</p>
+                <Link key={rp.slug} to={`/blog/${rp.slug}`} className="group block">
+                  <PremiumCard interactive className="h-full p-5">
+                    <Badge variant="secondary" className="text-xs mb-3">
+                      {rp.category}
+                    </Badge>
+                    <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                      {rp.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground line-clamp-3 leading-relaxed">
+                      {rp.excerpt}
+                    </p>
+                    <div className="mt-4 pt-4 border-t border-border/70 inline-flex items-center text-sm font-medium text-primary group-hover:gap-2 transition-all">
+                      Continue reading
+                      <ArrowLeft className="w-4 h-4 rotate-180 ml-1 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </PremiumCard>
                 </Link>
               ))}
             </div>

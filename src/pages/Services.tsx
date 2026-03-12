@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { SEO } from '@/components/common'
+import { PageIntro, PremiumCard, SEO } from '@/components/common'
 import { Header, EnhancedFooter } from '@/components/layout'
 import { servicesData } from '@/constants/services'
-import { cn } from '@/lib/utils'
 
 const SERVICES_URL = 'https://rgsktechnologies.in/services'
 
@@ -60,48 +59,88 @@ const ServicesPage = () => {
         <main className="pt-24 pb-16">
           <div className="container">
             {/* Page Header */}
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full mb-4">
-                <Sparkles className="w-4 h-4 text-primary" />
-                <span className="text-sm font-semibold text-primary uppercase tracking-wider">
-                  Our Services
-                </span>
-              </div>
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4">
-                Comprehensive <span className="text-primary">Digital Solutions</span>
-              </h1>
-              <p className="text-muted-foreground max-w-2xl mx-auto text-base lg:text-lg">
-                Tailored services to elevate your business in the digital landscape. Click any
-                service to learn more.
-              </p>
+            <div className="mb-16">
+              <PageIntro
+                eyebrow={
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full border border-primary/15">
+                    <Sparkles className="w-4 h-4 text-primary" />
+                    <span className="text-sm font-semibold text-primary uppercase tracking-wider">
+                      Our Services
+                    </span>
+                  </div>
+                }
+                title={
+                  <>
+                    Comprehensive <span className="text-primary">Digital Solutions</span>
+                  </>
+                }
+                description="Tailored services to elevate your business in the digital landscape. Click any service to learn more."
+                aside={
+                  <div className="inline-flex items-center gap-3 px-4 py-3 rounded-2xl bg-background/80 backdrop-blur-xl border border-border/70 shadow-sm text-left">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold">
+                      {servicesData.length}
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground">
+                        Specialized service lines
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        Built to connect delivery quality with measurable business outcomes.
+                      </p>
+                    </div>
+                  </div>
+                }
+              />
             </div>
 
             {/* Services Grid */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
               {servicesData.map((service) => (
-                <Link
-                  key={service.slug}
-                  to={`/services/${service.slug}`}
-                  className="group relative p-6 lg:p-8 bg-card rounded-3xl border border-border hover:border-primary/40 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl overflow-hidden"
-                >
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
-                  />
-                  <div className="relative">
-                    <div className="w-14 h-14 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg shadow-primary/20">
-                      <service.icon className="w-7 h-7 text-primary-foreground" />
+                <Link key={service.slug} to={`/services/${service.slug}`} className="group block">
+                  <PremiumCard interactive className="h-full p-6 lg:p-7">
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                    />
+                    <div className="relative z-10 flex flex-col h-full">
+                      <div className="flex items-start justify-between gap-4 mb-6">
+                        <div className="w-14 h-14 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg shadow-primary/20">
+                          <service.icon className="w-7 h-7 text-primary-foreground" />
+                        </div>
+                        <div className="px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-sm border border-border/70 text-xs font-medium text-muted-foreground">
+                          {service.shortTitle}
+                        </div>
+                      </div>
+
+                      <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-3 text-foreground group-hover:text-primary transition-colors">
+                        {service.title}
+                      </h2>
+                      <p className="text-muted-foreground mb-5 text-sm leading-relaxed flex-1">
+                        {service.description}
+                      </p>
+
+                      <div className="flex flex-wrap gap-2 mb-5">
+                        {service.features.slice(0, 3).map((feature) => (
+                          <span
+                            key={feature}
+                            className="inline-flex items-center gap-1.5 rounded-full bg-background/85 border border-border/75 px-3 py-1.5 text-[11px] font-medium text-muted-foreground"
+                          >
+                            <CheckCircle2 className="w-3 h-3 text-primary" />
+                            {feature}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="pt-4 border-t border-border/70 flex items-center justify-between gap-3">
+                        <div className="text-xs text-muted-foreground">
+                          View capabilities and delivery scope
+                        </div>
+                        <div className="inline-flex items-center gap-2 text-sm font-medium text-primary">
+                          Learn more
+                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </div>
                     </div>
-                    <h2 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
-                      {service.title}
-                    </h2>
-                    <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
-                      {service.description}
-                    </p>
-                    <div className="flex items-center gap-2 text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                      Learn more{' '}
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </div>
+                  </PremiumCard>
                 </Link>
               ))}
             </div>

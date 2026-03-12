@@ -29,10 +29,7 @@ export const PageIntro = ({
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(var(--primary)/0.08),transparent_28%),radial-gradient(circle_at_bottom_left,hsl(var(--accent)/0.08),transparent_32%)]" />
       <div
-        className={cn(
-          'relative z-10 p-6 sm:p-8 lg:p-10',
-          isCentered ? 'text-center' : 'text-left'
-        )}
+        className={cn('relative z-10 p-6 sm:p-8 lg:p-10', isCentered ? 'text-center' : 'text-left')}
       >
         <div className={cn('max-w-3xl', isCentered && 'mx-auto')}>
           {eyebrow && <div className="mb-5">{eyebrow}</div>}
@@ -49,11 +46,7 @@ export const PageIntro = ({
               {description}
             </p>
           )}
-          {aside && (
-            <div className={cn('mt-6', isCentered && 'mx-auto max-w-xl')}>
-              {aside}
-            </div>
-          )}
+          {aside && <div className={cn('mt-6', isCentered && 'mx-auto max-w-xl')}>{aside}</div>}
         </div>
       </div>
     </div>
