@@ -177,7 +177,7 @@ export const Hero = () => {
                     className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary group-hover:scale-105 transition-transform animate-content-reveal"
                     style={{ animationDelay: '200ms' }}
                   >
-                    5+
+                    8+
                   </p>
                   <p className="text-xs sm:text-sm lg:text-base text-muted-foreground mt-1 font-medium">
                     Years of Trust

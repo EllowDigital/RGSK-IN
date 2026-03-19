@@ -29,7 +29,7 @@ const features = [
     icon: Users,
     title: 'Experienced Team',
     description: 'Skilled professionals with years of expertise.',
-    benefits: ['5+ Years', 'Certified Experts', 'Proven Track Record'],
+    benefits: ['8+ Years', 'Certified Experts', 'Proven Track Record'],
     color: 'from-accent to-accent/80',
   },
 ]

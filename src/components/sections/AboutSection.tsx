@@ -132,7 +132,7 @@ export const About = () => {
 
               <div className="inline-flex items-center gap-3 px-4 py-3 rounded-2xl bg-secondary/70 border border-border/70 shadow-sm">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold">
-                  5+
+                  8+
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">
@@ -169,7 +169,7 @@ export const About = () => {
                   <p className="text-xs sm:text-sm text-muted-foreground">Success Rate</p>
                 </div>
                 <div className="p-3 sm:p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg sm:rounded-xl border border-primary/20">
-                  <p className="text-xl sm:text-2xl font-bold text-primary">5+</p>
+                  <p className="text-xl sm:text-2xl font-bold text-primary">8+</p>
                   <p className="text-xs sm:text-sm text-muted-foreground">Years Experience</p>
                 </div>
                 <div className="p-3 sm:p-4 bg-gradient-to-br from-accent/10 to-accent/5 rounded-lg sm:rounded-xl border border-accent/20">
