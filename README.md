@@ -1,73 +1,66 @@
-# Welcome to your Lovable project
+# RGSK Technologies Website
 
-## Project info
+The public-facing website for RGSK Technologies Pvt Ltd, a digital solutions business. The site presents the company, its services, and ways for prospective customers to make contact.
 
-**URL**: https://lovable.dev/projects/b9fe66ed-58f6-4709-8dab-692ab5315fa9
+## Project overview
 
-## How can I edit this code?
+The codebase is a modern single-page web application intended to provide a responsive experience across desktop and mobile devices.
 
-There are several ways of editing your application.
+## Technology stack
 
-**Use Lovable**
+- React and TypeScript
+- Vite
+- Tailwind CSS and reusable UI components
+- React Router and supporting UI libraries
+- Netlify-compatible static build configuration
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b9fe66ed-58f6-4709-8dab-692ab5315fa9) and start prompting.
+See `package.json` for the complete dependency list and supported scripts.
 
-Changes made via Lovable will be committed automatically to this repo.
+## Getting started
 
-**Use your preferred IDE**
+### Requirements
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- A supported Node.js release
+- npm
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Install and run
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+git clone https://github.com/EllowDigital/RGSK-IN.git
+cd RGSK-IN
+npm ci
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Open the local URL printed by Vite.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Build and quality checks
 
-**Use GitHub Codespaces**
+```bash
+npm run build
+npm run lint
+npm run format
+npm run preview
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+The exact available commands are defined in `package.json`. Run a production build before deploying.
 
-## What technologies are used for this project?
+## Deployment
 
-This project is built with:
+The project includes Netlify configuration. Connect the repository to the intended Netlify site and confirm the build command, output directory, domain, and deployment environment before publishing changes.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Maintenance
 
-## How can I deploy this project?
+- Keep dependencies and the lockfile in sync.
+- Check responsive behavior and keyboard accessibility for changed UI.
+- Test forms, external links, contact details, and mobile navigation.
+- Keep production credentials out of browser-side variables and source control.
+- Do not overwrite verified SEO metadata, canonical URLs, verification tags, or branding without confirming the impact.
 
-Simply open [Lovable](https://lovable.dev/projects/b9fe66ed-58f6-4709-8dab-692ab5315fa9) and click on Share -> Publish.
+## Privacy and security
 
-## Can I connect a custom domain to my Lovable project?
+Treat every browser-bundled value as public. Do not include passwords, private API keys, server credentials, customer records, or internal company data in client-side code. Report a suspected security issue privately to the site maintainer rather than publishing working exploit details.
 
-Yes, you can!
+## License
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+See [LICENSE](LICENSE). This repository does not grant open-source reuse of company branding, copy, or project-specific code unless the relevant rights holder provides written permission. Third-party packages remain under their own licenses.
